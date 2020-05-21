@@ -74,8 +74,10 @@ if ( typeof Object.create !== 'function' ) {
 	};
 
 	$.fn.showErrorMsg = function( field,msg ){
-		var group = $('form.form-submit').find('[name='+field+']').closest("div");
-		group.find('notification').text( msg );
+		var input = $('form.form-submit').find('[name='+field+']');
+		var div = input.closest("div")
+		input.addClass('is-invalid');
+		div.find('notification').text( msg );
 	};
 
 	$.fn.formData = function(form) {
@@ -178,8 +180,10 @@ $('body').delegate('form.form-submit','submit',function(e){
 });
 
 $("form.form-submit").find("input").change(function(){
-	var group = $(this).closest("div");
-	group.find('notification').empty();
+	var input = $(this);
+	var div = input.closest("div");
+	input.removeClass('is-invalid');
+	div.find('notification').empty();
 });
 
 $('body').delegate('a.btn-delete', 'click', function(e) {

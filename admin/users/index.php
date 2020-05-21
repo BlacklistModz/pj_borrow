@@ -22,7 +22,7 @@ $query = $sql->select();
 			<div class="row">
 				<div class="col-sm-12">
 					<div class="clearfix">
-						<h4 class="m-0 text-dark float-left"><?= !empty($_title) ? $_title : "" ?></h4>
+						<h4 class="m-0 text-dark float-left"><i class="fa fa-user"></i> <?= !empty($_title) ? $_title : "" ?></h4>
 						<a href="<?=URL?>admin/users/forms.php?page=<?=$_GET["page"]?>" class="btn btn-primary float-right"><i class="fa fa-plus"></i> เพิ่มข้อมูล</a>
 					</div>
 				</div>
