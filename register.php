@@ -488,7 +488,7 @@ include("layouts/head.php");
 					<div class="col-md-12 js-other">
 						<h4>สถานจัดส่งเอกสาร</h4>
 						<div class="radio radio--inline">
-							<input type="radio" name="customRadio6" id="customRadio25" value="1">
+							<input type="radio" name="customRadio6" id="customRadio25" value="1" checked>
 							<label class="radio__label" for="customRadio25">ที่อยู่ปัจจุบัน</label>
 						</div>
 						<div class="radio radio--inline">
