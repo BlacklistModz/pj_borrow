@@ -24,7 +24,6 @@ $old = mysqli_fetch_assoc($query);
 
 /* CHECK ERROR ZONE */
 foreach ($_POST as $key => $value) {
-	if( $key == "id" ) continue;
 	if( empty($value) ) $arr["error"][$key] = "กรุณากรอกข้อมูลให้ครบถ้วน";
 }
 

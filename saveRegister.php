@@ -1,8 +1,8 @@
 <?php 
 //SET ERROR BY Validator
-$arr["error"]["firstname"] = "กรุณากรอกชื่อ";
-$arr["error"]["lastname"] = "กรุณากรอกนามสกุล";
-$arr["error"]["birthday"] = "กรุณาเลือกวัน เดือน ปีเกิด";
+foreach ($_POST as $key => $value) {
+	if( empty($value) ) $arr["error"][$key] = "กรุณากรอกข้อมูลให้ครบถ้วน";
+}
 
 //SET ALERT
 $arr["alert"] = true;

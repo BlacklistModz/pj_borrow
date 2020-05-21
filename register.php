@@ -59,8 +59,9 @@ include("layouts/head.php");
 					</div>
 					<div class="col-md-6">
 						<div class="form-group form-group--float">
-							<input type="text" class="form-control">
+							<input type="text" name="idcard" class="form-control">
 							<label>บัตรประจำตัวประชาชนเลขที่</label>
+							<div class="invalid-feedback"></div>
 							<i class="form-group__bar"></i>
 						</div>
 					</div>
