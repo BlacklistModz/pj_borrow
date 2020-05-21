@@ -18,3 +18,8 @@ define('CSS', URL . 'public/css/');
 define('JS', URL . 'public/js/');
 define('IMAGES', URL . 'public/images/');
 define('PLUGINS', URL . 'public/plugins/');
+
+// FOR FRONTEND //
+define('SCSS', URL . 'public/scss/');
+define('VENDORS', URL . 'public/vendors/');
+define('FONTS', URL . 'public/fonts/');

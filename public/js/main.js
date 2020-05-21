@@ -77,7 +77,7 @@ if ( typeof Object.create !== 'function' ) {
 		var input = $('form.form-submit').find('[name='+field+']');
 		var div = input.closest("div")
 		input.addClass('is-invalid');
-		div.find('notification').text( msg );
+		div.find('.invalid-feedback').text( msg );
 	};
 
 	$.fn.formData = function(form) {
@@ -183,7 +183,7 @@ $("form.form-submit").find("input").change(function(){
 	var input = $(this);
 	var div = input.closest("div");
 	input.removeClass('is-invalid');
-	div.find('notification').empty();
+	div.find('.invalid-feedback').empty();
 });
 
 $('body').delegate('a.btn-delete', 'click', function(e) {
