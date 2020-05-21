@@ -485,25 +485,26 @@ include("layouts/head.php");
 							<i class="form-group__bar"></i>
 						</div>
 					</div>
-					<div class="col-md-12">
+					<div class="col-md-12 js-other">
 						<h4>สถานจัดส่งเอกสาร</h4>
 						<div class="radio radio--inline">
-							<input type="radio" name="customRadio6" id="customRadio25" checked>
+							<input type="radio" name="customRadio6" id="customRadio25" value="1">
 							<label class="radio__label" for="customRadio25">ที่อยู่ปัจจุบัน</label>
 						</div>
 						<div class="radio radio--inline">
-							<input type="radio" name="customRadio6" id="customRadio26">
+							<input type="radio" name="customRadio6" id="customRadio26" value="2">
 							<label class="radio__label" for="customRadio26">ที่อยู่ที่ทำงาน</label>
 						</div>
 						<div class="radio radio--inline">
-							<input type="radio" name="customRadio6" id="customRadio27">
+							<input type="radio" name="customRadio6" id="customRadio27" class="js-other-address" value="3">
 							<label class="radio__label" for="customRadio27">อื่นๆ โปรดระบุ</label>
 						</div>
 						<br><br>
+						<div class="invalid-feedback"></div>
 					</div>
 					<div class="col-md-12">
 						<div class="form-group">
-							<textarea class="form-control textarea-autosize" placeholder="กรุณากรอกที่อยู่อื่นๆ..." style="overflow: hidden; overflow-wrap: break-word; height: 51px;"></textarea>
+							<textarea class="form-control textarea-autosize other-address" placeholder="กรุณากรอกที่อยู่อื่นๆ..." style="overflow: hidden; overflow-wrap: break-word; height: 51px;" name="address"></textarea>
 							<i class="form-group__bar"></i>
 						</div>
 					</div>
@@ -613,3 +614,14 @@ include("layouts/head.php");
 <?php 
 include("layouts/foot.php");
 ?>
+<script type="text/javascript">
+	$(".other-address").hide();
+	$(".js-other").change(function(){
+		if( $(this).find('.js-other-address').is(":checked") ){
+			$(".other-address").show();
+		}
+		else{
+			$(".other-address").hide();
+		}
+	});
+</script>
