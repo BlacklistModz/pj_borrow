@@ -62,8 +62,9 @@ $query = $sql->select();
 									?>
 								</td>
 								<td class="text-center">
-									<a href="<?=URL?>admin/users/forms.php?page=<?=$_GET["page"]?>&id=<?=$result["id"]?>" class="btn btn-warning btn-sm text-white"><i class="fa fa-pen"></i></a>
-									<a href="<?=URL?>admin/users/delete.php?page=<?=$_GET["page"]?>&id=<?=$result["id"]?>" class="btn btn-danger btn-delete btn-sm" data-title="ยืนยันการลบข้อมูล" data-text="คุณต้องการลบข้อมูล <?=$result["name"]?> หรือไม่ ?"><i class="fa fa-trash"></i></a>
+									<a href="<?=URL?>admin/users/password.php?page=<?=$_GET["page"]?>&id=<?=$result["id"]?>" class="btn btn-info btn-sm text-white" title="เปลี่ยนรหัสผ่าน"><i class="fa fa-key"></i></a>
+									<a href="<?=URL?>admin/users/forms.php?page=<?=$_GET["page"]?>&id=<?=$result["id"]?>" class="btn btn-warning btn-sm text-white" title="แก้ไขข้อมูล"><i class="fa fa-pen"></i></a>
+									<a href="<?=URL?>admin/users/delete.php?page=<?=$_GET["page"]?>&id=<?=$result["id"]?>" class="btn btn-danger btn-delete btn-sm" data-title="ยืนยันการลบข้อมูล" data-text="คุณต้องการลบข้อมูล <?=$result["name"]?> หรือไม่ ?" title="ลบข้อมูล"><i class="fa fa-trash"></i></a>
 								</td>
 							</tr>
 							<?php

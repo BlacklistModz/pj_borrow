@@ -46,20 +46,24 @@ if( !empty($_GET["id"]) ){
 					<div class="card-body">
 						<div class="form-group">
 							<label for="name">ชื่อ-นามสกุล</label>
-							<input type="name" class="form-control" id="name" name="name" placeholder="กรอกชื่อ-นามสกุล" required value="<?= !empty($result["name"]) ? $result["name"] : "" ?>">
+							<input type="name" class="form-control" id="name" name="name" placeholder="กรอกชื่อ-นามสกุล" value="<?= !empty($result["name"]) ? $result["name"] : "" ?>">
+							<notification></notification>
 						</div>
 						<div class="form-group">
 							<label for="username">ชื่อผู้ใช้ (Username)</label>
-							<input type="text" class="form-control" id="username" name="username" placeholder="Username" required value="<?= !empty($result["username"]) ? $result["username"] : "" ?>">
+							<input type="text" class="form-control" id="username" name="username" placeholder="Username" value="<?= !empty($result["username"]) ? $result["username"] : "" ?>">
+							<notification></notification>
 						</div>
 						<?php if( empty($result) ) { ?>
 							<div class="form-group">
 								<label for="password">รหัสผ่าน (Password)</label>
-								<input type="password" class="form-control" id="password" name="password" placeholder="Password" required>
+								<input type="password" class="form-control" id="password" name="password" placeholder="Password">
+								<notification></notification>
 							</div>
 							<div class="form-group">
 								<label for="password2">ยืนยันรหัสผ่าน (Confirm Password)</label>
-								<input type="password" class="form-control" id="password2" name="password2" placeholder="Confirm Password" required>
+								<input type="password" class="form-control" id="password2" name="password2" placeholder="Confirm Password">
+								<notification></notification>
 							</div>
 						<?php }else{
 							echo '<input type="hidden" name="id" value="'.$result["id"].'">';

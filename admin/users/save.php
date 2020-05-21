@@ -3,61 +3,63 @@ include("../../config.php");
 include("../../app/SQLiManager.php");
 include("../../app/HashPassword.php");
 
-if( $_POST["password"] != $_POST["password2"] ){
-	$arr = [
-		"type" => "error",
-		"title" => "รหัสผ่านไม่ตรงกัน",
-		"status" => 404
-	];
-	echo json_encode($arr);
-	exit;
+$sql = new SQLiManager();
+
+/* CHECK ERROR ZONE */
+foreach ($_POST as $key => $value) {
+	if( empty($value) ) $arr["error"][$key] = "กรุณากรอกข้อมูลให้ครบถ้วน";
 }
 
-$sql = new SQLiManager();
+if( !empty($_POST["password"]) && !empty($_POST["password2"]) ){
+	if( $_POST["password"] != $_POST["password2"] ){
+		$arr["error"]["password"] = "รหัสผ่านที่กรอกไม่ตรงกัน";
+		$arr["error"]["password2"] = "รหัสผ่านที่กรอกไม่ตรงกัน";
+	}
+}
 
 $sql->table = "users";
 $sql->condition = "WHERE username='{$_POST['username']}'";
 $query = $sql->select();
 if( mysqli_num_rows($query) > 0 ){
-	$arr = [
-		"type" => "error",
-		"title" => "เกิดข้อผิดพลาด",
-		"text" => "ตรวจพบชื่อผู้ใช้งาน {$_POST["username"]} ซ้ำในระบบ !",
-		"status" => 404
-	];
-	echo json_encode($arr);
-	exit;
+	$arr["error"]["username"] = "ตรวจสอบพบ Username ซ้ำในระบบ";
 }
+/* END CHECK */
 
-$field = '';
-$value = '';
-foreach ($_POST as $key => $post) {
-	if( $key == "password2" ) continue;
+//PROCESS ZONE (WITH OUT ERROR)
+if( empty($arr["error"]) ){
 
-	$field .= !empty($field) ? "," : "";
-	$field .= $key;
+	/* BUILD SQL COMMAND */
+	$field = '';
+	$value = '';
+	foreach ($_POST as $key => $post) {
+		if( $key == "password2" ) continue;
 
-	$value .= !empty($value) ? "," : "";
-	if( $key == "password" ) $post = hashPassword($post);
-	$value .= "'{$post}'";
-}
+		$field .= !empty($field) ? "," : "";
+		$field .= $key;
 
-$sql->table = "users";
-$sql->field = $field;
-$sql->value = $value;
-if( $sql->insert() ){
-	$arr = [
-		"type" => "success",
-		"title" => "บันทึกข้อมูลเรียบร้อยแล้ว",
-		"url" => URL.'admin/users/?page=users',
-		"status" => 200
-	];
-}
-else{
-	$arr = [
-		"type" => "error",
-		"title" => "ไม่สามารถบันทึกข้อมูลได้",
-		"status" => 404
-	];
+		$value .= !empty($value) ? "," : "";
+		if( $key == "password" ) $post = hashPassword($post);
+		$value .= "'{$post}'";
+	}
+	/* END BUILD */
+
+	$sql->table = "users";
+	$sql->field = $field;
+	$sql->value = $value;
+	if( $sql->insert() ){
+		$arr = [
+			"type" => "success",
+			"title" => "บันทึกข้อมูลเรียบร้อยแล้ว",
+			"url" => URL.'admin/users/?page=users',
+			"status" => 200
+		];
+	}
+	else{
+		$arr = [
+			"type" => "error",
+			"title" => "ไม่สามารถบันทึกข้อมูลได้",
+			"status" => 404
+		];
+	}
 }
 echo json_encode($arr);
