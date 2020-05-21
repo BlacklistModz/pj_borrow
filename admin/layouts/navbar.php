@@ -9,10 +9,10 @@
 	<!-- Right navbar links -->
 	<ul class="navbar-nav ml-auto">
 		<!-- Notifications Dropdown Menu -->
-		<li class="nav-item dropdown">
-			<a class="btn btn-primary" href="#">Profile</a>
-			<a class="btn btn-danger" href="#">Logout</a>
-		</li>
+		<!-- <li class="nav-item dropdown">
+			<a class="btn btn-primary" href="#">โปรไฟล์</a>
+			<a class="btn btn-danger" href="#">ออกจากระบบ</a>
+		</li> -->
 		<!-- <li class="nav-item">
 			<a class="nav-link" data-widget="control-sidebar" data-slide="true" href="#">
 				<i class="fas fa-th-large"></i>

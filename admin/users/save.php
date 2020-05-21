@@ -58,7 +58,7 @@ if( empty($arr["error"]) ){
 		$arr = [
 			"type" => "error",
 			"title" => "ไม่สามารถบันทึกข้อมูลได้",
-			"status" => 404
+			"status" => 422
 		];
 	}
 }
