@@ -8,6 +8,7 @@ include($_pathURL."config.php");
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title><?=!empty($_title) ? $_title : 'Register System';?></title>
     <!-- Vendor styles -->
     <link rel="stylesheet" href="<?=VENDORS?>material-design-iconic-font/css/material-design-iconic-font.min.css">
     <link rel="stylesheet" href="<?=VENDORS?>animate.css/animate.min.css">
