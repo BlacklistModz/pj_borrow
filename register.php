@@ -18,15 +18,15 @@ include("layouts/head.php");
 				<form class="row form-submit" action="saveRegister.php" name="registration" id="registration" method="POST">
 					<div class="col-md-12">
 						<div class="radio radio--inline">
-							<input type="radio" name="customRadio" id="customRadio1" checked>
+							<input type="radio" name="prefix" id="customRadio1" checked>
 							<label class="radio__label" for="customRadio1">นาย</label>
 						</div>
 						<div class="radio radio--inline">
-							<input type="radio" name="customRadio" id="customRadio2">
+							<input type="radio" name="prefix" id="customRadio2">
 							<label class="radio__label" for="customRadio2">นาง</label>
 						</div>
 						<div class="radio radio--inline">
-							<input type="radio" name="customRadio" id="customRadio3">
+							<input type="radio" name="prefix" id="customRadio3">
 							<label class="radio__label" for="customRadio3">นางสาว</label>
 						</div>
 					</div>
@@ -52,8 +52,9 @@ include("layouts/head.php");
 							<div class="input-group-prepend">
 								<span class="input-group-text"><i class="zmdi zmdi-calendar"></i></span>
 							</div>
-							<input type="date" class="form-control hidden-md-up" placeholder="กรุณากรอก วัน/เดือน/ปีเกิด">
+							<input type="date" class="form-control hidden-md-up" name="birthday" placeholder="กรุณากรอก วัน/เดือน/ปีเกิด">
 							<input type="text" class="form-control date-picker hidden-sm-down flatpickr-input active" placeholder="กรุณากรอก วัน/เดือน/ปีเกิด" readonly="readonly">
+							<div class="invalid-feedback"></div>
 						</div>
 					</div>
 					<div class="col-md-6">

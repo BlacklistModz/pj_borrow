@@ -2,6 +2,7 @@
 //SET ERROR BY Validator
 $arr["error"]["firstname"] = "กรุณากรอกชื่อ";
 $arr["error"]["lastname"] = "กรุณากรอกนามสกุล";
+$arr["error"]["birthday"] = "กรุณาเลือกวัน เดือน ปีเกิด";
 
 //SET ALERT
 $arr["alert"] = true;
