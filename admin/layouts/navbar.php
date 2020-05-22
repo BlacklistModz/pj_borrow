@@ -12,12 +12,12 @@
 		<li class="nav-item dropdown">
 			<a class="btn btn-primary" href="#">โปรไฟล์</a>
 			<?php 
-			$options = [
+			$ops = [
 				"title" => "ยืนยันการออกจากระบบ",
 				"text" => "คุณต้องการออกจากระบบใช่หรือไม่ ?"
 			];
 			?>
-			<a class="btn btn-danger btn-confirm" href="<?=URL?>logout.php" data-options="<?=stringify($options)?>">ออกจากระบบ</a>
+			<a class="btn btn-danger btn-confirm" href="<?=URL?>logout.php" data-options="<?=stringify($ops)?>">ออกจากระบบ</a>
 		</li>
 		<!-- <li class="nav-item">
 			<a class="nav-link" data-widget="control-sidebar" data-slide="true" href="#">
