@@ -31,7 +31,7 @@ if ( typeof Object.create !== 'function' ) {
 		}
 	};
 
-	$.fn.sweetdelete = function( res ){
+	$.fn.sweetConfirm = function( res ){
 		const swalWithBootstrapButtons = Swal.mixin({
 			customClass: {
 				confirmButton: 'btn btn-danger m-1',
@@ -51,7 +51,7 @@ if ( typeof Object.create !== 'function' ) {
 		}).then((result) => {
 			if (result.value) {
 
-				$.fn.deletedata( res );
+				$.fn.confirmData( res );
 
 			} else if (
 				/* Read more about handling dismissals below */
@@ -153,7 +153,7 @@ if ( typeof Object.create !== 'function' ) {
 		}
 	};
 
-	$.fn.deletedata = function( result, dataType ){
+	$.fn.confirmData = function( result, dataType ){
 		var dataType = dataType || 'json';
 
 		$.ajax({
@@ -186,7 +186,7 @@ $("form.form-submit").find("input, textarea, checkbox").change(function(){
 	div.find('.invalid-feedback').empty();
 });
 
-$('body').delegate('a.btn-delete', 'click', function(e) {
-	$.fn.sweetdelete( $(this) );
+$('body').delegate('a.btn-confirm', 'click', function(e) {
+	$.fn.sweetConfirm( $(this) );
 	return false;
 });

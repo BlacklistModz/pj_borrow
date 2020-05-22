@@ -9,10 +9,10 @@
 	<!-- Right navbar links -->
 	<ul class="navbar-nav ml-auto">
 		<!-- Notifications Dropdown Menu -->
-		<!-- <li class="nav-item dropdown">
+		<li class="nav-item dropdown">
 			<a class="btn btn-primary" href="#">โปรไฟล์</a>
-			<a class="btn btn-danger" href="#">ออกจากระบบ</a>
-		</li> -->
+			<a class="btn btn-danger btn-confirm" href="<?=URL?>logout.php" data-title="ออกจากระบบ ?" data-text="คุณต้องการออกจากระบบใช่หรือไม่ ?" data-return="ออกจากระบบเรียบร้อยแล้ว">ออกจากระบบ</a>
+		</li>
 		<!-- <li class="nav-item">
 			<a class="nav-link" data-widget="control-sidebar" data-slide="true" href="#">
 				<i class="fas fa-th-large"></i>

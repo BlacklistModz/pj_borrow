@@ -2,10 +2,11 @@
 $_pathURL = $_SERVER['DOCUMENT_ROOT'].DIRECTORY_SEPARATOR."pj_borrow".DIRECTORY_SEPARATOR;
 include($_pathURL."config.php");
 include($_pathURL."app/SQLiManager.php");
-
-$sql = new SQLiManager();
-
 include($_pathURL."app/check_auth.php");
+if( empty($auth) ) {
+  header("location:".URL."admin/login.php"); //NOT HAVE DATA IN DATABASE
+}
+$sql = new SQLiManager(); //SET FOR PAGES
 ?>
 <!DOCTYPE html>
 <html>

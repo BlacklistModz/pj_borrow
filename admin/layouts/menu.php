@@ -13,8 +13,9 @@
 			<div class="image">
 				<img src="<?=IMAGES?>/avatar.png" class="img-circle elevation-2" alt="User Image">
 			</div>
-			<div class="info">
-				<a href="#" class="d-block">Administrator</a>
+			<div class="ml-2">
+				<a href="" class="d-block"><?=$auth["name"]?></a>
+                    <small class="text-white">Username : <?=$auth["username"]?></small>
 			</div>
 		</div>
 

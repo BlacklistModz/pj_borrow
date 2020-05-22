@@ -1,4 +1,32 @@
-<?php
+<?php 
+function checkStr( $text , $format = 'utf-8' ){
+	return mb_strlen( $text , $format );
+}
+function checkEngNum($text){
+	if( !preg_match('/^[a-z0-9A-Z]+$/i',$text) ){
+		return false;
+	}
+	else{
+		return true;
+	}
+}
+function checkEng($text){
+	if( !preg_match('/^[a-zA-Z]+$/i',$text) ){
+		return false;
+	}
+	else{
+		return true;
+	}
+}
+function checkEngThai($text){
+	if( !preg_match("/^[ก-๙a-zA-Z\s]+$/",$text) ){
+		return false;
+	}
+	else{
+		return true;
+	}
+}
+
 function dateTH($strDate, $full=null, $time=null)
 {
 	$dateTH = "";
@@ -24,4 +52,3 @@ function dateTH($strDate, $full=null, $time=null)
 
 	return $dateTH;
 }
-?>

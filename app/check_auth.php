@@ -1,24 +1,29 @@
 <?php
 ob_start();
 session_start();
+
+$sql = new SQLiManager(); //ONLY AUTH
 if( !empty($_SESSION["admin"]) ){
-	$sql->table="users";
-	$sql->condition="WHERE id={$_SESSION["admin"]}";
-	$query = $sql->select();
+	$sql->table = "users";
+	$sql->field = "name, username";
+	$sql->condition = "WHERE id={$_SESSION["admin"]}";
+	$rsAuth = $sql->select();
 }
 
 if( !empty($_SESSION["users"]) ){
 	$sql->table="customers";
 	$sql->condition="WHERE id={$_SESSION["users"]}";
-	$query = $sql->select();
+	$rsAuth = $sql->select();
 }
 
-if( !empty($query) ){
-	if( mysqli_num_rows($query) <= 0 ){
+if( !empty($rsAuth) ){
+	if( mysqli_num_rows($rsAuth) <= 0 ){
 		session_destroy();
 		ob_clean();
+
+		header("location:".URL);
 	}
 	else{
-		$_userData = mysqli_fetch_assoc($query);
+		$auth = mysqli_fetch_assoc($rsAuth);
 	}
 }
