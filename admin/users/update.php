@@ -1,7 +1,7 @@
 <?php
 include("../../config.php");
 include("../../app/SQLiManager.php");
-include("../../app/HashPassword.php");
+include("../../app/fn.php");
 
 $sql = new SQLiManager();
 
@@ -25,6 +25,16 @@ $old = mysqli_fetch_assoc($query);
 /* CHECK ERROR ZONE */
 foreach ($_POST as $key => $value) {
 	if( empty($value) ) $arr["error"][$key] = "กรุณากรอกข้อมูลให้ครบถ้วน";
+}
+
+if( !empty($_POST["name"]) ){
+	if( checkStr($_POST["name"]) < 5 ) $arr["error"]["name"] = "ความยาวของ ชื่อ-นามสกุล ต้องมีตั้งแต่ 5 ตัวอักษรขึ้นไป";
+	if( !checkEngThai($_POST["name"]) ) $arr["error"]["name"] = "ชื่อ-นามสกุล ต้องเป็นตัวอักษรภาษาไทย หรือ ภาษาอังกฤษ เท่านั้น";
+}
+
+if( !empty($_POST["username"]) ){
+	if( checkStr($_POST["username"]) < 5 ) $arr["error"]["username"] = "ความยาวของ Username ต้องมีตั้งแต่ 5 ตัวอักษรขึ้นไป";
+	if( !checkEngNum($_POST["username"]) ) $arr["error"]["username"] = "ต้องเป็นตัวเลข 0-9 หรือ A-Z หรือ a-z เท่านั้น";
 }
 
 $haschange = true;

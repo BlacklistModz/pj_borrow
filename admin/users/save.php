@@ -1,7 +1,6 @@
 <?php
 include("../../config.php");
 include("../../app/SQLiManager.php");
-include("../../app/HashPassword.php");
 include("../../app/fn.php");
 
 $sql = new SQLiManager();
