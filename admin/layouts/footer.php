@@ -54,7 +54,7 @@
       }
     });
     var table = $('.DataTable').DataTable( {
-      responsive: true
+      // responsive: true
     } );
     
     // new $.fn.dataTable.FixedHeader( table );
