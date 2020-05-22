@@ -26,7 +26,6 @@ function checkEngThai($text){
 		return true;
 	}
 }
-
 function dateTH($strDate, $full=null, $time=null)
 {
 	$dateTH = "";
