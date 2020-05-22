@@ -10,6 +10,7 @@ if(isset($_SESSION["admin"]) || isset($_SESSION["user"]))
 
 	$arr["type"] = "success";
 	$arr["title"] = "ออกจากระบบ";
+	$arr["text"] = "ดำเนินการออกจากระบบเรียบร้อยแล้ว";
 	$arr["url"] = URL;
 	$arr["status"] = 200;
 
