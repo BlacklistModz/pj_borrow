@@ -7,6 +7,9 @@ if( empty($auth) ) {
   header("location:".URL."admin/login.php"); //NOT HAVE DATA IN DATABASE
 }
 $sql = new SQLiManager(); //SET FOR PAGES
+
+//APP
+include($_pathURL."app/fn.php");
 ?>
 <!DOCTYPE html>
 <html>

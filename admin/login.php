@@ -12,6 +12,7 @@ if( !empty($_SESSION["admin"]) ){
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>LOGIN TO MANAGEMENT SYSTEM</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<!-- Font Awesome -->
 	<link rel="stylesheet" href="<?=PLUGINS?>fontawesome-free/css/all.min.css">
@@ -30,12 +31,12 @@ if( !empty($_SESSION["admin"]) ){
 	<div class="hold-transition login-page">
 		<div class="login-box">
 			<div class="login-logo">
-				<a href="<?=URL?>"><b>Admin</b>LTE</a>
+				<a href="<?=URL?>">Admin Management System</a>
 			</div>
 			<!-- /.login-logo -->
 			<div class="card">
 				<div class="card-body login-card-body">
-					<p class="login-box-msg">เข้าสู่ระบบ</p>
+					<!-- <p class="login-box-msg">เข้าสู่ระบบ</p> -->
 
 					<form action="checkLogin.php" method="post" class="form-submit">
 						<div class="input-group mb-3">

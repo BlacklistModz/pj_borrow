@@ -59,3 +59,6 @@ function hashPassword($value){
 	}
 	return $hash;
 }
+function stringify($data){
+	return htmlentities(json_encode($data));
+}

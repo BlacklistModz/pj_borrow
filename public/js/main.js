@@ -31,23 +31,27 @@ if ( typeof Object.create !== 'function' ) {
 		}
 	};
 
-	$.fn.sweetConfirm = function( res ){
+	$.fn.sweetConfirm = function( res, ops={} ){
 		const swalWithBootstrapButtons = Swal.mixin({
 			customClass: {
-				confirmButton: 'btn btn-danger m-1',
-				cancelButton: 'btn btn-info m-1'
+				confirmButton: ops.btnconfirm || 'btn btn-primary m-1',
+				cancelButton: ops.btncancel || 'btn btn-secondary m-1'
 			},
 			buttonsStyling: false
 		})
 
+		if( ops.return ){
+			res.return = ops.return;
+		}
+
 		swalWithBootstrapButtons.fire({
-			title: res.data('title'),
-			text: res.data('text'),
+			title: ops.title,
+			text: ops.text,
 			icon: 'warning',
 			showCancelButton: true,
-			confirmButtonText: 'ยืนยัน',
-			cancelButtonText: 'ยกเลิก',
-			reverseButtons: true
+			confirmButtonText: ops.textconfirm || "ยืนยัน",
+			cancelButtonText: ops.textcancel || "ยกเลิก",
+			// reverseButtons: true
 		}).then((result) => {
 			if (result.value) {
 
@@ -187,6 +191,6 @@ $("form.form-submit").find("input, textarea, checkbox").change(function(){
 });
 
 $('body').delegate('a.btn-confirm', 'click', function(e) {
-	$.fn.sweetConfirm( $(this) );
+	$.fn.sweetConfirm( $(this), $(this).data('options') );
 	return false;
 });

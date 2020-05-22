@@ -9,9 +9,6 @@ include($_pathURL."admin/layouts/navbar.php");
 //MENU
 include($_pathURL."admin/layouts/menu.php");
 
-//APP
-include($_pathURL."app/fn.php");
-
 $sql->table = "users";
 $query = $sql->select();
 ?>
@@ -63,9 +60,21 @@ $query = $sql->select();
 										?>
 									</td>
 									<td class="text-center">
+
 										<a href="<?=URL?>admin/users/password.php?page=<?=$_GET["page"]?>&id=<?=$result["id"]?>" class="btn btn-info btn-sm text-white" title="เปลี่ยนรหัสผ่าน"><i class="fa fa-key"></i></a>
+
 										<a href="<?=URL?>admin/users/forms.php?page=<?=$_GET["page"]?>&id=<?=$result["id"]?>" class="btn btn-warning btn-sm text-white" title="แก้ไขข้อมูล"><i class="fa fa-pen"></i></a>
-										<a href="<?=URL?>admin/users/delete.php?page=<?=$_GET["page"]?>&id=<?=$result["id"]?>" class="btn btn-danger btn-confirm btn-sm" data-title="ยืนยันการลบข้อมูล" data-text="คุณต้องการลบข้อมูล <?=$result["name"]?> หรือไม่ ?" title="ลบข้อมูล"><i class="fa fa-trash"></i></a>
+
+										<?php 
+										$options = [
+											"title" => "ยืนยันการลบข้อมูล",
+											"text" => "คุณต้องการลบข้อมูล ".$result["name"]. "หรือไม่ ?",
+											"btnconfirm" => "btn btn-danger m-1",
+											"textconfirm" => "ลบข้อมูล"
+										];
+										?>
+										<a href="<?=URL?>admin/users/delete.php?page=<?=$_GET["page"]?>&id=<?=$result["id"]?>" class="btn btn-danger btn-confirm btn-sm" data-title="ยืนยันการลบข้อมูล" data-options="<?=stringify($options)?>"><i class="fa fa-trash"></i></a>
+
 									</td>
 								</tr>
 								<?php
