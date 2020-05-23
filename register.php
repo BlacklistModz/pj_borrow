@@ -4,6 +4,16 @@ include("app/SQLiManager.php");
 
 $sql = new SQLiManager();
 ?>
+
+<style>
+	h4 {
+		color: #009688;
+	}
+	.radio__label:after {
+    	background-color: #00BCD4;
+	}
+</style>
+
 <div class="container">
 	<section class="content">
 		<div class="content__inner">
@@ -222,6 +232,24 @@ $sql = new SQLiManager();
 							<i class="form-group__bar"></i>
 						</div>
 					</div>
+
+					<!-- <div class="col-md-3">
+						<div class="form-group" style="padding-top: 8px;">
+							<label>แขวง / ตำบล</label>
+							<select class="select2 select2-hidden-accessible" name="address_district" data-placeholder="กรุณาเลือกแขวง / ตำบล" tabindex="-1" aria-hidden="true">
+								<option></option> -->
+								<?php 
+								// $sql->table = "district";
+								// $query = $sql->select();
+								// while($province = mysqli_fetch_assoc($query)){
+								// 	echo '<option value="'.$province["DISTRICT_ID"].'">'.$province["DISTRICT_NAME"].'</option>';
+								// }
+								?>
+							<!-- </select>
+							<div class="invalid-feedback"></div>
+						</div>
+					</div> -->
+
 					<div class="col-md-3">
 						<div class="form-group form-group--float">
 							<input type="text" name="address_district" class="form-control">
@@ -230,6 +258,24 @@ $sql = new SQLiManager();
 							<i class="form-group__bar"></i>
 						</div>
 					</div>
+					
+					<!-- <div class="col-md-3">
+						<div class="form-group" style="padding-top: 8px;">
+							<label>เขต / อำเภอ</label>
+							<select class="select2 select2-hidden-accessible" name="address_amphur" data-placeholder="กรุณาเลือกเขต / อำเภอ" tabindex="-1" aria-hidden="true">
+								<option></option> -->
+								<?php 
+								// $sql->table = "amphur";
+								// $query = $sql->select();
+								// while($province = mysqli_fetch_assoc($query)){
+								// 	echo '<option value="'.$province["AMPHUR_ID"].'">'.$province["AMPHUR_NAME"].'</option>';
+								// }
+								?>
+							<!-- </select>
+							<div class="invalid-feedback"></div>
+						</div>
+					</div> -->
+
 					<div class="col-md-3">
 						<div class="form-group form-group--float">
 							<input type="text" name="address_amphur" class="form-control">
@@ -238,6 +284,7 @@ $sql = new SQLiManager();
 							<i class="form-group__bar"></i>
 						</div>
 					</div>
+
 					<div class="col-md-3">
 						<div class="form-group" style="padding-top: 8px;">
 							<label>จังหวัด</label>
@@ -803,13 +850,33 @@ $sql = new SQLiManager();
 						</div>
 					</div>
 					<div class="col-md-12">
+						<h4>รูปถ่ายพร้อมบัตรประชาชน</h4>
+					</div>
+					<div class="col-md-12" style="text-align: center;">
+						<!-- div class="form-group form-group--float"> -->
+							<!-- <input type="file" name="img_upload" class="filestyle form-control" onchange="readURL(this);"> -->
+							<label for="file" class="btn btn-info btn--raised" style="margin-top: 20px;">กดเพื่ออัพโหลดรูปถ่าย</label>
+							<input type="file" id="file" name="img_upload" onchange="readURL(this);" style="visibility: hidden; display: block;">
+							<img id="idcard_img" style="width: 70%; padding-top: 20px">
+
+							<!-- <label>อัพโหลดรูปถ่าย</label> -->
+							<div class="invalid-feedback"></div>
+							<!-- <i class="form-group__bar"></i>
+						</div> -->
+					</div>
+					<!-- <div class="col-md-12" style="text-align: center;">
+							<inout type="file" name="idcard_img" class="dropzone" id="dropzone-upload">
+							<div class="invalid-feedback"></div>
+						</div>
+					</div> -->
+					<div class="col-md-12">
 						<div class="checkbox" style="text-align: center; padding-top: 50px;">
 							<input type="checkbox" id="customCheck1" name="checkconfirm" value="1">
 							<label class="checkbox__label" for="customCheck1">ข้าพเจ้าขอยอมรับว่าข้อมูลที่กรอกเป็นความจริง</label>
 						</div>
 					</div>
-					<div class="col-md-12" style="text-align: center;margin-top: 50px;">
-						<button type="submit" class="btn btn-info btn-submit">ส่งใบสมัคร</button>
+					<div class="col-md-12" style="text-align: center; margin-top: 50px;">
+						<button type="submit" class="btn btn-success btn--raised btn-submit">ส่งใบสมัคร</button>
 					</div>
 				</form>
 			</div>
@@ -822,7 +889,9 @@ $sql = new SQLiManager();
 <?php 
 include("layouts/foot.php");
 ?>
+<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-filestyle/2.1.0/bootstrap-filestyle.min.js"></script> -->
 <script type="text/javascript">
+	// $(":file").filestyle();
 	$(".other-address").hide();
 	$(".js-other").change(function(){
 		if( $(this).find('.js-other-address').is(":checked") ){
@@ -846,4 +915,17 @@ include("layouts/foot.php");
 			$(".married_txt_err").hide();
 		}
 	});
+
+	function readURL(input) {
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
+
+            reader.onload = function (e) {
+                $('#idcard_img')
+                    .attr('src', e.target.result);
+            };
+
+            reader.readAsDataURL(input.files[0]);
+        }
+    }
 </script>
