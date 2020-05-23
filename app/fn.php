@@ -1,9 +1,10 @@
 <?php 
+// CHECK FN
 function checkStr( $text , $format = 'utf-8' ){
 	return mb_strlen( $text , $format );
 }
 function checkEngNum($text){
-	if( !preg_match('/^[a-z0-9A-Z]+$/i',$text) ){
+	if( !preg_match('/^[a-z0-9A-Z\s]+$/i',$text) ){
 		return false;
 	}
 	else{
@@ -11,7 +12,7 @@ function checkEngNum($text){
 	}
 }
 function checkEng($text){
-	if( !preg_match('/^[a-zA-Z]+$/i',$text) ){
+	if( !preg_match('/^[a-zA-Z\s]+$/i',$text) ){
 		return false;
 	}
 	else{
@@ -26,6 +27,30 @@ function checkEngThai($text){
 		return true;
 	}
 }
+function checkThai($text){
+	if( !preg_match("/^[ก-๙\s]+$/",$text) ){
+		return false;
+	}
+	else{
+		return true;
+	}
+}
+function checkPID($pid) {
+	if(strlen($pid) != 13) {
+		return false;
+	}
+	for($i=0, $sum=0; $i<12;$i++){
+		$sum += (int)($pid{$i})*(13-$i);
+	}
+	if((11-($sum%11))%10 == (int)($pid{12})){
+		return true;
+	}
+	else{
+		return false;
+	}
+}
+
+//FORMAT TEXT
 function dateTH($strDate, $full=null, $time=null)
 {
 	$dateTH = "";
@@ -51,6 +76,11 @@ function dateTH($strDate, $full=null, $time=null)
 
 	return $dateTH;
 }
+function stringify($data){
+	return htmlentities(json_encode($data));
+}
+
+//SECURITY
 function hashPassword($value){
 	$cost = isset($options['rounds']) ? $options['rounds'] : 10;
 	$hash = password_hash($value, PASSWORD_BCRYPT, ['cost' => $cost]);
@@ -58,7 +88,4 @@ function hashPassword($value){
 		throw new RuntimeException('Bcrypt hashing not supported.');
 	}
 	return $hash;
-}
-function stringify($data){
-	return htmlentities(json_encode($data));
 }
