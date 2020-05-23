@@ -13,9 +13,10 @@
 			<div class="image">
 				<img src="<?=IMAGES?>/avatar.png" class="img-circle elevation-2" alt="User Image">
 			</div>
-			<div class="ml-2">
+               <!-- style="padding: 0px 5px 0px 10px;" -->
+			<div class="info" >
 				<a href="" class="d-block"><?=$auth["name"]?></a>
-                    <small class="text-white">Username : <?=$auth["username"]?></small>
+                    <!-- <small class="text-white">Username : <?=$auth["username"]?></small> -->
 			</div>
 		</div>
 

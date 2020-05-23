@@ -10,14 +10,21 @@
 	<ul class="navbar-nav ml-auto">
 		<!-- Notifications Dropdown Menu -->
 		<li class="nav-item dropdown">
-			<a class="btn btn-primary" href="#">โปรไฟล์</a>
-			<?php 
-			$ops = [
-				"title" => "ยืนยันการออกจากระบบ",
-				"text" => "คุณต้องการออกจากระบบใช่หรือไม่ ?"
-			];
-			?>
-			<a class="btn btn-danger btn-confirm" href="<?=URL?>logout.php" data-options="<?=stringify($ops)?>">ออกจากระบบ</a>
+			<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+				<i class="fa fa-user"></i> บัญชีผู้ใช้งาน (<?=strtoupper($auth["username"])?>)
+			</a>
+			<div class="dropdown-menu" aria-labelledby="navbarDropdown">
+				<a class="dropdown-item" href="<?=URL?>admin/profile/index.php"><i class="fas fa-users-cog"></i> ตั้งค่าข้อมูลผู้ใช้</a>
+				<a class="dropdown-item" href="<?=URL?>admin/profile/password.php"><i class="fas fa-key"></i> เปลี่ยนรหัสผ่าน</a>
+				<div class="dropdown-divider"></div>
+				<?php 
+				$ops = [
+					"title" => "ยืนยันการออกจากระบบ",
+					"text" => "คุณต้องการออกจากระบบใช่หรือไม่ ?"
+				];
+				?>
+				<a class="dropdown-item btn-confirm bg-danger" href="<?=URL?>logout.php" data-options="<?=stringify($ops)?>"><i class="fas fa-sign-out-alt"></i> ออกจากระบบ</a>
+			</div>
 		</li>
 		<!-- <li class="nav-item">
 			<a class="nav-link" data-widget="control-sidebar" data-slide="true" href="#">
