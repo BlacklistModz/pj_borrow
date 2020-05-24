@@ -47,6 +47,27 @@ if( !empty($_POST["idcard"]) ){
 	}
 }
 
+if( empty($_FILES["img_idcard"]) && empty($arr["error"]) ){
+	$arr["error"]["img_idcard"] = "กรุณาอัพโหลดรูปถ่าย";
+	$arr["alert"] = "true";
+	$arr["type"] = "error";
+	$arr["title"] = "กรุณาอัพโหลดรูปถ่าย";
+	$arr["text"] = "กรุณาอัพโหลดรูปถ่ายบัตรประชาชนเพื่อยืนยันตัวตน";
+	$arr["status"] = 422; 
+}
+
+if( !empty($_FILES["img_idcard"]) ){
+	$typeFile = strrchr($_FILES["img_idcard"]["name"],".");
+	if( $typeFile != ".jpg" && $typeFile != ".png" && $typeFile != ".jpeg" ){
+		$arr["error"]["img_idcard"] = "รูปภาพต้องเป็นไฟล์ .jpg / .png / .jpeg เท่านั้น";	
+		$arr["alert"] = "true";
+		$arr["type"] = "error";
+		$arr["title"] = "เกิดข้อผิดพลาดในการยืนยันตัวตน";
+		$arr["text"] = "รูปภาพต้องเป็นไฟล์ .jpg / .png / .jpeg เท่านั้น";
+		$arr["status"] = 422; 
+	} 
+}
+
 if( empty($_POST["checkconfirm"]) && empty($arr["error"]) ){
 	$arr["alert"] = "true";
 	$arr["type"] = "error";
@@ -103,6 +124,19 @@ if( !empty($_POST["checkconfirm"]) && empty($arr["error"]) ){
 		$sql->field = $field;
 		$sql->value = $value;
 		if( $sql->insert() ){
+
+			#UPLOAD FILE
+			$id = mysqli_insert_id($sql->connect);
+			$typeFile = strrchr($_FILES["img_idcard"]["name"],".");
+			$img_idcard = 'ID_'.date('Y-m-d').'_'.md5(sprintf("%04d",$id)).$typeFile;
+			move_uploaded_file($_FILES["img_idcard"]["tmp_name"], WWW_UPLOADS.$img_idcard);
+
+			$sql->table = "borrows";
+			$sql->value = "img_idcard='{$img_idcard}'";
+			$sql->condition = "WHERE id={$id}";
+			$sql->update();
+			#####
+
 			$arr["type"] = "success";
 			$arr["title"] = "บันทึกข้อมูลเรียบร้อยแล้ว";
 			$arr["text"] = "ระบบกำลังจะพากลับหน้าหลัก";
@@ -122,5 +156,11 @@ if( !empty($_POST["checkconfirm"]) && empty($arr["error"]) ){
 		$arr["text"] = "ไม่สามารถเพิ่มข้อมูลลูกค้าได้";
 		$arr["status"] = 422;
 	}
+}
+else{
+	$arr["type"] = "error";
+	$arr["title"] = "เกิดข้อผิดพลาด";
+	$arr["text"] = "กรุณาตรวจสอบการกรอกข้อมูลอีกครั้ง";
+	$arr["status"] = 422;
 }
 echo json_encode($arr);

@@ -856,11 +856,11 @@ $sql = new SQLiManager();
 						<!-- div class="form-group form-group--float"> -->
 							<!-- <input type="file" name="img_upload" class="filestyle form-control" onchange="readURL(this);"> -->
 							<label for="file" class="btn btn-info btn--raised" style="margin-top: 20px;">กดเพื่ออัพโหลดรูปถ่าย</label>
-							<input type="file" id="file" class="js-img" name="img_upload" style="visibility: hidden; display: block;">
+							<input type="file" id="file" class="js-img" name="img_idcard" style="visibility: hidden; display: block;">
 							<img id="js-img" style="width: 70%; padding-top: 20px">
 
 							<!-- <label>อัพโหลดรูปถ่าย</label> -->
-							<div class="invalid-feedback"></div>
+							<notification class="invalid-feedback"></notification>
 							<!-- <i class="form-group__bar"></i>
 						</div> -->
 					</div>
