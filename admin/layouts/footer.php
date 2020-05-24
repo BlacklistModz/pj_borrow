@@ -16,7 +16,7 @@
 <!-- jQuery -->
 <script src="<?=PLUGINS?>jquery/jquery.min.js"></script>
 <!-- jQuery UI 1.11.4 -->
-<script src="<?=PLUGINS?>jquery-ui/jquery-ui.min.js"></script>
+<script src="<?=PLUGINS?>jquery-ui/jquery-ui.js"></script>
 <!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
 <script>
   $.widget.bridge('uibutton', $.ui.button)
@@ -56,6 +56,14 @@
     var table = $('.DataTable').DataTable( {
       // responsive: true
     } );
+    $(".DatePicker").datepicker({
+      changeMonth: true,
+      changeYear: true,
+      showButtonPanel: true,
+      yearRange: "-100:+0",
+      dateFormat: 'dd/mm/yy',
+      monthNamesShort: $.datepicker.regional["en"].monthNames
+    });
     
     // new $.fn.dataTable.FixedHeader( table );
   } );

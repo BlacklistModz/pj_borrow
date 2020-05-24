@@ -27,7 +27,14 @@ foreach ($_POST as $key => $value) {
 	if( empty($value) ) $arr["error"][$key] = "กรุณากรอกข้อมูลให้ครบถ้วน";
 }
 
-//Check ID Card
+/* Validator */
+if( !empty($_POST["first_name"]) ){
+	if( !checkThai($_POST["first_name"]) ) $arr["error"]["first_name"] = "กรุณากรอกชื่อเป็นภาษาไทยเท่านั้น";
+}
+if( !empty($_POST["last_name"]) ){
+	if( !checkThai($_POST["last_name"]) ) $arr["error"]["last_name"] = "กรุณากรอกนามสกุลเป็นภาษาไทยเท่านั้น";
+}
+
 if( !empty($_POST["idcard"]) ){
 	if( !is_numeric($_POST["idcard"]) ){
 		$arr["error"]["idcard"] = "กรุณากรอกข้อมูลเป็นตัวเลข 0-9 และห้ามเว้นว่าง";
@@ -55,6 +62,7 @@ if( empty($_FILES["img_idcard"]) && empty($arr["error"]) ){
 	$arr["text"] = "กรุณาอัพโหลดรูปถ่ายบัตรประชาชนเพื่อยืนยันตัวตน";
 	$arr["status"] = 422; 
 }
+/**/
 
 if( !empty($_FILES["img_idcard"]) ){
 	$typeFile = strrchr($_FILES["img_idcard"]["name"],".");

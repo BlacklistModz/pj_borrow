@@ -79,6 +79,10 @@ function dateTH($strDate, $full=null, $time=null)
 function stringify($data){
 	return htmlentities(json_encode($data));
 }
+function DateJQToPHP($strDate){
+	$dateArr = explode("/", $strDate);
+	return "{$dateArr[2]}-{$dateArr[1]}-{$dateArr[0]}";
+}
 
 //SECURITY
 function hashPassword($value){
@@ -88,4 +92,41 @@ function hashPassword($value){
 		throw new RuntimeException('Bcrypt hashing not supported.');
 	}
 	return $hash;
+}
+
+//SET DATA
+function prefix(){
+	$_prefix = [];
+	$_prefix[] = ['id'=>1, 'name'=>'นาย'];
+	$_prefix[] = ['id'=>2, 'name'=>'นาง'];
+	$_prefix[] = ['id'=>3, 'name'=>'นางสาว'];
+	return $_prefix;
+}
+function showPrefixName($prefix){
+	$data = "";
+	foreach (prefix() as $key => $value) {
+		if( $prefix == $value["id"] ){
+			$data = $value["name"];
+			break;
+		}
+	}
+	return $data;
+}
+
+//SEX
+function sex(){
+	$_sex = [];
+	$_sex[] = ['id'=>'male', 'name'=>'ชาย'];
+	$_sex[] = ['id'=>'female', 'name'=>'หญิง'];
+	return $_sex;
+}
+function showSex($sex){
+	$data = "";
+	foreach (sex() as $key => $value) {
+		if( $sex == $value["id"] ){
+			$data = $value["name"];
+			break;
+		}
+	}
+	return $data;
 }

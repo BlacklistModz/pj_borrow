@@ -31,7 +31,7 @@ $query = $sql->select();
 			<div class="card p-3">
 				<div class="table-responsive">
 					<table class="table table-bordered DataTable">
-						<thead class="table-dark">
+						<thead class="table-dark text-center">
 							<tr>
 								<th width="5%">#</th>
 								<th width="15%">ชื่อผู้ใช้</th>
