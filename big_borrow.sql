@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: 23 พ.ค. 2020 เมื่อ 12:18 PM
+-- Generation Time: 24 พ.ค. 2020 เมื่อ 03:50 PM
 -- เวอร์ชันของเซิร์ฟเวอร์: 10.4.11-MariaDB
 -- PHP Version: 7.3.13
 
@@ -1124,6 +1124,7 @@ CREATE TABLE `borrows` (
   `person_lastname2` varchar(32) NOT NULL,
   `person_phone2` varchar(15) NOT NULL,
   `person_relationship2` varchar(32) NOT NULL,
+  `img_idcard` varchar(255) NOT NULL,
   `status` int(1) NOT NULL,
   `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
   `updated_at` timestamp NULL DEFAULT NULL ON UPDATE current_timestamp()
@@ -1133,9 +1134,11 @@ CREATE TABLE `borrows` (
 -- dump ตาราง `borrows`
 --
 
-INSERT INTO `borrows` (`id`, `customer_id`, `staff_id`, `verify_id`, `date`, `campaign_code`, `borrow_code`, `education`, `family_status`, `spouse_prefix`, `spouse_firstname`, `spouse_lastname`, `spouse_mobile`, `spouse_career`, `spouse_children`, `spouse_income`, `address_number`, `address_room`, `address_soi`, `address_street`, `address_district`, `address_amphur`, `address_province`, `address_zipcode`, `address_phone`, `mobile`, `email`, `address_feature`, `address_status`, `address_hire`, `address_month`, `address_year`, `address_person`, `work_company`, `work_status`, `work_position`, `work_department`, `work_income`, `work_income_etc`, `work_income_source`, `work_addr_number`, `work_addr_build`, `work_addr_floor`, `work_addr_code`, `work_addr_soi`, `work_addr_street`, `work_addr_district`, `work_addr_amphur`, `work_addr_province`, `work_addr_zipcode`, `work_addr_phone`, `work_addr_mobile`, `work_addr_fax`, `work_old_year`, `work_old_month`, `doc_address`, `doc_addr_number`, `doc_addr_room`, `doc_addr_soi`, `doc_addr_street`, `doc_addr_district`, `doc_addr_amphur`, `doc_addr_province`, `doc_addr_zipcode`, `objective_company`, `objective_program`, `objective_price`, `objective_duration`, `person_prefix`, `person_firstname`, `person_lastname`, `person_phone`, `person_relationship`, `person_prefix2`, `person_firstname2`, `person_lastname2`, `person_phone2`, `person_relationship2`, `status`, `created_at`, `updated_at`) VALUES
-(1, 1, 0, 0, '2020-05-23', '', '', 1, 1, '1', '', '', '', '', 0, 0.00, '414', '-', '3', 'เกาะคา-ห้างฉัตร', 'ท่าผา', 'เกาะคา', 40, 52130, '-', '0647419323', 'test@test.com', 1, 1, 0.00, 11, 10, 3, 'มหาวิทยาลัยราชภัฏลำปาง', 'การศึกษา', 'นักวิชาการการศึกษา (สายสนับสนุน)', 'งานสหกิจศึกษา', 15000.00, 0.00, 'งานเดือน', '119', 'โอฬารโรจน์หิรัญ', 4, '3843', '-', 'ลำปาง-แม่ทะ', 'ชมพู', 'เมืองลำปาง', 40, 52100, '054237399', '1167', '-', 0, 2, 1, '', '', '', '', '', '', 0, 0, 'ไม่รู้', 'ไม่รู้', 3000000.00, 0, '3', 'จักรกฤษ', 'แปงเมือง', '0992723554', 'ไม่รู้', '2', 'จักรกฤษ', 'แปงเมือง', '0992723554', 'ไม่บอก', 0, '2020-05-23 09:47:57', '2020-05-23 10:02:22'),
-(2, 2, 0, 0, '2020-05-23', '', '', 4, 1, '1', '', '', '', '', 0, 0.00, '414', '-', '3', 'ทดสอบ', 'ทดสอบ', 'ทดสอบ', 40, 52130, '-', '0647419323', 'test@test.com', 1, 1, 0.00, 11, 10, 3, 'ทดสอบ', 'ทดสอบ', 'ทดสอบ', 'ทดสอบ', 15000.00, 0.00, 'ทดสอบ', '119', 'ทดสอบ', 4, '1234', 'ทดสอบ', 'ทดสอบ', 'ทดสอบ', 'ทดสอบ', 40, 52100, '0123456789', '1234', '0123456789', 0, 1, 1, '', '', '', '', '', '', 0, 0, 'ทดสอบ', 'ทดสอบ', 15000.00, 0, '1', 'ทดสอบ', 'ทดสอบ', '088', 'ทดสอบ', '1', 'ทดสอบ', 'ทดสอบ', '088', 'ทดสอบ', 0, '2020-05-23 10:01:29', NULL);
+INSERT INTO `borrows` (`id`, `customer_id`, `staff_id`, `verify_id`, `date`, `campaign_code`, `borrow_code`, `education`, `family_status`, `spouse_prefix`, `spouse_firstname`, `spouse_lastname`, `spouse_mobile`, `spouse_career`, `spouse_children`, `spouse_income`, `address_number`, `address_room`, `address_soi`, `address_street`, `address_district`, `address_amphur`, `address_province`, `address_zipcode`, `address_phone`, `mobile`, `email`, `address_feature`, `address_status`, `address_hire`, `address_month`, `address_year`, `address_person`, `work_company`, `work_status`, `work_position`, `work_department`, `work_income`, `work_income_etc`, `work_income_source`, `work_addr_number`, `work_addr_build`, `work_addr_floor`, `work_addr_code`, `work_addr_soi`, `work_addr_street`, `work_addr_district`, `work_addr_amphur`, `work_addr_province`, `work_addr_zipcode`, `work_addr_phone`, `work_addr_mobile`, `work_addr_fax`, `work_old_year`, `work_old_month`, `doc_address`, `doc_addr_number`, `doc_addr_room`, `doc_addr_soi`, `doc_addr_street`, `doc_addr_district`, `doc_addr_amphur`, `doc_addr_province`, `doc_addr_zipcode`, `objective_company`, `objective_program`, `objective_price`, `objective_duration`, `person_prefix`, `person_firstname`, `person_lastname`, `person_phone`, `person_relationship`, `person_prefix2`, `person_firstname2`, `person_lastname2`, `person_phone2`, `person_relationship2`, `img_idcard`, `status`, `created_at`, `updated_at`) VALUES
+(1, 1, 0, 0, '2020-05-23', '', '', 1, 1, '1', '', '', '', '', 0, 0.00, '414', '-', '3', 'เกาะคา-ห้างฉัตร', 'ท่าผา', 'เกาะคา', 40, 52130, '-', '0647419323', 'test@test.com', 1, 1, 0.00, 11, 10, 3, 'มหาวิทยาลัยราชภัฏลำปาง', 'การศึกษา', 'นักวิชาการการศึกษา (สายสนับสนุน)', 'งานสหกิจศึกษา', 15000.00, 0.00, 'งานเดือน', '119', 'โอฬารโรจน์หิรัญ', 4, '3843', '-', 'ลำปาง-แม่ทะ', 'ชมพู', 'เมืองลำปาง', 40, 52100, '054237399', '1167', '-', 0, 2, 1, '', '', '', '', '', '', 0, 0, 'ไม่รู้', 'ไม่รู้', 3000000.00, 0, '3', 'จักรกฤษ', 'แปงเมือง', '0992723554', 'ไม่รู้', '2', 'จักรกฤษ', 'แปงเมือง', '0992723554', 'ไม่บอก', '', 0, '2020-05-23 09:47:57', '2020-05-23 10:02:22'),
+(2, 2, 0, 0, '2020-05-23', '', '', 4, 1, '1', '', '', '', '', 0, 0.00, '414', '-', '3', 'ทดสอบ', 'ทดสอบ', 'ทดสอบ', 40, 52130, '-', '0647419323', 'test@test.com', 1, 1, 0.00, 11, 10, 3, 'ทดสอบ', 'ทดสอบ', 'ทดสอบ', 'ทดสอบ', 15000.00, 0.00, 'ทดสอบ', '119', 'ทดสอบ', 4, '1234', 'ทดสอบ', 'ทดสอบ', 'ทดสอบ', 'ทดสอบ', 40, 52100, '0123456789', '1234', '0123456789', 0, 1, 1, '', '', '', '', '', '', 0, 0, 'ทดสอบ', 'ทดสอบ', 15000.00, 0, '1', 'ทดสอบ', 'ทดสอบ', '088', 'ทดสอบ', '1', 'ทดสอบ', 'ทดสอบ', '088', 'ทดสอบ', '', 0, '2020-05-23 10:01:29', NULL),
+(3, 3, 0, 0, '2020-05-24', '', '', 4, 1, '1', '', '', '', '', 0, 0.00, '414', '-', '3', 'ทดสอบ', 'ทดสอบ', 'ทดสอบ', 40, 52130, '-', '0647419323', 'test@test.com', 1, 1, 0.00, 3, 15, 3, 'ทดสอบ', 'ทดสอบ', 'ทดสอบ', 'ทดสอบ', 15000.00, 0.00, 'ทดสอบ', '1', '1', 1, '1', '1', '1', '1', '1', 1, 10100, '02020202', '0202', '02020202', 2, 2, 1, '', '', '', '', '', '', 0, 0, 'ทดสอบ', 'ทดสอบ', 150000.00, 0, '3', 'ทดสอบ', 'ทดสอบ', '123', 'ทดสอบ', '2', 'ืทดสอบ', 'ทดสอบ', '123', 'ทดสอบ', 'ID_2020-05-24_7cd86ecb09aa48c6e620b340f6a74592.jpg', 0, '2020-05-24 06:27:30', '2020-05-24 06:27:30'),
+(4, 4, 0, 0, '2020-05-24', '', '', 4, 1, '1', '', '', '', '', 0, 0.00, '414', '-', '3', 'ทดสอบ', 'ทดสอบ', 'ทดสอบ', 40, 52130, '-', '0647419323', 'test@test.com', 1, 1, 0.00, 3, 15, 3, 'ทดสอบ', 'ทดสอบ', 'ทดสอบ', 'ทดสอบ', 15000.00, 0.00, 'ทดสอบ', '1', '1', 1, '1', '1', '1', '1', '1', 1, 10100, '02020202', '0202', '02020202', 2, 2, 1, '', '', '', '', '', '', 0, 0, 'ทดสอบ', 'ทดสอบ', 150000.00, 0, '3', 'ทดสอบ', 'ทดสอบ', '123', 'ทดสอบ', '2', 'ืทดสอบ', 'ทดสอบ', '123', 'ทดสอบ', 'ID_2020-05-24_95b09698fda1f64af16708ffb859eab9.jpg', 0, '2020-05-24 06:28:46', '2020-05-24 06:28:47');
 
 -- --------------------------------------------------------
 
@@ -1163,7 +1166,9 @@ CREATE TABLE `customers` (
 
 INSERT INTO `customers` (`id`, `code`, `idcard`, `birthday`, `prefix_name`, `first_name`, `last_name`, `idcard_expire`, `sex`, `created_at`, `updated_at`) VALUES
 (1, NULL, '1529900668255', '1993-11-01', '1', 'พชร', 'นันทอาภา', '2020-11-30', '', '2020-05-23 09:47:57', '2020-05-23 09:48:50'),
-(2, NULL, '1529900668255', '1993-11-01', '1', 'พชร', 'นันทอาภา', '2020-11-30', 'male', '2020-05-23 10:01:29', NULL);
+(2, NULL, '1529900668255', '1993-11-01', '1', 'พชร', 'นันทอาภา', '2020-11-30', 'male', '2020-05-23 10:01:29', NULL),
+(3, NULL, '1769976299976', '2020-05-01', '1', 'พชร', 'นันทอาภา', '2020-05-24', 'male', '2020-05-24 06:27:30', NULL),
+(4, NULL, '5415924475821', '2020-05-01', '1', 'พชร', 'นันทอาภา', '2020-05-24', 'male', '2020-05-24 06:28:46', NULL);
 
 -- --------------------------------------------------------
 
@@ -10262,13 +10267,13 @@ ALTER TABLE `amphur`
 -- AUTO_INCREMENT for table `borrows`
 --
 ALTER TABLE `borrows`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `customers`
 --
 ALTER TABLE `customers`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `district`
