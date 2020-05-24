@@ -856,8 +856,8 @@ $sql = new SQLiManager();
 						<!-- div class="form-group form-group--float"> -->
 							<!-- <input type="file" name="img_upload" class="filestyle form-control" onchange="readURL(this);"> -->
 							<label for="file" class="btn btn-info btn--raised" style="margin-top: 20px;">กดเพื่ออัพโหลดรูปถ่าย</label>
-							<input type="file" id="file" name="img_upload" onchange="readURL(this);" style="visibility: hidden; display: block;">
-							<img id="idcard_img" style="width: 70%; padding-top: 20px">
+							<input type="file" id="file" class="js-img" name="img_upload" style="visibility: hidden; display: block;">
+							<img id="js-img" style="width: 70%; padding-top: 20px">
 
 							<!-- <label>อัพโหลดรูปถ่าย</label> -->
 							<div class="invalid-feedback"></div>
@@ -915,17 +915,4 @@ include("layouts/foot.php");
 			$(".married_txt_err").hide();
 		}
 	});
-
-	function readURL(input) {
-        if (input.files && input.files[0]) {
-            var reader = new FileReader();
-
-            reader.onload = function (e) {
-                $('#idcard_img')
-                    .attr('src', e.target.result);
-            };
-
-            reader.readAsDataURL(input.files[0]);
-        }
-    }
 </script>

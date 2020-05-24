@@ -173,7 +173,20 @@ if ( typeof Object.create !== 'function' ) {
         		$.fn.sweetalert( {type:"error", title:"เกิดข้อผิดพลาด...", "timer":2000} );
         	}
         });
-	}
+	};
+
+	$.fn.readURL = function(input) {
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
+
+            reader.onload = function (e) {
+                $('#js-img').attr('src', e.target.result);
+            };
+
+            reader.readAsDataURL(input.files[0]);
+        }
+    };
+
 })( jQuery );
 
 //Event//
@@ -193,4 +206,8 @@ $("form.form-submit").find("input, textarea, checkbox").change(function(){
 $('body').delegate('a.btn-confirm', 'click', function(e) {
 	$.fn.sweetConfirm( $(this), $(this).data('options') );
 	return false;
+});
+
+$(".js-img").change(function(){
+	$.fn.readURL( $(this)[0] );
 });
