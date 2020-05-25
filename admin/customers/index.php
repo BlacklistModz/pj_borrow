@@ -9,7 +9,7 @@ include($_pathURL."admin/layouts/navbar.php");
 //MENU
 include($_pathURL."admin/layouts/menu.php");
 
-$sql->table = "customers";
+$sql->table = "customers LEFT JOIN borrows on customers.id = borrows.id";
 $query = $sql->select();
 ?>
 <!-- Content -->
@@ -34,10 +34,12 @@ $query = $sql->select();
 						<thead class="table-dark text-center">
 							<tr>
 								<th width="5%">#</th>
-								<th width="10%">รหัสลูกค้า</th>
-								<th width="35%">ชื่อ-นามสกุล</th>
-								<th width="15%">บัตรประชาชน</th>
-								<th width="10%">เพศ</th>
+								<th width="7%">รหัสลูกค้า</th>
+								<th width="15%">ชื่อ-นามสกุล</th>
+								<th width="10%">บัตรประชาชน</th>
+								<th width="5%">เพศ</th>
+								<th width="18%">อาชีพ</th>
+								<th width="10%">รายได้</th>
 								<th width="15%">ปรับปรุงเมื่อ</th>
 								<th width="15%">จัดการ</th>
 							</tr>
@@ -62,6 +64,8 @@ $query = $sql->select();
 										}
 										?>
 									</td>
+									<td class="text-center"><?=$result["work_position"]?></td>
+									<td class="text-center"><?=$result["work_income"]?></td>
 									<td class="text-center">
 										<?php 
 										if( !empty($result["updated_at"]) ){

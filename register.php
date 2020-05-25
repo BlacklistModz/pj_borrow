@@ -10,13 +10,16 @@ $sql = new SQLiManager();
 		color: #009688;
 	}
 	.radio__label:after {
-    	background-color: #00BCD4;
+    	background-color: #FFC107;
+	}
+	.checkbox>input[type=checkbox]:checked~.checkbox__label:before, .checkbox>input[type=checkbox]:checked~.radio__label:before, .checkbox>input[type=radio]:checked~.checkbox__label:before, .checkbox>input[type=radio]:checked~.radio__label:before, .radio>input[type=checkbox]:checked~.checkbox__label:before, .radio>input[type=checkbox]:checked~.radio__label:before, .radio>input[type=radio]:checked~.checkbox__label:before, .radio>input[type=radio]:checked~.radio__label:before {
+    	border-color: #CDDC39;
 	}
 	.invalid-feedback {
 		margin-top: auto;
 	}
 	.invalid-feedback, .valid-feedback {
-    	bottom: auto; 
+    	bottom: auto;
 }
 </style>
 
