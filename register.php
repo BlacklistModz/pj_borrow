@@ -12,6 +12,12 @@ $sql = new SQLiManager();
 	.radio__label:after {
     	background-color: #00BCD4;
 	}
+	.invalid-feedback {
+		margin-top: auto;
+	}
+	.invalid-feedback, .valid-feedback {
+    	bottom: auto; 
+}
 </style>
 
 <div class="container">
@@ -67,7 +73,7 @@ $sql = new SQLiManager();
 							</div>
 							<input type="date" class="form-control hidden-md-up" name="birthday" placeholder="กรุณากรอก วัน/เดือน/ปีเกิด">
 							<input type="text" class="form-control date-picker hidden-sm-down flatpickr-input active" placeholder="กรุณากรอก วัน/เดือน/ปีเกิด" readonly="readonly" name="birthday">
-							<div class="invalid-feedback"></div>
+							<div class="invalid-feedback" style="bottom: -1.2rem;"></div>
 						</div>
 					</div>
 					<div class="col-md-6">
@@ -86,7 +92,7 @@ $sql = new SQLiManager();
 							</div>
 							<input type="date" class="form-control hidden-md-up" name="idcard_expire" placeholder="กรุณากรอกวันหมดอายุ">
 							<input type="text" class="form-control date-picker hidden-sm-down flatpickr-input active" placeholder="กรุณากรอกวันหมดอายุ" readonly="readonly" name="idcard_expire">
-							<div class="invalid-feedback"></div>
+							<div class="invalid-feedback" style="bottom: -1.2rem;"></div>
 						</div>
 					</div>
 					<div class="col-md-12">
