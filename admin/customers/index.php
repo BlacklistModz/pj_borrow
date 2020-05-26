@@ -65,7 +65,7 @@ $query = $sql->select();
 										?>
 									</td>
 									<td class="text-center"><?=$result["work_position"]?></td>
-									<td class="text-center"><?=$result["work_income"]?></td>
+									<td class="text-center"><?=number_format($result["work_income"],2)?></td>
 									<td class="text-center">
 										<?php 
 										if( !empty($result["updated_at"]) ){
