@@ -51,6 +51,18 @@ if( $_POST["action"] == "profile" ){
 	$redirect = "index.php";
 }
 if( $_POST["action"] == "password" ){
+
+	if( !empty($_POST["old_password"]) ){
+		if( !password_verify($_POST["old_password"], $old["password"]) ){
+			$arr["error"]["old_password"] = "รหัสผ่านเดิมไม่ตรงกับในระบบ กรุณากรอกใหม่";
+			$arr["alert"] = true;
+			$arr["type"] = "error";
+			$arr["title"] = "เกิดข้อผิดพลาด";
+			$arr["text"] = "รหัสผ่านเดิมไม่ตรงกับในระบบ กรุณากรอกใหม่";
+			$arr["status"] = 422;
+		}
+	}
+
 	if( !empty($_POST["password"]) && !empty($_POST["password2"]) ){
 		if( checkStr($_POST["password"]) < 5 ) $arr["error"]["password"] = "ความยาวของ Password ต้องมีตั้งแต่ 5 ตัวอักษรขึ้นไป";
 		if( checkStr($_POST["password2"]) < 5 ) $arr["error"]["password2"] = "ความยาวของ Confim Password ต้องมีตั้งแต่ 5 ตัวอักษรขึ้นไป";
@@ -69,7 +81,7 @@ if( $_POST["action"] == "password" ){
 if( empty($arr["error"]) ){
 	$value = '';
 	foreach ($_POST as $key => $val) {
-		if( $key == "id" || $key == "password2" || $key == "action" ) continue;
+		if( $key == "id" || $key == "old_password" || $key == "password2" || $key == "action" ) continue;
 
 		$value .= !empty($value) ? "," : "";
 		if( $key == "password" ) $val = hashPassword($val);
