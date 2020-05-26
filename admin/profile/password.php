@@ -46,12 +46,17 @@ $result = mysqli_fetch_assoc($query);
 				<form class="form-submit" action="<?=URL?>admin/profile/save.php?" method="POST">
 					<div class="card-body">
 						<div class="form-group">
-							<label for="password">รหัสผ่าน (Password)</label>
-							<input type="password" class="form-control" id="password" name="password" placeholder="Password">
+							<label for="old_password">รหัสผ่านเดิม (Old Password)</label>
+							<input type="password" class="form-control" id="old_password" name="old_password" placeholder="Old Password">
 							<div class="invalid-feedback"></div>
 						</div>
 						<div class="form-group">
-							<label for="password2">ยืนยันรหัสผ่าน (Confirm Password)</label>
+							<label for="password">รหัสผ่านใหม่ (New Password)</label>
+							<input type="password" class="form-control" id="password" name="password" placeholder="New Password">
+							<div class="invalid-feedback"></div>
+						</div>
+						<div class="form-group">
+							<label for="password2">ยืนยันรหัสผ่านใหม่ (Confirm Password)</label>
 							<input type="password" class="form-control" id="password2" name="password2" placeholder="Confirm Password">
 							<div class="invalid-feedback"></div>
 						</div>
