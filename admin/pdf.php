@@ -1,4 +1,5 @@
 <?php 
-$_pathURL = _DIR_;
-$html = "";
-include("layouts/mpdf/display.php");
+include("../config.php");
+$_pathURL = "../";
+$html = "FIX BUG FOR USE ADMIN";
+include("../mpdf/display.php");
