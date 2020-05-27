@@ -1,5 +1,6 @@
 <?php 
 include("../config.php");
-$_pathURL = "../";
 $html = "FIX BUG FOR USE ADMIN";
+
+$_startPathVendor = "../";
 include("../mpdf/display.php");
