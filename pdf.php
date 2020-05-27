@@ -1,0 +1,15 @@
+<?php 
+include("config.php"); // use for varible;
+$ops = [
+	"title" => "Hello World",
+	"file" => "public/file_mpdf/test.pdf",
+	"file_template" => true
+];
+
+// USE $html for content page //
+$html = '
+	<div class="" style="position: absolute; top: 500px; left: 420px; width: 300px;"> === ทดสอบการเขียนข้อความลง PDF === </div>
+';
+
+$_pathURL = __DIR__;
+include "mpdf/display.php";
