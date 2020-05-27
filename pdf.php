@@ -1,8 +1,8 @@
 <?php 
 include("config.php"); // use for varible;
 $ops = [
-	"title" => "Hello World",
-	"file" => "public/file_mpdf/test.pdf",
+	"title" => "Sabaijai_Loan",
+	"file" => "public/file_mpdf/Report.pdf",
 	"file_template" => true
 ];
 
