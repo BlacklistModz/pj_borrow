@@ -40,7 +40,6 @@ $content = '<!doctype html><html lang="th">'.
 '<body>'.$html.'</body></html>';
 
 //SET OUTPUT PDF
-require_once $_startPathVendor.'/vendor/setasign/fpdi/src/fpdi.php';
 require_once $_startPathVendor.'/vendor/autoload.php';
 $mpdf = new \Mpdf\Mpdf( $settings );
 
