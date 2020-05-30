@@ -94,7 +94,8 @@ function hashPassword($value){
 	return $hash;
 }
 
-//SET DATA
+//***** SET DATA FOR LOOP *****//
+//PREFIX
 function prefix(){
 	$_prefix = [];
 	$_prefix[] = ['id'=>1, 'name'=>'นาย'];
@@ -125,6 +126,25 @@ function showSex($sex){
 	foreach (sex() as $key => $value) {
 		if( $sex == $value["id"] ){
 			$data = $value["name"];
+			break;
+		}
+	}
+	return $data;
+}
+
+//STATUS
+function status(){
+	$_status = [];
+	$_status[] = ['id'=>0, 'name'=>'รอตรวจสอบ', 'class'=>'btn btn-secondary btn-sm', 'icon'=>'fa fa-info'];
+	$_status[] = ['id'=>1, 'name'=>'อนุมัติ', 'class'=>'btn btn-success btn-sm', 'icon'=>'fa fa-check'];
+	$_status[] = ['id'=>2, 'name'=>'ไม่อนุมัติ', 'class'=>'btn btn-danger btn-sm', 'icon'=>'fa fa-remove'];
+	return $_status;
+}
+function getStatus($status){
+	$data = "";
+	foreach (status() as $key => $value) {
+		if( $status == $value["id"] ){
+			$data = $value;
 			break;
 		}
 	}

@@ -145,9 +145,11 @@ if ( typeof Object.create !== 'function' ) {
 				res.url = window.location.href;
 			}
 
-			setTimeout(function(){
-				window.location = res.url;
-			}, res.timer);
+			if( res.url != "" && res.url != undefined ){
+				setTimeout(function(){
+					window.location = res.url;
+				}, res.timer);
+			}
 		}
 		else{
 			res.alert = res.alert || false;
@@ -187,6 +189,23 @@ if ( typeof Object.create !== 'function' ) {
         }
     };
 
+    $.fn.onUpdate = function( select ){
+    	var id = select.data('id');
+    	var status = select.val();
+    	$.ajax({
+    		url: select.data('url'),
+    		type: 'POST',
+    		dataType : 'json',
+    		data : {id: id, status: status},
+        	success : function( res ) {
+        		$.fn.processForm( res );
+        	},
+        	error : function() {
+        		$.fn.sweetalert( {type:"error", title:"เกิดข้อผิดพลาด...", "timer":2000} );
+        	}
+    	});
+    };
+
 })( jQuery );
 
 //Event//
@@ -210,4 +229,8 @@ $('body').delegate('a.btn-confirm', 'click', function(e) {
 
 $(".js-img").change(function(){
 	$.fn.readURL( $(this)[0] );
+});
+
+$(".js-select").change(function(){
+	$.fn.onUpdate( $(this) );
 });
