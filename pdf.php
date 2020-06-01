@@ -42,6 +42,20 @@ $html = '
 
 	<div class="" style="position: absolute; top: 380x; left: 682px; width: 75px;">9000</div>
 
+	<div class="" style="position: absolute; top: 436px; left: 85px; width: 70px;">258/2</div>
+
+	<div class="" style="position: absolute; top: 436px; left: 200px; width: 70px;">304</div>
+
+	<div class="" style="position: absolute; top: 436px; left: 290px; width: 70px">30</div>
+
+	<div class="" style="position: absolute; top: 436px; left: 387px; width: 75px;">รัชดาภิเษก</div>
+
+	<div class="" style="position: absolute; top: 436px; left: 525px; width: 75px;">ดินแดง</div>
+
+	<div class="font-scal" style="position: absolute; top: 436px; left: 659px; width: 75px;">ดินแดง</div>
+
+	<div class="font-scal" style="position: absolute; top: 461x; left: 95px; width: 90px;">พระนครศรีอยุธยา</div>
+
 ';
 
 $_startPathVendor = __DIR__;

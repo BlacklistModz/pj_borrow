@@ -1,4 +1,5 @@
 <?php
+// $pathCSS = "pdf.css";
 $settings = array_merge(array(
 	'title' => '',
 	'format' => 'A4', // A4, A4-L
