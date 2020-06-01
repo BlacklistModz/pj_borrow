@@ -1,4 +1,5 @@
 <?php
+$menu[] = ["label"=>"จัดการใบสมัครสินเชื่อ", "key"=>"borrows", "url"=>URL."admin/borrows", 'icon'=>'fas fa-file-invoice-dollar'];
 $menu[] = ["label"=>"จัดการข้อมูลลูกค้า", "key"=>"customers", "url"=>URL."admin/customers", 'icon'=>'fa fa-users'];
 $menu[] = ["label"=>"จัดการข้อมูลผู้ใช้งาน", "key"=>"users", "url"=>URL."admin/users", 'icon'=>'fa fa-user'];
 
