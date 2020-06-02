@@ -25,48 +25,80 @@
     <script src="<?=JS?>sweetalert2.js"></script>
     <script src="<?=JS?>main.js"></script>
     <script>
-    /* $(document).ready(function() {
-        $("#registration").validate({
-            // Specify validation rules
-            rules: {
-                firstname: "required",
-                lastname: "required",
-                email: {
-                    required: true,
-                    email: true
-                },
-                phone: {
-                    required: true,
-                    digits: true,
-                    minlength: 10,
-                    maxlength: 10,
-                },
-                password: {
-                    required: true,
-                    minlength: 5,
-                }
-            },
-            messages: {
-                firstname: {
-                    required: "Please enter first name",
-                },
-                lastname: {
-                    required: "Please enter last name",
-                },
-                phone: {
-                    required: "Please enter phone number",
-                    digits: "Please enter valid phone number",
-                    minlength: "Phone number field accept only 10 digits",
-                    maxlength: "Phone number field accept only 10 digits",
-                },
-                email: {
-                    required: "Please enter email address",
-                    email: "Please enter a valid email address.",
-                },
-            },
+/*    (function (global, factory) {
+ typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports) :
+     typeof define === 'function' && define.amd ? define(['exports'], factory) :
+     (global = global || self, factory(global.th = {}));
+ }(this, function(exports) {
+ 'use strict';
 
-        });
-    }); */
+ var fp = typeof window !== "undefined" && window.flatpickr !== undefined ?
+     window.flatpickr :
+     {
+         l10ns: {}
+     };
+ var Thai = {
+     weekdays: {
+         shorthand: ["อา", "จ", "อ", "พ", "พฤ", "ศ", "ส"],
+         longhand: [
+             "อาทิตย์",
+             "จันทร์",
+             "อังคาร",
+             "พุธ",
+             "พฤหัสบดี",
+             "ศุกร์",
+             "เสาร์",
+         ]
+     },
+     months: {
+         shorthand: [
+             "ม.ค.",
+             "ก.พ.",
+             "มี.ค.",
+             "เม.ย.",
+             "พ.ค.",
+             "มิ.ย.",
+             "ก.ค.",
+             "ส.ค.",
+             "ก.ย.",
+             "ต.ค.",
+             "พ.ย.",
+             "ธ.ค.",
+         ],
+         longhand: [
+             "มกราคม",
+             "กุมภาพันธ์",
+             "มีนาคม",
+             "เมษายน",
+             "พฤษภาคม",
+             "มิถุนายน",
+             "กรกฎาคม",
+             "สิงหาคม",
+             "กันยายน",
+             "ตุลาคม",
+             "พฤศจิกายน",
+             "ธันวาคม",
+         ]
+     },
+     firstDayOfWeek: 1,
+     rangeSeparator: " ถึง ",
+     scrollTitle: "เลื่อนเพื่อเพิ่มหรือลด",
+     toggleTitle: "คลิกเพื่อเปลี่ยน",
+     time_24hr: true,
+     ordinal: function() {
+         return "";
+     }
+ };
+ fp.l10ns.th = Thai;
+ var th = fp.l10ns;
+
+ exports.Thai = Thai;
+ exports.default = th;
+
+ Object.defineProperty(exports, '__esModule', { value: true });
+
+ })); */
+
     </script>
 </body>
 

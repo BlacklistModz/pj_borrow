@@ -924,4 +924,7 @@ include("layouts/foot.php");
 			$(".married_txt_err").hide();
 		}
 	});
+// 	    flatpickr(document.getElementById("birthday"), {
+//     "locale": "th"
+// });
 </script>
