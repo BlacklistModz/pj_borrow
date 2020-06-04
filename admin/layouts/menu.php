@@ -43,8 +43,8 @@
                     }
                     else{
                          ?>
-                         <li class="nav-item has-treeview">
-                              <a href="#" class="nav-link">
+                         <li class="nav-item has-treeview <?= $value['key'] == $_GET['page'] ? "menu-open" : "" ?>">
+                              <a href="#" class="nav-link <?= $value['key'] == $_GET['page'] ? "active" : "" ?>">
                                    <i class="nav-icon <?=$value["icon"]?>"></i>
                                    <p>
                                         <?=$value["label"]?>
@@ -56,7 +56,7 @@
                                    foreach ($value["sub"] as $sub) {
                                         ?>
                                         <li class="nav-item">
-                                             <a href="<?=$sub['url']?>?page=<?=$value["key"]?>&sub=<?=$sub["key"]?>" class="nav-link">
+                                             <a href="<?=$sub['url']?>?page=<?=$value["key"]?>&sub=<?=$sub["key"]?>" class="nav-link  <?= $sub['key'] == $_GET['sub'] ? "active" : "" ?>">
                                                   <i class="<?=$sub['icon']?> nav-icon"></i>
                                                   <p><?=$sub['label']?></p>
                                              </a>
