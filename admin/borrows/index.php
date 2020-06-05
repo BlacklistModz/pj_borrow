@@ -37,8 +37,8 @@ $query = $sql->select();
 								<th width="10%">Campaign Code</th>
 								<th width="10%">เลขที่สัญญา</th>
 								<th width="10%">รหัสลูกค้า</th>
-								<th width="35%">ชื่อ-นามสกุล</th>
-								<th width="10%">สถานะ</th>
+								<th width="30%">ชื่อ-นามสกุล</th>
+								<th width="15%">สถานะ</th>
 								<th width="5%">PDF</th>
 								<th width="15%">จัดการ</th>
 							</tr>
