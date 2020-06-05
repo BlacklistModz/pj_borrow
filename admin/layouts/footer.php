@@ -1,5 +1,5 @@
   <footer class="main-footer">
-    <strong>Copyright &copy; 2020 <a href="">By Who am i</a></strong>
+    <strong>Copyright &copy; 2020 <a href="">AdminLTE 3.0.2 (Modify By xBLACKLISTz [ToN])</a></strong>
     All rights reserved.
     <div class="float-right d-none d-sm-inline-block">
       <b>Version</b> 1.0
@@ -29,8 +29,7 @@
 <script src="<?=JS?>sweetalert2.js"></script>
 <!-- MAIN -->
 <script src="<?=JS?>main.js"></script>
-<!-- DataTables -->
-<script src="<?=PLUGINS?>datatables/jquery.dataTables.js"></script>
+<!-- DataTables --><script src="<?=PLUGINS?>datatables/jquery.dataTables.js"></script>
 <script src="<?=PLUGINS?>datatables-bs4/js/dataTables.bootstrap4.js"></script>
 <script>
   $(document).ready(function() {

@@ -14,7 +14,7 @@
 				<img src="<?=IMAGES?>/avatar.png" class="img-circle elevation-2" alt="User Image">
 			</div>
                <!-- style="padding: 0px 5px 0px 10px;" -->
-			<div class="info" >
+			<div class="info">
 				<a href="" class="d-block"><?=$auth["name"]?></a>
                     <!-- <small class="text-white">Username : <?=$auth["username"]?></small> -->
 			</div>
