@@ -33,14 +33,14 @@ $year = date("Y", strtotime($result["date"]));
 // USE $html for content page //
 $html = '
 	<!-- DATE -->
-	<div style="position: absolute; top: 118px; left: 586px; width: 50px;"> '.$date[0].' </div>
-	<div style="position: absolute; top: 118px; left: 604px; width: 50px;"> '.$date[1].' </div>
-	<div style="position: absolute; top: 118px; left: 631px; width: 50px;"> '.$month[0].' </div>
-	<div style="position: absolute; top: 118px; left: 649px; width: 50px;"> '.$month[1].' </div>
-	<div style="position: absolute; top: 118px; left: 674px; width: 50px;"> '.$year[0].' </div>
-	<div style="position: absolute; top: 118px; left: 692px; width: 50px;"> '.$year[1].' </div>
-	<div style="position: absolute; top: 118px; left: 710px; width: 50px;"> '.$year[2].' </div>
-	<div style="position: absolute; top: 118px; left: 728px; width: 50px;"> '.$year[3].' </div>
+	<div style="position: absolute; top: 119px; left: 586px; width: 50px;"> '.$date[0].' </div>
+	<div style="position: absolute; top: 119px; left: 604px; width: 50px;"> '.$date[1].' </div>
+	<div style="position: absolute; top: 119px; left: 631px; width: 50px;"> '.$month[0].' </div>
+	<div style="position: absolute; top: 119px; left: 649px; width: 50px;"> '.$month[1].' </div>
+	<div style="position: absolute; top: 119px; left: 674px; width: 50px;"> '.$year[0].' </div>
+	<div style="position: absolute; top: 119px; left: 692px; width: 50px;"> '.$year[1].' </div>
+	<div style="position: absolute; top: 119px; left: 710px; width: 50px;"> '.$year[2].' </div>
+	<div style="position: absolute; top: 119px; left: 728px; width: 50px;"> '.$year[3].' </div>
 
 	<!-- <div class="pdf_idcard"></div> -->
 ';
