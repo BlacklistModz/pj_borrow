@@ -2,6 +2,15 @@
 include("../../config.php"); // use for varible;
 include("../../app/SQLiManager.php");
 
+$ops = [
+	"title" => "Sabaijai_Loan",
+	"file" => "../../public/file_mpdf/Sabaijai_loan.pdf",
+	"file_template" => true,
+	"css" => [
+		URL."pdf.css"
+	]
+];
+
 if( empty($_GET["id"]) ){
 	header('location:'.URL.'admin/borrows/?page=borrows');
 }
@@ -32,13 +41,12 @@ $html = '
 	<div style="position: absolute; top: 118px; left: 692px; width: 50px;"> '.$year[1].' </div>
 	<div style="position: absolute; top: 118px; left: 710px; width: 50px;"> '.$year[2].' </div>
 	<div style="position: absolute; top: 118px; left: 728px; width: 50px;"> '.$year[3].' </div>
+
+	<!-- <div class="pdf_idcard"></div> -->
 ';
 
 
-$ops = [
-	"title" => "Sabaijai_Loan",
-	"file" => "../../public/file_mpdf/Sabaijai_loan.pdf",
-	"file_template" => true
-];
+
 $_startPathVendor = "../../";
 include "../../mpdf/display.php";
+?>
