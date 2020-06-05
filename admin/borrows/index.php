@@ -34,8 +34,8 @@ $query = $sql->select();
 							<tr>
 								<th width="5%">#</th>
 								<th width="10%">วันที่</th>
-								<th width="10%">Campaign Code</th>
-								<th width="10%">เลขที่สัญญา</th>
+								<th width="10%">C-Code</th>
+								<th width="10%">เลขที่</th>
 								<th width="10%">รหัสลูกค้า</th>
 								<th width="30%">ชื่อ-นามสกุล</th>
 								<th width="15%">สถานะ</th>
