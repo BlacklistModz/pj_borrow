@@ -36,8 +36,11 @@ elseif ($prefix = 2) { $pre = "นาง";}
 elseif ($prefix = 3) { $pre = "นางสาว";}
 
 $y_o = substr($result["birthday"],0,-6) +543;
+$m_o = substr($result["birthday"],5,-3);
+$m_ol = date("m");
 $y_ol = date("Y")+543;
 $y_old = $y_ol - $y_o;
+$m_old = $m_ol - $m_o;
 
 
 // USE $html for content page //
@@ -57,6 +60,7 @@ $html = '
 	<div class="pdf_birth b-2">'.substr($result["birthday"],5,-3).'</div>
 	<div class="pdf_birth b-3">'.$y_o.'</div>
 	<div class="pdf_yold y-1">'.$y_old.'</div>
+	<div class="pdf_yold y-2">'.$m_old.'</div>
 ';
 
 
