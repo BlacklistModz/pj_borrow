@@ -150,3 +150,43 @@ function getStatus($status){
 	}
 	return $data;
 }
+
+// Time
+function getAge($birthday)
+{
+	$birthday = strtotime($birthday); // set time to seconds
+	$time = date("Y-m-d"); //set date now
+
+	if ( ! is_numeric($birthday)){
+		$birthday = 1;
+	}
+ 
+	if ( ! is_numeric($time)){
+		$time = time();
+	}
+ 
+	if ($time <= $birthday){
+		$birthday = 1;
+	}
+	else{
+		$birthday = $time - $birthday;
+	}
+
+	$data = [];
+	$years = floor($birthday / 31536000);
+ 
+	if ($years > 0){	
+		$data["year"] = $years;
+	}	
+ 
+	$birthday -= $years * 31536000;
+	$months = floor($birthday / 2628000);
+ 
+	if ($years > 0 OR $months > 0){
+		if ($months > 0){	
+			$data["month"] = $months;
+		}
+	}
+ 
+	return $data;
+}

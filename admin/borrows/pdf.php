@@ -1,6 +1,7 @@
 <?php 
 include("../../config.php"); // use for varible;
 include("../../app/SQLiManager.php");
+include("../../app/fn.php"); // use function on this page
 
 $ops = [
 	"title" => "Sabaijai_Loan",
@@ -30,18 +31,7 @@ $date = date("d", strtotime($result["date"]));
 $month = date("m", strtotime($result["date"]));
 $year = date("Y", strtotime($result["date"]));
 
-$prefix = $result["prefix_name"];
-if ($prefix = 1) { $pre = "นาย";}
-elseif ($prefix = 2) { $pre = "นาง";}
-elseif ($prefix = 3) { $pre = "นางสาว";}
-
-$y_o = substr($result["birthday"],0,-6) +543;
-$m_o = substr($result["birthday"],5,-3);
-$m_ol = date("m");
-$y_ol = date("Y")+543;
-$y_old = $y_ol - $y_o;
-$m_old = $m_ol - $m_o;
-
+$age = getAge($result["birthday"]);
 
 // USE $html for content page //
 $html = '
@@ -55,12 +45,12 @@ $html = '
 	<div style="position: absolute; top: 119px; left: 710px; width: 50px;"> '.$year[2].' </div>
 	<div style="position: absolute; top: 119px; left: 728px; width: 50px;"> '.$year[3].' </div>
 
-	<div class="pdf_name"> '.$pre.''.$result["first_name"].' &nbsp; '.$result["last_name"].' </div>
-	<div class="pdf_birth b-1">'.substr($result["birthday"],8).'</div>
-	<div class="pdf_birth b-2">'.substr($result["birthday"],5,-3).'</div>
-	<div class="pdf_birth b-3">'.$y_o.'</div>
-	<div class="pdf_yold y-1">'.$y_old.'</div>
-	<div class="pdf_yold y-2">'.$m_old.'</div>
+	<div class="pdf_name"> '.showPrefixName($result["prefix_name"]).''.$result["first_name"].' &nbsp; '.$result["last_name"].' </div>
+	<div class="pdf_birth b-1">'.date("d", strtotime($result["birthday"])).'</div>
+	<div class="pdf_birth b-2">'.date("m", strtotime($result["birthday"])).'</div>
+	<div class="pdf_birth b-3">'.(date("Y", strtotime($result["birthday"]))+543).'</div>
+	<div class="pdf_yold y-1">'.$age["year"].'</div>
+	<div class="pdf_yold y-2">'.$age["month"].'</div>
 ';
 
 
