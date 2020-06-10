@@ -28,7 +28,7 @@ function checkEngThai($text){
 	}
 }
 function checkThai($text){
-	if( !preg_match("/^[ก-๙\s]+$/",$text) ){
+	if( !preg_match("/^[กขฃคฅฆงจฉชซฌญฎฏฐฑฒณดตถทธนบปผฝพฟภมยรฤลฦวศษสหฬอฮฯะัาำิีึืฺุูเแโใไๅๆ็่้๊๋์]+$/", $text) ){
 		return false;
 	}
 	else{

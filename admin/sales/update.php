@@ -1,0 +1,75 @@
+<?php
+include("../../config.php");
+include("../../app/SQLiManager.php");
+include("../../app/fn.php");
+
+$sql = new SQLiManager();
+
+/* OLD DATA FOR CHECK */
+$sql->table = "saleagents";
+$sql->condition = "WHERE id={$_POST["id"]}";
+$query = $sql->select();
+if( mysqli_num_rows($query) <= 0 ){
+	$arr = [
+		"title" => "เกิดข้อผิดพลาด",
+		"text" => "ไม่สามารถเข้าถึงข้อมูลที่ต้องการแก้ไข หรือไม่พบข้อมูล",
+		"type" => "error",
+		"url" => URL."admin/sales/?page=admins&sub=users"
+	];
+	echo json_encode($arr);
+	exit;
+}
+$old = mysqli_fetch_assoc($query);
+/* END OLD DATA */
+
+foreach ($_POST as $key => $value) {
+	if( $key == "code" ) continue;
+	if( empty($value) ) $arr["error"][$key] = "กรุณากรอกข้อมูลให้ครบถ้วน";
+}
+
+//Check
+if( !empty($_POST["first_name"]) ){
+	if( !checkThai($_POST["first_name"]) ) $arr["error"]["first_name"] = "กรุณากรอกชื่อเป็นภาษาไทยเท่านั้น";
+}
+if( !empty($_POST["last_name"]) ){
+	if( !checkThai($_POST["last_name"]) ) $arr["error"]["last_name"] = "กรุณากรอกนามสกุลเป็นภาษาไทยเท่านั้น";
+}
+
+/* END CHECK ZONE */
+if( empty($arr["error"]) ){
+	$value = '';
+	foreach ($_POST as $key => $val) {
+		if( $key == "id" ) continue;
+
+		$value .= !empty($value) ? "," : "";
+		$value .= "{$key}='{$val}'";
+	}
+
+	$sql->table = "saleagents";
+	$sql->value = $value;
+	$sql->condition = "WHERE id={$_POST["id"]}";
+	if( $sql->update() ){
+
+		if( empty($_POST["code"]) ){
+			$code = "SAB".sprintf("%04d", $_POST["id"]);
+			$sql->value = "code='{$code}'";
+			$sql->condition = "WHERE id={$_POST["id"]}";
+			$sql->update();
+		}
+
+		$arr = [
+			"type" => "success",
+			"title" => "บันทึกข้อมูลเรียบร้อยแล้ว",
+			"url" => URL.'admin/sales/?page=admins&sub=users',
+			"status" => 200
+		];
+	}
+	else{
+		$arr = [
+			"type" => "error",
+			"title" => "ไม่สามารถบันทึกข้อมูลได้",
+			"status" => 404
+		];
+	}
+}
+echo json_encode($arr);

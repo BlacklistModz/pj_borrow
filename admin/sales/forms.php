@@ -8,22 +8,22 @@ include($_pathURL."admin/layouts/navbar.php");
 //MENU
 include($_pathURL."admin/layouts/menu.php");
 
-$_title = "เพิ่มข้อมูลลูกค้า";
-$_action = URL."admin/customers/save.php?page={$_GET["page"]}";
+$_title = "เพิ่มข้อมูล";
+$_action = URL."admin/sales/save.php?page={$_GET["page"]}";
 //EDIT DATA
 if( !empty($_GET["id"]) ){
-	$sql->table = "customers";
+	$sql->table = "saleagents";
 	$sql->condition = "WHERE id={$_GET["id"]} LIMIT 1";
 	$query = $sql->select();
 	if( mysqli_num_rows($query) <= 0 ){
-		header('location:'.URL.'admin/customers/?page='.$_GET['page']);
+		header('location:'.URL.'admin/sales/?page='.$_GET['page']);
 		exit;
 	}
 	$result = mysqli_fetch_assoc($query);
 
 	//SET FORM
-	$_title = "แก้ไขข้อมูลผู้ใช้งาน";
-	$_action = URL."admin/customers/update.php?page={$_GET["page"]}";
+	$_title = "แก้ไขข้อมูล";
+	$_action = URL."admin/sales/update.php?page={$_GET["page"]}";
 }
 ?>
 <!-- Content -->
@@ -45,8 +45,8 @@ if( !empty($_GET["id"]) ){
 				<form class="form-submit" action="<?=$_action?>" method="POST">
 					<div class="card-body">
 						<div class="form-group">
-							<label for="code">รหัสลูกค้า</label>
-							<input type="text" class="form-control" id="code" name="code" placeholder="รหัสลูกค้า" value="<?= !empty($result["code"]) ? $result["code"] : "" ?>">
+							<label for="code">รหัส</label>
+							<input type="text" class="form-control" id="code" name="code" placeholder="รหัส (หากไม่กรอก ระบบจะดำเนินการให้อัตโนมัติ)" value="<?= !empty($result["code"]) ? $result["code"] : "" ?>">
 							<div class="invalid-feedback"></div>
 						</div>
 						<div class="form-row">
@@ -77,38 +77,13 @@ if( !empty($_GET["id"]) ){
 								<div class="invalid-feedback"></div>
 							</div>
 						</div>
-						<div class="form-group">
-							<label for="idcard">รหัสประจำตัวประชาชน</label>
-							<input type="text" class="form-control" id="idcard" name="idcard" placeholder="รหัสประจำตัวประชาชน" value="<?= !empty($result["idcard"]) ? $result["idcard"] : "" ?>" maxlength="13">
-							<div class="invalid-feedback"></div>
-						</div>
-						<div class="form-group">
-							<label for="birthday">วันเดือนปีเกิด (พ.ศ.) <span class="text-red">* ระบบจะแสดงผลในช่องกรอกเป็น ค.ศ.</span></label>
-							<input type="text" id="birthday" name="birthday" class="form-control DatePicker" value="<?= !empty($result["birthday"]) ? date("d/m/Y", strtotime($result["birthday"])) : "" ?>" readonly style="background-color:#fff;" placeholder="กรุณาเลือก วันเดือนปีเกิด">
-						</div>
-						<div class="form-group">
-							<label for="sex">เพศ</label>
-							<select name="sex" id="sex" class="form-control">
-								<option value="">- เลือกเพศ -</option>
-								<?php 
-								foreach (sex() as $key => $value) {
-									$sel = '';
-										if( !empty($result["sex"]) ){
-											if( $result["sex"] == $value["id"] ) $sel = 'selected="1"';
-										}
-									echo '<option value="'.$value["id"].'" '.$sel.'>'.$value["name"].'</option>';
-								}
-								?>
-							</select>
-							<div class="invalid-feedback"></div>
-						</div>
 						<?php 
 						if( !empty($result["id"]) ) echo '<input type="hidden" name="id" value="'.$result["id"].'">';
 						?>
 					</div>
 					<div class="card-footer">
 						<div class="clearfix">
-							<a href="<?=URL?>admin/customers/?page=<?=$_GET["page"]?>" class="btn btn-danger float-left">
+							<a href="<?=URL?>admin/sales/?page=<?=$_GET["page"]?>" class="btn btn-danger float-left">
 								<i class="fa fa-arrow-left"></i> กลับหน้าหลัก
 							</a>
 							<button type="submit" class="btn btn-primary btn-submit float-right">
