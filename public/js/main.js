@@ -8,6 +8,9 @@ if ( typeof Object.create !== 'function' ) {
 }
 
 (function( $ ) {
+
+	var URL = window.location.origin + '/pj_borrow/';
+
 	$.fn.sweetalert = function( result ){
 		if( result.alert === false ){
 			return false;
@@ -206,6 +209,32 @@ if ( typeof Object.create !== 'function' ) {
     	});
     };
 
+    $.fn.getAmphur = function( province ){
+    	var select = $('form.form-submit').find('.js-amphur');
+    	$.get( URL + "api/amphur.php", {province: province}, function(res) {
+    		select.empty();
+    		select.append( $('<option>') );
+    		$.each(res, function(i, obj){
+    			select.append(
+    				$('<option>', {value:obj.id, text:obj.name})
+    			);
+    		});
+    	},'json');
+    };
+
+    $.fn.getDistrict = function( amphur ){
+    	var select = $('form.form-submit').find('.js-district');
+    	$.get( URL + "api/district.php", {amphur: amphur}, function(res) {
+    		select.empty();
+    		select.append( $('<option>') );
+    		$.each(res, function(i, obj){
+    			select.append(
+    				$('<option>', {value:obj.id, text:obj.name})
+    			);
+    		});
+    	},'json');
+    };
+
 })( jQuery );
 
 //Event//
@@ -233,4 +262,12 @@ $(".js-img").change(function(){
 
 $(".js-select").change(function(){
 	$.fn.onUpdate( $(this) );
+});
+
+$(".js-province").change(function(){
+	$.fn.getAmphur( $(this).val() );
+});
+
+$(".js-amphur").change(function(){
+	$.fn.getDistrict( $(this).val() );
 });

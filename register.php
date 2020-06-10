@@ -260,9 +260,39 @@ $sql = new SQLiManager();
 					</div> -->
 
 					<div class="col-md-3">
-						<div class="form-group form-group--float">
-							<input type="text" name="address_district" class="form-control">
+						<div class="form-group" style="padding-top: 8px;">
+							<label>จังหวัด</label>
+							<select class="select2 select2-hidden-accessible js-province" name="address_province" data-placeholder="กรุณาเลือกจังหวัด" tabindex="-1" aria-hidden="true">
+								<option></option>
+								<?php 
+								$sql->table = "province";
+								$query = $sql->select();
+								while($province = mysqli_fetch_assoc($query)){
+									echo '<option value="'.$province["PROVINCE_ID"].'">'.$province["PROVINCE_NAME"].'</option>';
+								}
+								?>
+							</select>
+							<div class="invalid-feedback"></div>
+						</div>
+					</div>
+
+					<div class="col-md-3">
+						<div class="form-group" style="padding-top: 8px;">
+							<label>เขต / อำเภอ</label>
+							<select class="select2 select2-hidden-accessible js-amphur" name="address_amphur" data-placeholder="กรุณาเลือกเขต/อำเภอ" tabindex="-1" aria-hidden="true">
+								<option></option>
+							</select>
+							<div class="invalid-feedback"></div>
+							<i class="form-group__bar"></i>
+						</div>
+					</div>
+
+					<div class="col-md-3">
+						<div class="form-group" style="padding-top: 8px;">
 							<label>แขวง / ตำบล</label>
+							<select class="select2 select2-hidden-accessible js-district" name="address_district" data-placeholder="กรุณาเลือกแขวง / ตำบล" tabindex="-1" aria-hidden="true">
+								<option></option>
+							</select>
 							<div class="invalid-feedback"></div>
 							<i class="form-group__bar"></i>
 						</div>
@@ -285,31 +315,6 @@ $sql = new SQLiManager();
 						</div>
 					</div> -->
 
-					<div class="col-md-3">
-						<div class="form-group form-group--float">
-							<input type="text" name="address_amphur" class="form-control">
-							<label>เขต / อำเภอ</label>
-							<div class="invalid-feedback"></div>
-							<i class="form-group__bar"></i>
-						</div>
-					</div>
-
-					<div class="col-md-3">
-						<div class="form-group" style="padding-top: 8px;">
-							<label>จังหวัด</label>
-							<select class="select2 select2-hidden-accessible" name="address_province" data-placeholder="กรุณาเลือกจังหวัด" tabindex="-1" aria-hidden="true">
-								<option></option>
-								<?php 
-								$sql->table = "province";
-								$query = $sql->select();
-								while($province = mysqli_fetch_assoc($query)){
-									echo '<option value="'.$province["PROVINCE_ID"].'">'.$province["PROVINCE_NAME"].'</option>';
-								}
-								?>
-							</select>
-							<div class="invalid-feedback"></div>
-						</div>
-					</div>
 					<div class="col-md-3">
 						<div class="form-group form-group--float">
 							<input type="text" name="address_zipcode" class="form-control">
