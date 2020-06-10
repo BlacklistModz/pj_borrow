@@ -35,9 +35,10 @@ $query = $sql->select();
 							<tr>
 								<th width="5%">#</th>
 								<th width="15%">ชื่อผู้ใช้</th>
-								<th width="45%">ชื่อ-นามสกุล</th>
-								<th width="20%">ปรับปรุงเมื่อ</th>
-								<th width="20%">จัดการ</th>
+								<th width="40%">ชื่อ-นามสกุล</th>
+								<th width="15%">บทบาท</th>
+								<th width="15%">ปรับปรุงเมื่อ</th>
+								<th width="15%">จัดการ</th>
 							</tr>
 						</thead>
 						<tbody>
@@ -49,6 +50,7 @@ $query = $sql->select();
 									<td class="text-center"><?=$no++?></td>
 									<td class="text-center"><?=$result["username"]?></td>
 									<td><?=$result["name"]?></td>
+									<td class="text-center"><?=getRole($result["role"])?></td>
 									<td class="text-center">
 										<?php 
 										if( !empty($result["updated_at"]) ){

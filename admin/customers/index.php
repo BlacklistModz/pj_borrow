@@ -34,14 +34,14 @@ $query = $sql->select();
 						<thead class="table-dark text-center">
 							<tr>
 								<th width="5%">#</th>
-								<th width="7%">รหัสลูกค้า</th>
+								<th width="12%">รหัสลูกค้า</th>
 								<th width="15%">ชื่อ-นามสกุล</th>
 								<th width="10%">บัตรประชาชน</th>
 								<th width="5%">เพศ</th>
 								<th width="18%">อาชีพ</th>
 								<th width="10%">รายได้</th>
 								<th width="15%">ปรับปรุงเมื่อ</th>
-								<th width="15%">จัดการ</th>
+								<th width="10%">จัดการ</th>
 							</tr>
 						</thead>
 						<tbody>

@@ -65,6 +65,18 @@ if( !empty($_GET["id"]) ){
 								<input type="password" class="form-control" id="password2" name="password2" placeholder="Confirm Password">
 								<div class="invalid-feedback"></div>
 							</div>
+							<div class="form-group">
+								<label for="role">บทบาท</label>
+								<select id="role" name="role" class="form-control">
+									<option value="">- เลือกบทบาท -</option>
+									<?php 
+									foreach (role() as $key => $value) {
+										echo '<option value="'.$value["id"].'">'.$value["name"].'</option>';
+									}
+									?>
+								</select>
+								<div class="invalid-feedback"></div>
+							</div>
 						<?php }else{
 							echo '<input type="hidden" name="id" value="'.$result["id"].'">';
 							echo '<div class="clearfix">

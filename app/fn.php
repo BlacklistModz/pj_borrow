@@ -190,3 +190,22 @@ function getAge($birthday)
  
 	return $data;
 }
+
+function role(){
+	$a = [];
+	$a[] = ["id"=>"admin", "name"=>"ผู้ดูแลระบบ"];
+	$a[] = ["id"=>"manager", "name"=>"ผู้จัดการ"];
+	$a[] = ["id"=>"staff", "name"=>"พนักงาน"];
+	return $a;
+}
+function getRole($role){
+	$data = "";
+	foreach (role() as $key => $value) {
+		if( $role == $value["id"] ){
+			$data = $value["name"];
+			break;
+		}
+	}
+	return $data;
+
+}
