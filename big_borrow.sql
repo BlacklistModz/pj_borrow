@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: 24 พ.ค. 2020 เมื่อ 03:50 PM
+-- Generation Time: 11 มิ.ย. 2020 เมื่อ 02:03 PM
 -- เวอร์ชันของเซิร์ฟเวอร์: 10.4.11-MariaDB
 -- PHP Version: 7.3.13
 
@@ -1135,9 +1135,9 @@ CREATE TABLE `borrows` (
 --
 
 INSERT INTO `borrows` (`id`, `customer_id`, `staff_id`, `verify_id`, `date`, `campaign_code`, `borrow_code`, `education`, `family_status`, `spouse_prefix`, `spouse_firstname`, `spouse_lastname`, `spouse_mobile`, `spouse_career`, `spouse_children`, `spouse_income`, `address_number`, `address_room`, `address_soi`, `address_street`, `address_district`, `address_amphur`, `address_province`, `address_zipcode`, `address_phone`, `mobile`, `email`, `address_feature`, `address_status`, `address_hire`, `address_month`, `address_year`, `address_person`, `work_company`, `work_status`, `work_position`, `work_department`, `work_income`, `work_income_etc`, `work_income_source`, `work_addr_number`, `work_addr_build`, `work_addr_floor`, `work_addr_code`, `work_addr_soi`, `work_addr_street`, `work_addr_district`, `work_addr_amphur`, `work_addr_province`, `work_addr_zipcode`, `work_addr_phone`, `work_addr_mobile`, `work_addr_fax`, `work_old_year`, `work_old_month`, `doc_address`, `doc_addr_number`, `doc_addr_room`, `doc_addr_soi`, `doc_addr_street`, `doc_addr_district`, `doc_addr_amphur`, `doc_addr_province`, `doc_addr_zipcode`, `objective_company`, `objective_program`, `objective_price`, `objective_duration`, `person_prefix`, `person_firstname`, `person_lastname`, `person_phone`, `person_relationship`, `person_prefix2`, `person_firstname2`, `person_lastname2`, `person_phone2`, `person_relationship2`, `img_idcard`, `status`, `created_at`, `updated_at`) VALUES
-(1, 1, 0, 0, '2020-05-23', '', '', 1, 1, '1', '', '', '', '', 0, 0.00, '414', '-', '3', 'เกาะคา-ห้างฉัตร', 'ท่าผา', 'เกาะคา', 40, 52130, '-', '0647419323', 'test@test.com', 1, 1, 0.00, 11, 10, 3, 'มหาวิทยาลัยราชภัฏลำปาง', 'การศึกษา', 'นักวิชาการการศึกษา (สายสนับสนุน)', 'งานสหกิจศึกษา', 15000.00, 0.00, 'งานเดือน', '119', 'โอฬารโรจน์หิรัญ', 4, '3843', '-', 'ลำปาง-แม่ทะ', 'ชมพู', 'เมืองลำปาง', 40, 52100, '054237399', '1167', '-', 0, 2, 1, '', '', '', '', '', '', 0, 0, 'ไม่รู้', 'ไม่รู้', 3000000.00, 0, '3', 'จักรกฤษ', 'แปงเมือง', '0992723554', 'ไม่รู้', '2', 'จักรกฤษ', 'แปงเมือง', '0992723554', 'ไม่บอก', '', 0, '2020-05-23 09:47:57', '2020-05-23 10:02:22'),
-(2, 2, 0, 0, '2020-05-23', '', '', 4, 1, '1', '', '', '', '', 0, 0.00, '414', '-', '3', 'ทดสอบ', 'ทดสอบ', 'ทดสอบ', 40, 52130, '-', '0647419323', 'test@test.com', 1, 1, 0.00, 11, 10, 3, 'ทดสอบ', 'ทดสอบ', 'ทดสอบ', 'ทดสอบ', 15000.00, 0.00, 'ทดสอบ', '119', 'ทดสอบ', 4, '1234', 'ทดสอบ', 'ทดสอบ', 'ทดสอบ', 'ทดสอบ', 40, 52100, '0123456789', '1234', '0123456789', 0, 1, 1, '', '', '', '', '', '', 0, 0, 'ทดสอบ', 'ทดสอบ', 15000.00, 0, '1', 'ทดสอบ', 'ทดสอบ', '088', 'ทดสอบ', '1', 'ทดสอบ', 'ทดสอบ', '088', 'ทดสอบ', '', 0, '2020-05-23 10:01:29', NULL),
-(3, 3, 0, 0, '2020-05-24', '', '', 4, 1, '1', '', '', '', '', 0, 0.00, '414', '-', '3', 'ทดสอบ', 'ทดสอบ', 'ทดสอบ', 40, 52130, '-', '0647419323', 'test@test.com', 1, 1, 0.00, 3, 15, 3, 'ทดสอบ', 'ทดสอบ', 'ทดสอบ', 'ทดสอบ', 15000.00, 0.00, 'ทดสอบ', '1', '1', 1, '1', '1', '1', '1', '1', 1, 10100, '02020202', '0202', '02020202', 2, 2, 1, '', '', '', '', '', '', 0, 0, 'ทดสอบ', 'ทดสอบ', 150000.00, 0, '3', 'ทดสอบ', 'ทดสอบ', '123', 'ทดสอบ', '2', 'ืทดสอบ', 'ทดสอบ', '123', 'ทดสอบ', 'ID_2020-05-24_7cd86ecb09aa48c6e620b340f6a74592.jpg', 0, '2020-05-24 06:27:30', '2020-05-24 06:27:30'),
+(1, 1, 0, 0, '2020-05-23', '', '', 1, 1, '1', '', '', '', '', 0, 0.00, '414', '-', '3', 'เกาะคา-ห้างฉัตร', 'ท่าผา', 'เกาะคา', 40, 52130, '-', '0647419323', 'test@test.com', 1, 1, 0.00, 11, 10, 3, 'มหาวิทยาลัยราชภัฏลำปาง', 'การศึกษา', 'นักวิชาการการศึกษา (สายสนับสนุน)', 'งานสหกิจศึกษา', 15000.00, 0.00, 'งานเดือน', '119', 'โอฬารโรจน์หิรัญ', 4, '3843', '-', 'ลำปาง-แม่ทะ', 'ชมพู', 'เมืองลำปาง', 40, 52100, '054237399', '1167', '-', 0, 2, 1, '', '', '', '', '', '', 0, 0, 'ไม่รู้', 'ไม่รู้', 3000000.00, 0, '3', 'จักรกฤษ', 'แปงเมือง', '0992723554', 'ไม่รู้', '2', 'จักรกฤษ', 'แปงเมือง', '0992723554', 'ไม่บอก', '', 1, '2020-05-23 09:47:57', '2020-05-30 09:15:02'),
+(2, 2, 0, 0, '2020-05-23', '', '', 4, 1, '1', '', '', '', '', 0, 0.00, '414', '-', '3', 'ทดสอบ', 'ทดสอบ', 'ทดสอบ', 40, 52130, '-', '0647419323', 'test@test.com', 1, 1, 0.00, 11, 10, 3, 'ทดสอบ', 'ทดสอบ', 'ทดสอบ', 'ทดสอบ', 15000.00, 0.00, 'ทดสอบ', '119', 'ทดสอบ', 4, '1234', 'ทดสอบ', 'ทดสอบ', 'ทดสอบ', 'ทดสอบ', 40, 52100, '0123456789', '1234', '0123456789', 0, 1, 1, '', '', '', '', '', '', 0, 0, 'ทดสอบ', 'ทดสอบ', 15000.00, 0, '1', 'ทดสอบ', 'ทดสอบ', '088', 'ทดสอบ', '1', 'ทดสอบ', 'ทดสอบ', '088', 'ทดสอบ', '', 1, '2020-05-23 10:01:29', '2020-05-30 09:15:11'),
+(3, 3, 0, 0, '2020-05-24', '', '', 4, 1, '1', '', '', '', '', 0, 0.00, '414', '-', '3', 'ทดสอบ', 'ทดสอบ', 'ทดสอบ', 40, 52130, '-', '0647419323', 'test@test.com', 1, 1, 0.00, 3, 15, 3, 'ทดสอบ', 'ทดสอบ', 'ทดสอบ', 'ทดสอบ', 15000.00, 0.00, 'ทดสอบ', '1', '1', 1, '1', '1', '1', '1', '1', 1, 10100, '02020202', '0202', '02020202', 2, 2, 1, '', '', '', '', '', '', 0, 0, 'ทดสอบ', 'ทดสอบ', 150000.00, 0, '3', 'ทดสอบ', 'ทดสอบ', '123', 'ทดสอบ', '2', 'ืทดสอบ', 'ทดสอบ', '123', 'ทดสอบ', 'ID_2020-05-24_7cd86ecb09aa48c6e620b340f6a74592.jpg', 1, '2020-05-24 06:27:30', '2020-05-30 09:10:16'),
 (4, 4, 0, 0, '2020-05-24', '', '', 4, 1, '1', '', '', '', '', 0, 0.00, '414', '-', '3', 'ทดสอบ', 'ทดสอบ', 'ทดสอบ', 40, 52130, '-', '0647419323', 'test@test.com', 1, 1, 0.00, 3, 15, 3, 'ทดสอบ', 'ทดสอบ', 'ทดสอบ', 'ทดสอบ', 15000.00, 0.00, 'ทดสอบ', '1', '1', 1, '1', '1', '1', '1', '1', 1, 10100, '02020202', '0202', '02020202', 2, 2, 1, '', '', '', '', '', '', 0, 0, 'ทดสอบ', 'ทดสอบ', 150000.00, 0, '3', 'ทดสอบ', 'ทดสอบ', '123', 'ทดสอบ', '2', 'ืทดสอบ', 'ทดสอบ', '123', 'ทดสอบ', 'ID_2020-05-24_95b09698fda1f64af16708ffb859eab9.jpg', 0, '2020-05-24 06:28:46', '2020-05-24 06:28:47');
 
 -- --------------------------------------------------------
@@ -10157,6 +10157,29 @@ INSERT INTO `province` (`PROVINCE_ID`, `PROVINCE_CODE`, `PROVINCE_NAME`, `GEO_ID
 -- --------------------------------------------------------
 
 --
+-- โครงสร้างตาราง `saleagents`
+--
+
+CREATE TABLE `saleagents` (
+  `id` int(11) NOT NULL,
+  `code` varchar(15) NOT NULL,
+  `prefix_name` varchar(10) NOT NULL,
+  `first_name` varchar(64) NOT NULL,
+  `last_name` varchar(64) NOT NULL,
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
+  `updated_at` timestamp NULL DEFAULT NULL ON UPDATE current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- dump ตาราง `saleagents`
+--
+
+INSERT INTO `saleagents` (`id`, `code`, `prefix_name`, `first_name`, `last_name`, `created_at`, `updated_at`) VALUES
+(1, 'SAB0001', '1', 'จักรกฤษ', 'แปงเมือง', '2020-06-10 13:47:18', '2020-06-10 13:47:19');
+
+-- --------------------------------------------------------
+
+--
 -- โครงสร้างตาราง `system_info`
 --
 
@@ -10198,6 +10221,7 @@ CREATE TABLE `users` (
   `password` varchar(64) NOT NULL,
   `name` varchar(255) NOT NULL,
   `is_owner` int(1) NOT NULL,
+  `role` varchar(10) NOT NULL,
   `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
   `updated_at` timestamp NULL DEFAULT NULL ON UPDATE current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -10206,9 +10230,8 @@ CREATE TABLE `users` (
 -- dump ตาราง `users`
 --
 
-INSERT INTO `users` (`id`, `username`, `password`, `name`, `is_owner`, `created_at`, `updated_at`) VALUES
-(6, 'admin', '$2y$10$xdQ9RwdnqEoUJ5X6wl9yf.zR7wso/LPc8m7Yu4/gS3C6v52QNhU6C', 'ผู้ดูแลระบบ', 1, '2020-05-21 18:11:58', '2020-05-23 06:43:21'),
-(7, 'admin1', '$2y$10$nySjvHetVeZMsl4E7znYeuWxp9zPnb8R8WJgLpQvUKqy7APFk2Z7i', 'แอดมิน คนที่สอง', 0, '2020-05-23 06:43:58', NULL);
+INSERT INTO `users` (`id`, `username`, `password`, `name`, `is_owner`, `role`, `created_at`, `updated_at`) VALUES
+(1, 'admin', '$2y$10$xdQ9RwdnqEoUJ5X6wl9yf.zR7wso/LPc8m7Yu4/gS3C6v52QNhU6C', 'Super Admin', 1, 'admin', '2020-06-10 11:40:21', NULL);
 
 --
 -- Indexes for dumped tables
@@ -10246,6 +10269,12 @@ ALTER TABLE `district`
 --
 ALTER TABLE `province`
   ADD PRIMARY KEY (`PROVINCE_ID`);
+
+--
+-- Indexes for table `saleagents`
+--
+ALTER TABLE `saleagents`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `users`
@@ -10288,10 +10317,16 @@ ALTER TABLE `province`
   MODIFY `PROVINCE_ID` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=78;
 
 --
+-- AUTO_INCREMENT for table `saleagents`
+--
+ALTER TABLE `saleagents`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
