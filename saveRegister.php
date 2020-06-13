@@ -192,6 +192,8 @@ if( !empty($_POST["checkconfirm"]) && empty($arr["error"]) ){
 			#####
 
 			#BOOKBANK
+			$field = '';
+			$value = '';
 			for($i=0; $i<count($_FILES["img_bookbank"]["name"]); $i++){
 				$typeFile = strrchr($_FILES["img_bookbank"]["name"][$i],".");
 				$img_bookbank = 'ID_'.date('Y-m-d').'_'.md5(sprintf("%04d",$id)).'_'.($i+1).$typeFile;
@@ -205,6 +207,8 @@ if( !empty($_POST["checkconfirm"]) && empty($arr["error"]) ){
 			#####
 
 			#POLL
+			$field = '';
+			$value = '';
 			foreach ($_POST["poll"] as $key => $poll) {
 				$field .= !empty($field) ? "," : "";
 				$field .= $key;
