@@ -103,12 +103,9 @@ if ( typeof Object.create !== 'function' ) {
 			});
 
 			$.each( $form.find('input[type=file]'), function (index, field) {
-				var files = $(this)[0].files;
-				if( files.length>0 ){
-					$.each( $(this)[0].files, function(i, file) {
-						formData.append(field.name, file);
-					});
-				}
+				$.each( $(this)[0].files, function(i, file) {
+					formData.append(field.name, file);
+				});
 			});
 		}
 
@@ -181,111 +178,111 @@ if ( typeof Object.create !== 'function' ) {
 	};
 
 	$.fn.readURL = function(input, id) {
-        if (input.files && input.files[0]) {
-            var reader = new FileReader();
+		if (input.files && input.files[0]) {
+			var reader = new FileReader();
 
-            reader.onload = function (e) {
-                $("#"+id).attr('src', e.target.result);
-            };
+			reader.onload = function (e) {
+				$("#"+id).attr('src', e.target.result);
+			};
 
-            reader.readAsDataURL(input.files[0]);
-        }
-    };
+			reader.readAsDataURL(input.files[0]);
+		}
+	};
 
-    $.fn.onUpdate = function( select ){
-    	var id = select.data('id');
-    	var status = select.val();
-    	$.ajax({
-    		url: select.data('url'),
-    		type: 'POST',
-    		dataType : 'json',
-    		data : {id: id, status: status},
-        	success : function( res ) {
-        		$.fn.processForm( res );
-        	},
-        	error : function() {
-        		$.fn.sweetalert( {type:"error", title:"เกิดข้อผิดพลาด...", "timer":2000} );
-        	}
-    	});
-    };
+	$.fn.onUpdate = function( select ){
+		var id = select.data('id');
+		var status = select.val();
+		$.ajax({
+			url: select.data('url'),
+			type: 'POST',
+			dataType : 'json',
+			data : {id: id, status: status},
+			success : function( res ) {
+				$.fn.processForm( res );
+			},
+			error : function() {
+				$.fn.sweetalert( {type:"error", title:"เกิดข้อผิดพลาด...", "timer":2000} );
+			}
+		});
+	};
 
-    $.fn.getAmphur = function( province ){
-    	var select = $('form.form-submit').find('.js-amphur');
-    	$.get( URL + "api/amphur.php", {province: province}, function(res) {
-    		select.empty();
-    		select.append( $('<option>') );
-    		$.each(res, function(i, obj){
-    			select.append(
-    				$('<option>', {value:obj.id, text:obj.name})
-    			);
-    		});
-    	},'json');
-    };
+	$.fn.getAmphur = function( province ){
+		var select = $('form.form-submit').find('.js-amphur');
+		$.get( URL + "api/amphur.php", {province: province}, function(res) {
+			select.empty();
+			select.append( $('<option>') );
+			$.each(res, function(i, obj){
+				select.append(
+					$('<option>', {value:obj.id, text:obj.name})
+					);
+			});
+		},'json');
+	};
 
-    $.fn.getDistrict = function( amphur ){
-    	var select = $('form.form-submit').find('.js-district');
-    	$.get( URL + "api/district.php", {amphur: amphur}, function(res) {
-    		select.empty();
-    		select.append( $('<option>') );
-    		$.each(res, function(i, obj){
-    			select.append(
-    				$('<option>', {value:obj.id, text:obj.name})
-    			);
-    		});
-    	},'json');
-    };
+	$.fn.getDistrict = function( amphur ){
+		var select = $('form.form-submit').find('.js-district');
+		$.get( URL + "api/district.php", {amphur: amphur}, function(res) {
+			select.empty();
+			select.append( $('<option>') );
+			$.each(res, function(i, obj){
+				select.append(
+					$('<option>', {value:obj.id, text:obj.name})
+					);
+			});
+		},'json');
+	};
 
-    $.fn.getAmphur2 = function( province ){
-    	var select = $('form.form-submit').find('.js-wk-amphur');
-    	$.get( URL + "api/amphur.php", {province: province}, function(res) {
-    		select.empty();
-    		select.append( $('<option>') );
-    		$.each(res, function(i, obj){
-    			select.append(
-    				$('<option>', {value:obj.id, text:obj.name})
-    			);
-    		});
-    	},'json');
-    };
+	$.fn.getAmphur2 = function( province ){
+		var select = $('form.form-submit').find('.js-wk-amphur');
+		$.get( URL + "api/amphur.php", {province: province}, function(res) {
+			select.empty();
+			select.append( $('<option>') );
+			$.each(res, function(i, obj){
+				select.append(
+					$('<option>', {value:obj.id, text:obj.name})
+					);
+			});
+		},'json');
+	};
 
-    $.fn.getDistrict2 = function( amphur ){
-    	var select = $('form.form-submit').find('.js-wk-district');
-    	$.get( URL + "api/district.php", {amphur: amphur}, function(res) {
-    		select.empty();
-    		select.append( $('<option>') );
-    		$.each(res, function(i, obj){
-    			select.append(
-    				$('<option>', {value:obj.id, text:obj.name})
-    			);
-    		});
-    	},'json');
-    };
+	$.fn.getDistrict2 = function( amphur ){
+		var select = $('form.form-submit').find('.js-wk-district');
+		$.get( URL + "api/district.php", {amphur: amphur}, function(res) {
+			select.empty();
+			select.append( $('<option>') );
+			$.each(res, function(i, obj){
+				select.append(
+					$('<option>', {value:obj.id, text:obj.name})
+					);
+			});
+		},'json');
+	};
 
-    $.fn.getAmphurDoc = function( province ){
-    	var select = $('form.form-submit').find('.js-doc-amphur');
-    	$.get( URL + "api/amphur.php", {province: province}, function(res) {
-    		select.empty();
-    		select.append( $('<option>') );
-    		$.each(res, function(i, obj){
-    			select.append(
-    				$('<option>', {value:obj.id, text:obj.name})
-    			);
-    		});
-    	},'json');
-    };
+	$.fn.getAmphurDoc = function( province ){
+		var select = $('form.form-submit').find('.js-doc-amphur');
+		$.get( URL + "api/amphur.php", {province: province}, function(res) {
+			select.empty();
+			select.append( $('<option>') );
+			$.each(res, function(i, obj){
+				select.append(
+					$('<option>', {value:obj.id, text:obj.name})
+					);
+			});
+		},'json');
+	};
 
-    $.fn.getDistrictDoc = function( amphur ){
-    	var select = $('form.form-submit').find('.js-doc-district');
-    	$.get( URL + "api/district.php", {amphur: amphur}, function(res) {
-    		select.empty();
-    		select.append( $('<option>') );
-    		$.each(res, function(i, obj){
-    			select.append(
-    				$('<option>', {value:obj.id, text:obj.name})
-    			);
-    		});
-    	},'json');
-    };
+	$.fn.getDistrictDoc = function( amphur ){
+		var select = $('form.form-submit').find('.js-doc-district');
+		$.get( URL + "api/district.php", {amphur: amphur}, function(res) {
+			select.empty();
+			select.append( $('<option>') );
+			$.each(res, function(i, obj){
+				select.append(
+					$('<option>', {value:obj.id, text:obj.name})
+					);
+			});
+		},'json');
+	};
 
 })( jQuery );
 

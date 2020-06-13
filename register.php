@@ -37,7 +37,7 @@ $sql = new SQLiManager();
 			<div class="card-body">
 				<h4 class="card-title" style="font-size: 1.85rem;">ใบสมัครสินเชื่อ</h4>
 				<h6 class="card-subtitle">กรุณากรอกข้อมูลของท่าน</h6>
-				<form class="row form-submit" action="saveRegister.php" name="registration" id="registration" method="POST">
+				<form class="row form-submit" action="saveRegister.php" name="registration" id="registration" method="POST" enctype=multipart/form-data>
 					<div class="col-md-12">
 						<div class="radio radio--inline">
 							<input type="radio" name="prefix_name" id="prefixRadio_1" value="1" checked>
@@ -987,8 +987,8 @@ $sql = new SQLiManager();
 					</div>
 
 					<div class="col-md-12">
-					<input type="file" name="img_bookbank" multiple="multiple">
-				</div>
+						<input type="file" name="img_bookbank[]" multiple>
+					</div>
 					
 					<!-- <div class="col-md-12" style="text-align: center;">
 							<inout type="file" name="idcard_img" class="dropzone" id="dropzone-upload">

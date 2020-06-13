@@ -62,6 +62,15 @@ if( empty($_FILES["img_idcard"]) && empty($arr["error"]) ){
 	$arr["text"] = "กรุณาอัพโหลดรูปถ่ายบัตรประชาชนเพื่อยืนยันตัวตน";
 	$arr["status"] = 422; 
 }
+
+if( empty($_FILES["img_bookbank"]) && empty($arr["error"]) ){
+	$arr["error"]["img_idcard"] = "กรุณาอัพโหลดรูป Book Bank";
+	$arr["alert"] = "true";
+	$arr["type"] = "error";
+	$arr["title"] = "กรุณาอัพโหลดรูป Book Bank";
+	$arr["text"] = "กรุณาอัพโหลดรูปถ่าย Book Bank";
+	$arr["status"] = 422; 
+}
 /**/
 
 if( !empty($_FILES["img_idcard"]) ){
@@ -73,7 +82,33 @@ if( !empty($_FILES["img_idcard"]) ){
 		$arr["title"] = "เกิดข้อผิดพลาดในการยืนยันตัวตน";
 		$arr["text"] = "รูปภาพต้องเป็นไฟล์ .jpg / .png / .jpeg เท่านั้น";
 		$arr["status"] = 422; 
-	} 
+	}
+}
+
+if( !empty($_FILES["img_bookbank"]) ){
+	$count = count($_FILES["img_bookbank"]["name"]);
+	if( $count > 3 ){
+		$arr["error"]["img_bookbank"] = "สามารถเลือกได้เพียง 3 รูปเท่านั้น";	
+		$arr["alert"] = "true";
+		$arr["type"] = "error";
+		$arr["title"] = "เกิดข้อผิดพลาดในการยืนยันตัวตน";
+		$arr["text"] = "รูปภาพ Bookbank สามารถเลือกได้เพียง 3 รูปเท่านั้น";
+		$arr["status"] = 422; 
+	}
+	else{
+		for($i=0; $i<$count; $i++){
+			$typeFile = strrchr($_FILES["img_bookbank"]["name"][$i],".");
+			if( $typeFile != ".jpg" && $typeFile != ".png" && $typeFile != ".jpeg" ){
+				$arr["error"]["img_bookbank"] = "รูปภาพต้องเป็นไฟล์ .jpg / .png / .jpeg เท่านั้น";	
+				$arr["alert"] = "true";
+				$arr["type"] = "error";
+				$arr["title"] = "เกิดข้อผิดพลาดในการยืนยันตัวตน";
+				$arr["text"] = "รูปภาพต้องเป็นไฟล์ .jpg / .png / .jpeg เท่านั้น";
+				$arr["status"] = 422;
+				exit;
+			}
+		}
+	}
 }
 
 if( empty($_POST["checkconfirm"]) && empty($arr["error"]) ){
@@ -156,8 +191,31 @@ if( !empty($_POST["checkconfirm"]) && empty($arr["error"]) ){
 			$sql->update();
 			#####
 
+			#BOOKBANK
+			for($i=0; $i<count($_FILES["img_bookbank"]["name"]); $i++){
+				$typeFile = strrchr($_FILES["img_bookbank"]["name"][$i],".");
+				$img_bookbank = 'ID_'.date('Y-m-d').'_'.md5(sprintf("%04d",$id)).'_'.($i+1).$typeFile;
+				move_uploaded_file($_FILES["img_bookbank"]["tmp_name"][$i], WWW_UPLOADS.$img_bookbank);
+
+				$sql->table = "borrow_bookbank";
+				$sql->field = "borrow_id, img_bookbank";
+				$sql->value = "{$id}, {$img_bookbank}";
+				$sql->insert();
+			}
+			#####
+
 			#POLL
-			
+			foreach ($_POST["poll"] as $key => $poll) {
+				$field .= !empty($field) ? "," : "";
+				$field .= $key;
+
+				$value .= !empty($value) ? "," : "";
+				$value .= "'{$poll}'";
+			}
+			$sql->table = "poll";
+			$sql->field = $field.",borrow_id";
+			$sql->value = $value.",'{$id}'";
+			$sql->insert();
 			#####
 
 			$arr["type"] = "success";
