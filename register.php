@@ -572,28 +572,11 @@ $sql = new SQLiManager();
 							<i class="form-group__bar"></i>
 						</div>
 					</div> -->
-					<div class="col-md-3">
-						<div class="form-group form-group--float">
-							<input type="text" name="work_addr_amphur" class="form-control">
-							<label>เขต / อำเภอ</label>
-							<div class="invalid-feedback"></div>
-							<i class="form-group__bar"></i>
-						</div>
-					</div>
 
 					<div class="col-md-3">
-						<div class="form-group form-group--float">
-							<input type="text" name="work_addr_district" class="form-control">
-							<label>แขวง / ตำบล</label>
-							<div class="invalid-feedback"></div>
-							<i class="form-group__bar"></i>
-						</div>
-					</div>
-
-					<div class="col-md-4">
 						<div class="form-group" style="padding-top: 8px;">
 							<label>จังหวัด</label>
-							<select class="select2 select2-hidden-accessible" name="work_addr_province" data-placeholder="กรุณาเลือกจังหวัด" tabindex="-1" aria-hidden="true">
+							<select class="select2 select2-hidden-accessible js-wk-province" name="work_addr_province" data-placeholder="กรุณาเลือกจังหวัด" tabindex="-1" aria-hidden="true">
 								<option></option>
 								<?php 
 								$sql->table = "province";
@@ -604,6 +587,28 @@ $sql = new SQLiManager();
 								?>
 							</select>
 							<div class="invalid-feedback"></div>
+						</div>
+					</div>
+
+					<div class="col-md-3">
+						<div class="form-group" style="padding-top: 8px;">
+							<label>เขต / อำเภอ</label>
+							<select class="select2 select2-hidden-accessible js-wk-amphur" name="work_addr_amphur" data-placeholder="กรุณาเลือกเขต/อำเภอ" tabindex="-1" aria-hidden="true">
+								<option></option>
+							</select>
+							<div class="invalid-feedback"></div>
+							<i class="form-group__bar"></i>
+						</div>
+					</div>
+
+					<div class="col-md-4">
+						<div class="form-group" style="padding-top: 8px;">
+							<label>แขวง / ตำบล</label>
+							<select class="select2 select2-hidden-accessible js-wk-district" name="work_addr_district" data-placeholder="กรุณาเลือกแขวง/ตำบล" tabindex="-1" aria-hidden="true">
+								<option></option>
+							</select>
+							<div class="invalid-feedback"></div>
+							<i class="form-group__bar"></i>
 						</div>
 					</div>
 
@@ -705,25 +710,9 @@ $sql = new SQLiManager();
 						</div>
 					</div>
 					<div class="col-md-3 other-address">
-						<div class="form-group form-group--float">
-							<input type="text" name="doc_addr_district" class="form-control other-address">
-							<label>แขวง / ตำบล</label>
-							<div class="invalid-feedback txt_err"></div>
-							<i class="form-group__bar"></i>
-						</div>
-					</div>
-					<div class="col-md-3 other-address">
-						<div class="form-group form-group--float">
-							<input type="text" name="doc_addr_amphur" class="form-control other-address">
-							<label>เขต / อำเภอ</label>
-							<div class="invalid-feedback txt_err"></div>
-							<i class="form-group__bar"></i>
-						</div>
-					</div>
-					<div class="col-md-3 other-address">
 						<div class="form-group" style="padding-top: 8px;">
 							<label>จังหวัด</label>
-							<select class="select2 select2-hidden-accessible other-address" name="doc_addr_province" data-placeholder="กรุณาเลือกจังหวัด" tabindex="-1" aria-hidden="true">
+							<select class="select2 select2-hidden-accessible js-doc-province" name="doc_addr_province" data-placeholder="กรุณาเลือกจังหวัด" tabindex="-1" aria-hidden="true">
 								<option></option>
 								<?php 
 								$sql->table = "province";
@@ -735,8 +724,29 @@ $sql = new SQLiManager();
 							</select>
 							<div class="invalid-feedback txt_err"></div>
 						</div>
-						
 					</div>
+					<div class="col-md-3 other-address">
+						<div class="form-group" style="padding-top: 8px;">
+							<label>เขต / อำเภอ</label>
+							<select class="select2 select2-hidden-accessible js-doc-amphur" name="doc_addr_amphur" data-placeholder="กรุณาเลือกเขต/อำเภอ" tabindex="-1" aria-hidden="true">
+								<option></option>
+							</select>
+							<div class="invalid-feedback"></div>
+							<i class="form-group__bar"></i>
+						</div>
+					</div>
+
+					<div class="col-md-3 other-address">
+						<div class="form-group" style="padding-top: 8px;">
+							<label>แขวง / ตำบล</label>
+							<select class="select2 select2-hidden-accessible js-doc-district" name="doc_addr_district" data-placeholder="กรุณาเลือกแขวง/ตำบล" tabindex="-1" aria-hidden="true">
+								<option></option>
+							</select>
+							<div class="invalid-feedback"></div>
+							<i class="form-group__bar"></i>
+						</div>
+					</div>
+
 					<div class="col-md-3 other-address">
 						<div class="form-group form-group--float">
 							<input type="text" name="doc_addr_zipcode" class="form-control other-address">
@@ -859,7 +869,7 @@ $sql = new SQLiManager();
 					<div class="col-md-4">
 						<div class="form-group" style="padding-top: 8px;">
 							<label>ผู้แนะนำของท่าน</label>
-							<select class="select2 select2-hidden-accessible" name="saleagents_code" data-placeholder="กรุณาเลือกผู้แนะนำ" tabindex="-1" aria-hidden="true">
+							<select class="select2 select2-hidden-accessible js-saleagents" name="saleagents_id" data-placeholder="กรุณาเลือกผู้แนะนำ" tabindex="-1" aria-hidden="true">
 								<option></option>
 								<?php 
 								$sql->table = "saleagents";
@@ -875,7 +885,7 @@ $sql = new SQLiManager();
 					</div>
 					<div class="col-md-4">
 						<div class="form-group form-group--float">
-							<input type="text" class="form-control">
+							<input type="text" class="form-control js-saleagents-firstname" readonly>
 							<label>ชื่อ</label>
 							<!-- <div class="invalid-feedback"></div> -->
 							<i class="form-group__bar"></i>
@@ -883,7 +893,7 @@ $sql = new SQLiManager();
 					</div>
 					<div class="col-md-4">
 						<div class="form-group form-group--float">
-							<input type="text" class="form-control">
+							<input type="text" class="form-control js-saleagents-lastname" readonly>
 							<label>นามสกุล</label>
 							<!-- <div class="invalid-feedback"></div> -->
 							<i class="form-group__bar"></i>
@@ -977,7 +987,7 @@ $sql = new SQLiManager();
 					</div>
 
 					<div class="col-md-12">
-					<input type="file" name="img_booking" multiple="multiple">
+					<input type="file" name="img_bookbank" multiple="multiple">
 				</div>
 					
 					<!-- <div class="col-md-12" style="text-align: center;">
@@ -995,26 +1005,26 @@ $sql = new SQLiManager();
 					<div class="col-md-12 pollCheck" style="margin-top: 30px;">
 						<h4>โดยปกติใน 1 วันท่านใช้สื่อดิจิตอลมากน้อยเพียงใด</h4>
 						<div class="radio radio--inline">
-							<input type="radio" name="social_use" id="socialRadio_1" value="1">
+							<input type="radio" name="poll[social_use]" id="socialRadio_1" value="1">
 							<label class="radio__label" for="socialRadio_1">ตลอดวัน</label>
 						</div>
 						<div class="radio radio--inline">
-							<input type="radio" name="social_use" id="socialRadio_2" value="2">
+							<input type="radio" name="poll[social_use]" id="socialRadio_2" value="2">
 							<label class="radio__label" for="socialRadio_2">มากกว่า 12 ชั่วโมงต่อวัน</label>
 						</div>
 
 						<div class="radio radio--inline">
-							<input type="radio" name="social_use" id="socialRadio_3" value="3">
+							<input type="radio" name="poll[social_use]" id="socialRadio_3" value="3">
 							<label class="radio__label" for="socialRadio_3">6 – 12 ชั่วโมงต่อวัน</label>
 						</div>
 
 						<div class="radio radio--inline">
-							<input type="radio" name="social_use" id="socialRadio_4" value="4">
+							<input type="radio" name="poll[social_use]" id="socialRadio_4" value="4">
 							<label class="radio__label" for="socialRadio_4">2 -5 ชั่วโมงต่อวัน</label>
 						</div>
 
 						<div class="radio radio--inline">
-							<input type="radio" name="social_use" id="socialRadio_5" value="5">
+							<input type="radio" name="poll[social_use]" id="socialRadio_5" value="5">
 							<label class="radio__label" for="socialRadio_5">น้อยกว่า 2 ชั่วโมงต่อวัน</label>
 						</div>
 						
@@ -1025,265 +1035,265 @@ $sql = new SQLiManager();
 						<h4>ในระยะ 2 เดือน ที่ผ่านมาท่านมีประสบการณ์ในการใช้สื่อดิจิตอลเหล่านี้มากน้อยเพียงใด (ให้คะแนน 1-5)</h4>
 						<br><p><label>ใช้เพื่อสื่อสารใน Social Network เช่น Facebook, IG, LINE</label></p>
 						<div class="radio radio--inline">
-							<input type="radio" name="digital_use1" id="digital1Radio_1" value="1">
-							<label class="radio__label" for="digitalRadio_1">1</label>
+							<input type="radio" name="poll[digital_use1]" id="digital1Radio_1" value="1">
+							<label class="radio__label" for="digital1Radio_1">1</label>
 						</div>
 						<div class="radio radio--inline">
-							<input type="radio" name="digital_use1" id="digital1Radio_2" value="2">
+							<input type="radio" name="poll[digital_use1]" id="digital1Radio_2" value="2">
 							<label class="radio__label" for="digital1Radio_2">2</label>
 						</div>
 						<div class="radio radio--inline">
-							<input type="radio" name="digital_use1" id="digital1Radio_3" value="3">
+							<input type="radio" name="poll[digital_use1]" id="digital1Radio_3" value="3">
 							<label class="radio__label" for="digital1Radio_3">3</label>
 						</div>
 
 						<div class="radio radio--inline">
-							<input type="radio" name="digital_use1" id="digital1Radio_4" value="4">
+							<input type="radio" name="poll[digital_use1]" id="digital1Radio_4" value="4">
 							<label class="radio__label" for="digital1Radio_4">4</label>
 						</div>
 
 						<div class="radio radio--inline">
-							<input type="radio" name="digital_use1" id="digital1Radio_5" value="5">
+							<input type="radio" name="poll[digital_use1]" id="digital1Radio_5" value="5">
 							<label class="radio__label" for="digital1Radio_5">5</label>
 						</div>
 
 						<br><br><p><label>ดูหนัง ฟังเพลง เช่น Youtube</label></p>
 						<div class="radio radio--inline">
-							<input type="radio" name="digital_use2" id="digital2Radio_1" value="1">
-							<label class="radio__label" for="digita2Radio_1">1</label>
+							<input type="radio" name="poll[digital_use2]" id="digital2Radio_1" value="1">
+							<label class="radio__label" for="digital2Radio_1">1</label>
 						</div>
 						<div class="radio radio--inline">
-							<input type="radio" name="digital_use2" id="digital2Radio_2" value="2">
+							<input type="radio" name="poll[digital_use2]" id="digital2Radio_2" value="2">
 							<label class="radio__label" for="digital2Radio_2">2</label>
 						</div>
 						<div class="radio radio--inline">
-							<input type="radio" name="digital_use2" id="digital2Radio_3" value="3">
+							<input type="radio" name="poll[digital_use2]" id="digital2Radio_3" value="3">
 							<label class="radio__label" for="digital2Radio_3">3</label>
 						</div>
 
 						<div class="radio radio--inline">
-							<input type="radio" name="digital_use2" id="digital2Radio_4" value="4">
+							<input type="radio" name="poll[digital_use2]" id="digital2Radio_4" value="4">
 							<label class="radio__label" for="digital2Radio_4">4</label>
 						</div>
 
 						<div class="radio radio--inline">
-							<input type="radio" name="digital_use2" id="digital2Radio_5" value="5">
+							<input type="radio" name="poll[digital_use2]" id="digital2Radio_5" value="5">
 							<label class="radio__label" for="digital2Radio_5">5</label>
 						</div>
 
 						<br><br><p><label>สืบค้นข้อมูลบนอินเทอร์เน็ต เช่น google.com</label></p>
 						<div class="radio radio--inline">
-							<input type="radio" name="digital_use3" id="digital3Radio_1" value="1">
+							<input type="radio" name="poll[pdigital_use3]" id="digital3Radio_1" value="1">
 							<label class="radio__label" for="digital3Radio_1">1</label>
 						</div>
 						<div class="radio radio--inline">
-							<input type="radio" name="digital_use3" id="digital3Radio_2" value="2">
+							<input type="radio" name="poll[pdigital_use3]" id="digital3Radio_2" value="2">
 							<label class="radio__label" for="digital3Radio_2">2</label>
 						</div>
 						<div class="radio radio--inline">
-							<input type="radio" name="digital_use3" id="digital3Radio_3" value="3">
+							<input type="radio" name="poll[pdigital_use3]" id="digital3Radio_3" value="3">
 							<label class="radio__label" for="digital3Radio_3">3</label>
 						</div>
 
 						<div class="radio radio--inline">
-							<input type="radio" name="digital_use3" id="digital3Radio_4" value="4">
+							<input type="radio" name="poll[pdigital_use3]" id="digital3Radio_4" value="4">
 							<label class="radio__label" for="digital3Radio_4">4</label>
 						</div>
 
 						<div class="radio radio--inline">
-							<input type="radio" name="digital_use3" id="digital3Radio_5" value="5">
+							<input type="radio" name="poll[pdigital_use3]" id="digital3Radio_5" value="5">
 							<label class="radio__label" for="digital3Radio_5">5</label>
 						</div>
 
 						<br><br><p><label>ธุรกรรมการเงิน เช่น Kbank Plus</label></p>
 						<div class="radio radio--inline">
-							<input type="radio" name="digital_use4" id="digital4Radio_1" value="1">
+							<input type="radio" name="poll[digital_use4]" id="digital4Radio_1" value="1">
 							<label class="radio__label" for="digital4Radio_1">1</label>
 						</div>
 						<div class="radio radio--inline">
-							<input type="radio" name="digital_use4" id="digital4Radio_2" value="2">
+							<input type="radio" name="poll[digital_use4]" id="digital4Radio_2" value="2">
 							<label class="radio__label" for="digital4Radio_2">2</label>
 						</div>
 						<div class="radio radio--inline">
-							<input type="radio" name="digital_use4" id="digital4Radio_3" value="3">
+							<input type="radio" name="poll[digital_use4]" id="digital4Radio_3" value="3">
 							<label class="radio__label" for="digital4Radio_3">3</label>
 						</div>
 
 						<div class="radio radio--inline">
-							<input type="radio" name="digital_use4" id="digital4Radio_4" value="4">
+							<input type="radio" name="poll[digital_use4]" id="digital4Radio_4" value="4">
 							<label class="radio__label" for="digital4Radio_4">4</label>
 						</div>
 
 						<div class="radio radio--inline">
-							<input type="radio" name="digital_use4" id="digital4Radio_5" value="5">
+							<input type="radio" name="poll[digital_use4]" id="digital4Radio_5" value="5">
 							<label class="radio__label" for="digital4Radio_5">5</label>
 						</div>
 
 						<br><br><p><label>ดูข้อมูลท่องเที่ยว เช่น Traveloca</label></p>
 						<div class="radio radio--inline">
-							<input type="radio" name="digital_use5" id="digital5Radio_1" value="1">
+							<input type="radio" name="poll[digital_use5]" id="digital5Radio_1" value="1">
 							<label class="radio__label" for="digital5Radio_1">1</label>
 						</div>
 						<div class="radio radio--inline">
-							<input type="radio" name="digital_use5" id="digital5Radio_2" value="2">
+							<input type="radio" name="poll[digital_use5]" id="digital5Radio_2" value="2">
 							<label class="radio__label" for="digital5Radio_2">2</label>
 						</div>
 						<div class="radio radio--inline">
-							<input type="radio" name="digital_use5" id="digital5Radio_3" value="3">
+							<input type="radio" name="poll[digital_use5]" id="digital5Radio_3" value="3">
 							<label class="radio__label" for="digital5Radio_3">3</label>
 						</div>
 
 						<div class="radio radio--inline">
-							<input type="radio" name="digital_use5" id="digital5Radio_4" value="4">
+							<input type="radio" name="poll[digital_use5]" id="digital5Radio_4" value="4">
 							<label class="radio__label" for="digital5Radio_4">4</label>
 						</div>
 
 						<div class="radio radio--inline">
-							<input type="radio" name="digital_use5" id="digital5Radio_5" value="5">
+							<input type="radio" name="poll[digital_use5]" id="digital5Radio_5" value="5">
 							<label class="radio__label" for="digital5Radio_5">5</label>
 						</div>
 
 						<br><br><p><label>ทำงาน/ ประชุม / E-mail เช่น Hotmail, Gmail</label></p>
 						<div class="radio radio--inline">
-							<input type="radio" name="digital_use6" id="digital6Radio_1" value="1">
+							<input type="radio" name="poll[digital_use6]" id="digital6Radio_1" value="1">
 							<label class="radio__label" for="digital6Radio_1">1</label>
 						</div>
 						<div class="radio radio--inline">
-							<input type="radio" name="digital_use6" id="digital6Radio_2" value="2">
+							<input type="radio" name="poll[digital_use6]" id="digital6Radio_2" value="2">
 							<label class="radio__label" for="digital6Radio_2">2</label>
 						</div>
 						<div class="radio radio--inline">
-							<input type="radio" name="digital_use6" id="digital6Radio_3" value="3">
+							<input type="radio" name="poll[digital_use6]" id="digital6Radio_3" value="3">
 							<label class="radio__label" for="digital6Radio_3">3</label>
 						</div>
 
 						<div class="radio radio--inline">
-							<input type="radio" name="digital_use6" id="digital6Radio_4" value="4">
+							<input type="radio" name="poll[digital_use6]" id="digital6Radio_4" value="4">
 							<label class="radio__label" for="digital6Radio_4">4</label>
 						</div>
 
 						<div class="radio radio--inline">
-							<input type="radio" name="digital_use6" id="digital6Radio_5" value="5">
+							<input type="radio" name="poll[digital_use6]" id="digital6Radio_5" value="5">
 							<label class="radio__label" for="digital6Radio_5">5</label>
 						</div>
 
 						<br><br><p><label>การแสดงความคิดเห็นต่อกลุ่มชุมชนบนอินเตอร์เนต เช่น Pantip</label></p>
 						<div class="radio radio--inline">
-							<input type="radio" name="digital_use7" id="digital7Radio_1" value="1">
+							<input type="radio" name="poll[digital_use7]" id="digital7Radio_1" value="1">
 							<label class="radio__label" for="digital7Radio_1">1</label>
 						</div>
 						<div class="radio radio--inline">
-							<input type="radio" name="digital_use7" id="digital7Radio_2" value="2">
+							<input type="radio" name="poll[digital_use7]" id="digital7Radio_2" value="2">
 							<label class="radio__label" for="digital7Radio_2">2</label>
 						</div>
 						<div class="radio radio--inline">
-							<input type="radio" name="digital_use7" id="digital7Radio_3" value="3">
+							<input type="radio" name="poll[digital_use7]" id="digital7Radio_3" value="3">
 							<label class="radio__label" for="digital7Radio_3">3</label>
 						</div>
 
 						<div class="radio radio--inline">
-							<input type="radio" name="digital_use7" id="digital7Radio_4" value="4">
+							<input type="radio" name="poll[digital_use7]" id="digital7Radio_4" value="4">
 							<label class="radio__label" for="digital7Radio_4">4</label>
 						</div>
 
 						<div class="radio radio--inline">
-							<input type="radio" name="digital_use7" id="digital7Radio_5" value="5">
+							<input type="radio" name="poll[digital_use7]" id="digital7Radio_5" value="5">
 							<label class="radio__label" for="digital7Radio_5">5</label>
 						</div>
 
 						<br><br><p><label>เพื่อติดตามข่าวสาร เช่น Twitter</label></p>
 						<div class="radio radio--inline">
-							<input type="radio" name="digital_use8" id="digital8Radio_1" value="1">
+							<input type="radio" name="poll[digital_use8]" id="digital8Radio_1" value="1">
 							<label class="radio__label" for="digital8Radio_1">1</label>
 						</div>
 						<div class="radio radio--inline">
-							<input type="radio" name="digital_use8" id="digital8Radio_2" value="2">
+							<input type="radio" name="poll[digital_use8]" id="digital8Radio_2" value="2">
 							<label class="radio__label" for="digital8Radio_2">2</label>
 						</div>
 						<div class="radio radio--inline">
-							<input type="radio" name="digital_use8" id="digital8Radio_3" value="3">
+							<input type="radio" name="poll[digital_use8]" id="digital8Radio_3" value="3">
 							<label class="radio__label" for="digital8Radio_3">3</label>
 						</div>
 
 						<div class="radio radio--inline">
-							<input type="radio" name="digital_use8" id="digital8Radio_4" value="4">
+							<input type="radio" name="poll[digital_use8]" id="digital8Radio_4" value="4">
 							<label class="radio__label" for="digital8Radio_4">4</label>
 						</div>
 
 						<div class="radio radio--inline">
-							<input type="radio" name="digital_use8" id="digital8Radio_5" value="5">
+							<input type="radio" name="poll[digital_use8]" id="digital8Radio_5" value="5">
 							<label class="radio__label" for="digital8Radio_5">5</label>
 						</div>
 
 						<br><br><p><label>ช้อปปิ้ง สั่งซื้อสินค้า, ประมูลสินค้า เช่น Lazada, Shopee</label></p>
 						<div class="radio radio--inline">
-							<input type="radio" name="digital_use9" id="digital9Radio_1" value="1">
+							<input type="radio" name="poll[digital_use9]" id="digital9Radio_1" value="1">
 							<label class="radio__label" for="digital9Radio_1">1</label>
 						</div>
 						<div class="radio radio--inline">
-							<input type="radio" name="digital_use9" id="digital9Radio_2" value="2">
+							<input type="radio" name="poll[digital_use9]" id="digital9Radio_2" value="2">
 							<label class="radio__label" for="digital9Radio_2">2</label>
 						</div>
 						<div class="radio radio--inline">
-							<input type="radio" name="digital_use9" id="digital9Radio_3" value="3">
+							<input type="radio" name="poll[digital_use9]" id="digital9Radio_3" value="3">
 							<label class="radio__label" for="digital9Radio_3">3</label>
 						</div>
 
 						<div class="radio radio--inline">
-							<input type="radio" name="digital_use9" id="digital9Radio_4" value="4">
+							<input type="radio" name="poll[digital_use9]" id="digital9Radio_4" value="4">
 							<label class="radio__label" for="digital9Radio_4">4</label>
 						</div>
 
 						<div class="radio radio--inline">
-							<input type="radio" name="digital_use9" id="digital9Radio_5" value="5">
+							<input type="radio" name="poll[digital_use9]" id="digital9Radio_5" value="5">
 							<label class="radio__label" for="digital9Radio_5">5</label>
 						</div>
 						
 						<br><br><p><label>การเล่นเกมออนไลน์ เช่น ROV, Free fire</label></p>
 						<div class="radio radio--inline">
-							<input type="radio" name="digital_use10" id="digital10Radio_1" value="1">
+							<input type="radio" name="poll[digital_use10]" id="digital10Radio_1" value="1">
 							<label class="radio__label" for="digital10Radio_1">1</label>
 						</div>
 						<div class="radio radio--inline">
-							<input type="radio" name="digital_use10" id="digital10Radio_2" value="2">
+							<input type="radio" name="poll[digital_use10]" id="digital10Radio_2" value="2">
 							<label class="radio__label" for="digital10Radio_2">2</label>
 						</div>
 						<div class="radio radio--inline">
-							<input type="radio" name="digital_use10" id="digital10Radio_3" value="3">
+							<input type="radio" name="poll[digital_use10]" id="digital10Radio_3" value="3">
 							<label class="radio__label" for="digital10Radio_3">3</label>
 						</div>
 
 						<div class="radio radio--inline">
-							<input type="radio" name="digital_use10" id="digital10Radio_4" value="4">
+							<input type="radio" name="poll[digital_use10]" id="digital10Radio_4" value="4">
 							<label class="radio__label" for="digital10Radio_4">4</label>
 						</div>
 
 						<div class="radio radio--inline">
-							<input type="radio" name="digital_use10" id="digital10Radio_5" value="5">
+							<input type="radio" name="poll[digital_use10]" id="digital10Radio_5" value="5">
 							<label class="radio__label" for="digital10Radio_5">5</label>
 						</div>
 						
 						<br><br><p><label>การเล่นการพนันออนไลน์ เช่น ฟุตบอล</label></p>
 						<div class="radio radio--inline">
-							<input type="radio" name="digital_use11" id="digital11Radio_1" value="1">
+							<input type="radio" name="poll[digital_use11]" id="digital11Radio_1" value="1">
 							<label class="radio__label" for="digital11Radio_1">1</label>
 						</div>
 						<div class="radio radio--inline">
-							<input type="radio" name="digital_use11" id="digital11Radio_2" value="2">
+							<input type="radio" name="poll[digital_use11]" id="digital11Radio_2" value="2">
 							<label class="radio__label" for="digital11Radio_2">2</label>
 						</div>
 						<div class="radio radio--inline">
-							<input type="radio" name="digital_use11" id="digital11Radio_3" value="3">
+							<input type="radio" name="poll[digital_use11]" id="digital11Radio_3" value="3">
 							<label class="radio__label" for="digital11Radio_3">3</label>
 						</div>
 
 						<div class="radio radio--inline">
-							<input type="radio" name="digital_use11" id="digital11Radio_4" value="4">
+							<input type="radio" name="poll[digital_use11]" id="digital11Radio_4" value="4">
 							<label class="radio__label" for="digital11Radio_4">4</label>
 						</div>
 
 						<div class="radio radio--inline">
-							<input type="radio" name="digital_use11" id="digital11Radio_5" value="5">
+							<input type="radio" name="poll[digital_use11]" id="digital11Radio_5" value="5">
 							<label class="radio__label" for="digital11Radio_5">5</label>
 						</div>
 					</div>
@@ -1292,27 +1302,27 @@ $sql = new SQLiManager();
 						<div class="col-md-12 pollCheck" style="margin-top: 30px;">
 						<h4>ท่านมีส่วนร่วมในสื่อดิจิทัลในรูปแบบใดบ้าง</h4>
 						<div class="checkbox checkbox--inline">
-							<input type="checkbox" id="participateCheck1" name="participate1" value="1">
+							<input type="checkbox" id="participateCheck1" name="poll[participate1]" value="1">
 							<label class="checkbox__label" for="participateCheck1">โพสต์ (Post)</label>
 						</div>
 						<div class="checkbox checkbox--inline">
-							<input type="checkbox" id="participateCheck2" name="participate2" value="1">
+							<input type="checkbox" id="participateCheck2" name="poll[participate2]" value="1">
 							<label class="checkbox__label" for="participateCheck2">ไลด์ (Like)</label>
 						</div>
 						<div class="checkbox checkbox--inline">
-							<input type="checkbox" id="participateCheck3" name="participate3" value="1">
+							<input type="checkbox" id="participateCheck3" name="poll[participate3]" value="1">
 							<label class="checkbox__label" for="participateCheck3">แชร์ (Share)</label>
 						</div>
 						<div class="checkbox checkbox--inline">
-							<input type="checkbox" id="participateCheck4" name="participate4" value="1">
+							<input type="checkbox" id="participateCheck4" name="poll[participate4]" value="1">
 							<label class="checkbox__label" for="participateCheck4">แท็ก (Tag)</label>
 						</div>
 						<div class="checkbox checkbox--inline">
-							<input type="checkbox" id="participateCheck5" name="participate5" value="1">
+							<input type="checkbox" id="participateCheck5" name="poll[participate5]" value="1">
 							<label class="checkbox__label" for="participateCheck5">เชค อิน (Check In)</label>
 						</div>
 						<div class="checkbox checkbox--inline">
-							<input type="checkbox" id="participateCheck6" name="participate6" value="1">
+							<input type="checkbox" id="participateCheck6" name="poll[participate6]" value="1">
 							<label class="checkbox__label" for="participateCheck6">ติดตาม (Subscribe, follow)</label>
 						</div>
 						</div>
@@ -1320,31 +1330,31 @@ $sql = new SQLiManager();
 						<div class="col-md-12 pollCheck" style="margin-top: 30px;">
 						<h4>ในระยะ 6 เดือนนี้ ท่านมีแนวโน้มจะซื้อสินค้าประเภทใดบ้าง</h4>
 						<div class="checkbox checkbox--inline">
-							<input type="checkbox" id="maybe_buyCheck1" name="maybe_buy1" value="1">
+							<input type="checkbox" id="maybe_buyCheck1" name="poll[maybe_buy1]" value="1">
 							<label class="checkbox__label" for="maybe_buyCheck1">ยานยนต์</label>
 						</div>
 						<div class="checkbox checkbox--inline">
-							<input type="checkbox" id="maybe_buyCheck2" name="maybe_buy2" value="1">
+							<input type="checkbox" id="maybe_buyCheck2" name="poll[maybe_buy2]" value="1">
 							<label class="checkbox__label" for="maybe_buyCheck2">อสังหาริมทรัพย์</label>
 						</div>
 						<div class="checkbox checkbox--inline">
-							<input type="checkbox" id="maybe_buyCheck3" name="maybe_buy3" value="1">
+							<input type="checkbox" id="maybe_buyCheck3" name="poll[maybe_buy3]" value="1">
 							<label class="checkbox__label" for="maybe_buyCheck3">เครื่องใช้ไฟฟ้า</label>
 						</div>
 						<div class="checkbox checkbox--inline">
-							<input type="checkbox" id="maybe_buyCheck4" name="maybe_buy4" value="1">
+							<input type="checkbox" id="maybe_buyCheck4" name="poll[maybe_buy4]" value="1">
 							<label class="checkbox__label" for="maybe_buyCheck4">สมาร์ทโฟนและอุปกรณ์อิเล็กทรอนิกส์</label>
 						</div>
 						<div class="checkbox checkbox--inline">
-							<input type="checkbox" id="maybe_buyCheck5" name="maybe_buy5" value="1">
+							<input type="checkbox" id="maybe_buyCheck5" name="poll[maybe_buy5]" value="1">
 							<label class="checkbox__label" for="maybe_buyCheck5">การลงทุน</label>
 						</div>
 						<div class="checkbox checkbox--inline">
-							<input type="checkbox" id="maybe_buyCheck6" name="maybe_buy6" value="1">
+							<input type="checkbox" id="maybe_buyCheck6" name="poll[maybe_buy6]" value="1">
 							<label class="checkbox__label" for="maybe_buyCheck6">การประกัน</label>
 						</div>
 						<div class="checkbox checkbox--inline">
-							<input type="checkbox" id="maybe_buyCheck7" name="maybe_buy7" value="1">
+							<input type="checkbox" id="maybe_buyCheck7" name="poll[maybe_buy7]" value="1">
 							<label class="checkbox__label" for="maybe_buyCheck7">การท่องเที่ยว</label>
 						</div>
 						</div>
@@ -1401,6 +1411,13 @@ include("layouts/foot.php");
 			$(".pollCheck").hide();
 			$(".poll_txt_err").hide();
 		}
+	});
+
+	$(".js-saleagents").change(function(){
+		$.get( "api/saleagents.php", { id:$(this).val() }, function(result) {
+			$(".js-saleagents-firstname").val( result.first_name );
+			$(".js-saleagents-lastname").val( result.last_name );
+		},"json");
 	});
 // 	    flatpickr(document.getElementById("birthday"), {
 //     "locale": "th"

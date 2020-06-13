@@ -180,29 +180,17 @@ if ( typeof Object.create !== 'function' ) {
         });
 	};
 
-	$.fn.readURL = function(input) {
+	$.fn.readURL = function(input, id) {
         if (input.files && input.files[0]) {
             var reader = new FileReader();
 
             reader.onload = function (e) {
-                $('#js-img').attr('src', e.target.result);
+                $("#"+id).attr('src', e.target.result);
             };
 
             reader.readAsDataURL(input.files[0]);
         }
     };
-
-    // $.fn.readURL = function(input) {
-    //     if (input.files && input.files[0]) {
-    //         var reader = new FileReader();
-
-    //         reader.onload = function (e) {
-    //             $('#js-img2').attr('src', e.target.result);
-    //         };
-
-    //         reader.readAsDataURL(input.files[0]);
-    //     }
-    // };
 
     $.fn.onUpdate = function( select ){
     	var id = select.data('id');
@@ -247,32 +235,57 @@ if ( typeof Object.create !== 'function' ) {
     	},'json');
     };
 
-    // $.fn.getAmphur2 = function( province ){
-    // 	var select = $('form.form-submit').find('.js-wk-amphur');
-    // 	$.get( URL + "api/amphur.php", {province: province}, function(res) {
-    // 		select.empty();
-    // 		select.append( $('<option>') );
-    // 		$.each(res, function(i, obj){
-    // 			select.append(
-    // 				$('<option>', {value:obj.id, text:obj.name})
-    // 			);
-    // 		});
-    // 	},'json');
-    // };
+    $.fn.getAmphur2 = function( province ){
+    	var select = $('form.form-submit').find('.js-wk-amphur');
+    	$.get( URL + "api/amphur.php", {province: province}, function(res) {
+    		select.empty();
+    		select.append( $('<option>') );
+    		$.each(res, function(i, obj){
+    			select.append(
+    				$('<option>', {value:obj.id, text:obj.name})
+    			);
+    		});
+    	},'json');
+    };
 
-    // $.fn.getDistrict2 = function( amphur ){
-    // 	var select = $('form.form-submit').find('.js-wk-district');
-    // 	$.get( URL + "api/district.php", {amphur: amphur}, function(res) {
-    // 		select.empty();
-    // 		select.append( $('<option>') );
-    // 		$.each(res, function(i, obj){
-    // 			select.append(
-    // 				$('<option>', {value:obj.id, text:obj.name})
-    // 			);
-    // 		});
-    // 	},'json');
-    // };
+    $.fn.getDistrict2 = function( amphur ){
+    	var select = $('form.form-submit').find('.js-wk-district');
+    	$.get( URL + "api/district.php", {amphur: amphur}, function(res) {
+    		select.empty();
+    		select.append( $('<option>') );
+    		$.each(res, function(i, obj){
+    			select.append(
+    				$('<option>', {value:obj.id, text:obj.name})
+    			);
+    		});
+    	},'json');
+    };
 
+    $.fn.getAmphurDoc = function( province ){
+    	var select = $('form.form-submit').find('.js-doc-amphur');
+    	$.get( URL + "api/amphur.php", {province: province}, function(res) {
+    		select.empty();
+    		select.append( $('<option>') );
+    		$.each(res, function(i, obj){
+    			select.append(
+    				$('<option>', {value:obj.id, text:obj.name})
+    			);
+    		});
+    	},'json');
+    };
+
+    $.fn.getDistrictDoc = function( amphur ){
+    	var select = $('form.form-submit').find('.js-doc-district');
+    	$.get( URL + "api/district.php", {amphur: amphur}, function(res) {
+    		select.empty();
+    		select.append( $('<option>') );
+    		$.each(res, function(i, obj){
+    			select.append(
+    				$('<option>', {value:obj.id, text:obj.name})
+    			);
+    		});
+    	},'json');
+    };
 
 })( jQuery );
 
@@ -296,12 +309,12 @@ $('body').delegate('a.btn-confirm', 'click', function(e) {
 });
 
 $(".js-img").change(function(){
-	$.fn.readURL( $(this)[0] );
+	$.fn.readURL( $(this)[0], $(this).attr('class') );
 });
 
-// $(".js-img2").change(function(){
-// 	$.fn.readURL( $(this)[0] );
-// });
+$(".js-img2").change(function(){
+	$.fn.readURL( $(this)[0], $(this).attr('class') );
+});
 
 
 $(".js-select").change(function(){
@@ -316,10 +329,18 @@ $(".js-amphur").change(function(){
 	$.fn.getDistrict( $(this).val() );
 });
 
-// $(".js-wk-province").change(function(){
-// 	$.fn.getAmphur( $(this).val() );
-// });
+$(".js-wk-province").change(function(){
+	$.fn.getAmphur2( $(this).val() );
+});
 
-// $(".js-wk-amphur").change(function(){
-// 	$.fn.getDistrict( $(this).val() );
-// });
+$(".js-wk-amphur").change(function(){
+	$.fn.getDistrict2( $(this).val() );
+});
+
+$(".js-doc-province").change(function(){
+	$.fn.getAmphurDoc( $(this).val() );
+});
+
+$(".js-doc-amphur").change(function(){
+	$.fn.getDistrictDoc( $(this).val() );
+});

@@ -83,6 +83,16 @@ if( empty($_POST["checkconfirm"]) && empty($arr["error"]) ){
 	$arr["text"] = "กรุณายืนยัน ข้าพเจ้าขอยอมรับว่าข้อมูลที่กรอกเป็นความจริง";
 	$arr["status"] = 422; 
 }
+
+if( !empty($_POST["checkconfirm"]) && empty($_POST["poll"]) ){
+	$arr["alert"] = "true";
+	$arr["type"] = "error";
+	$arr["title"] = "กรุณากรอกแบบสำรวจ";
+	$arr["text"] = "กรุณากรอกแบบสำรวจให้ครบถ้วน";
+	$arr["status"] = 422; 
+
+	$arr["error"]["poll"] = "กรุณากรอกแบบสำรวจให้ครบถ้วน";
+}
 //
 
 if( !empty($_POST["checkconfirm"]) && empty($arr["error"]) ){
@@ -121,6 +131,7 @@ if( !empty($_POST["checkconfirm"]) && empty($arr["error"]) ){
 		$field = '';
 		$value = '';
 		foreach ($_POST as $key => $post) {
+			if( $key == "poll" ) continue;
 			$field .= !empty($field) ? "," : "";
 			$field .= $key;
 
@@ -143,6 +154,10 @@ if( !empty($_POST["checkconfirm"]) && empty($arr["error"]) ){
 			$sql->value = "img_idcard='{$img_idcard}'";
 			$sql->condition = "WHERE id={$id}";
 			$sql->update();
+			#####
+
+			#POLL
+			
 			#####
 
 			$arr["type"] = "success";
