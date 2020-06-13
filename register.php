@@ -1085,25 +1085,25 @@ $sql = new SQLiManager();
 
 						<br><br><p><label>สืบค้นข้อมูลบนอินเทอร์เน็ต เช่น google.com</label></p>
 						<div class="radio radio--inline">
-							<input type="radio" name="poll[pdigital_use3]" id="digital3Radio_1" value="1">
+							<input type="radio" name="poll[digital_use3]" id="digital3Radio_1" value="1">
 							<label class="radio__label" for="digital3Radio_1">1</label>
 						</div>
 						<div class="radio radio--inline">
-							<input type="radio" name="poll[pdigital_use3]" id="digital3Radio_2" value="2">
+							<input type="radio" name="poll[digital_use3]" id="digital3Radio_2" value="2">
 							<label class="radio__label" for="digital3Radio_2">2</label>
 						</div>
 						<div class="radio radio--inline">
-							<input type="radio" name="poll[pdigital_use3]" id="digital3Radio_3" value="3">
+							<input type="radio" name="poll[digital_use3]" id="digital3Radio_3" value="3">
 							<label class="radio__label" for="digital3Radio_3">3</label>
 						</div>
 
 						<div class="radio radio--inline">
-							<input type="radio" name="poll[pdigital_use3]" id="digital3Radio_4" value="4">
+							<input type="radio" name="poll[digital_use3]" id="digital3Radio_4" value="4">
 							<label class="radio__label" for="digital3Radio_4">4</label>
 						</div>
 
 						<div class="radio radio--inline">
-							<input type="radio" name="poll[pdigital_use3]" id="digital3Radio_5" value="5">
+							<input type="radio" name="poll[digital_use3]" id="digital3Radio_5" value="5">
 							<label class="radio__label" for="digital3Radio_5">5</label>
 						</div>
 
