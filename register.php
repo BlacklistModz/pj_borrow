@@ -290,7 +290,7 @@ $sql = new SQLiManager();
 					<div class="col-md-3">
 						<div class="form-group" style="padding-top: 8px;">
 							<label>แขวง / ตำบล</label>
-							<select class="select2 select2-hidden-accessible js-district" name="address_district" data-placeholder="กรุณาเลือกแขวง / ตำบล" tabindex="-1" aria-hidden="true">
+							<select class="select2 select2-hidden-accessible js-district" name="address_district" data-placeholder="กรุณาเลือกแขวง/ตำบล" tabindex="-1" aria-hidden="true">
 								<option></option>
 							</select>
 							<div class="invalid-feedback"></div>
@@ -323,7 +323,7 @@ $sql = new SQLiManager();
 							<i class="form-group__bar"></i>
 						</div>
 					</div>
-					<div class="col-md-4">
+					<div class="col-md-3">
 						<div class="form-group form-group--float">
 							<input type="text" name="address_phone" class="form-control">
 							<label>โทรศัพท์บ้าน</label>
@@ -331,7 +331,7 @@ $sql = new SQLiManager();
 							<i class="form-group__bar"></i>
 						</div>
 					</div>
-					<div class="col-md-4">
+					<div class="col-md-3">
 						<div class="form-group form-group--float">
 							<input type="text" name="mobile" class="form-control">
 							<label>โทรศัพท์มือถือ</label>
@@ -339,7 +339,15 @@ $sql = new SQLiManager();
 							<i class="form-group__bar"></i>
 						</div>
 					</div>
-					<div class="col-md-4">
+					<div class="col-md-3">
+						<div class="form-group form-group--float">
+							<input type="text" name="line_id" class="form-control">
+							<label>LINE ID</label>
+							<div class="invalid-feedback"></div>
+							<i class="form-group__bar"></i>
+						</div>
+					</div>
+					<div class="col-md-3">
 						<div class="form-group form-group--float">
 							<input type="text" name="email" class="form-control">
 							<label>อีเมล์</label>
@@ -541,14 +549,29 @@ $sql = new SQLiManager();
 							<i class="form-group__bar"></i>
 						</div>
 					</div>
-					<div class="col-md-3">
-						<div class="form-group form-group--float">
-							<input type="text" name="work_addr_district" class="form-control">
-							<label>แขวง / ตำบล</label>
+					
+
+					<!-- <div class="col-md-4">
+						<div class="form-group" style="padding-top: 8px;">
+							<label>เขต / อำเภอ</label>
+							<select class="select2 select2-hidden-accessible" name="work_addr_amphur" data-placeholder="กรุณาเลือกเขต/อำเภอ" tabindex="-1" aria-hidden="true">
+								<option></option>
+							</select>
 							<div class="invalid-feedback"></div>
 							<i class="form-group__bar"></i>
 						</div>
 					</div>
+
+					<div class="col-md-4">
+						<div class="form-group" style="padding-top: 8px;">
+							<label>แขวง / ตำบล</label>
+							<select class="select2 select2-hidden-accessible" name="work_addr_district" data-placeholder="กรุณาเลือกแขวง/ตำบล" tabindex="-1" aria-hidden="true">
+								<option></option>
+							</select>
+							<div class="invalid-feedback"></div>
+							<i class="form-group__bar"></i>
+						</div>
+					</div> -->
 					<div class="col-md-3">
 						<div class="form-group form-group--float">
 							<input type="text" name="work_addr_amphur" class="form-control">
@@ -557,6 +580,16 @@ $sql = new SQLiManager();
 							<i class="form-group__bar"></i>
 						</div>
 					</div>
+
+					<div class="col-md-3">
+						<div class="form-group form-group--float">
+							<input type="text" name="work_addr_district" class="form-control">
+							<label>แขวง / ตำบล</label>
+							<div class="invalid-feedback"></div>
+							<i class="form-group__bar"></i>
+						</div>
+					</div>
+
 					<div class="col-md-4">
 						<div class="form-group" style="padding-top: 8px;">
 							<label>จังหวัด</label>
@@ -573,6 +606,7 @@ $sql = new SQLiManager();
 							<div class="invalid-feedback"></div>
 						</div>
 					</div>
+
 					<div class="col-md-4">
 						<div class="form-group form-group--float">
 							<input type="text" name="work_addr_zipcode" class="form-control">
@@ -721,7 +755,47 @@ $sql = new SQLiManager();
 					<div class="col-md-12">
 						<h4>วัตถุประสงค์การขอกู้</h4>
 					</div>
-					<div class="col-md-4">
+					<div class="col-md-6">
+						<div class="form-group form-group--float">
+							<input type="text" name="package_interest1" class="form-control">
+							<label>โปรแกรมที่สนใจ 1</label>
+							<div class="invalid-feedback"></div>
+							<i class="form-group__bar"></i>
+						</div>
+					</div>
+					<div class="col-md-6">
+						<label>กำหนดการที่คาดว่าจะทำ</label>
+						<div class="input-group" style="padding-top: 7px;">
+							<div class="input-group-prepend">
+								<span class="input-group-text"><i class="zmdi zmdi-calendar"></i></span>
+							</div>
+							<input type="date" class="form-control hidden-md-up" name="package_interest_date1" placeholder="กำหนดการที่คาดว่าจะทำ">
+							<input type="text" class="form-control date-picker hidden-sm-down flatpickr-input active" placeholder="กำหนดการที่คาดว่าจะทำ" readonly="readonly" name="package_interest_date1">
+							<div class="invalid-feedback" style="bottom: -1.2rem;"></div>
+						</div>
+					</div>
+
+					<div class="col-md-6">
+						<div class="form-group form-group--float">
+							<input type="text" name="package_interest2" class="form-control">
+							<label>โปรแกรมที่สนใจ 2</label>
+							<div class="invalid-feedback"></div>
+							<i class="form-group__bar"></i>
+						</div>
+					</div>
+					<div class="col-md-6">
+						<label>กำหนดการที่คาดว่าจะทำ</label>
+						<div class="input-group" style="padding-top: 7px;">
+							<div class="input-group-prepend">
+								<span class="input-group-text"><i class="zmdi zmdi-calendar"></i></span>
+							</div>
+							<input type="date" class="form-control hidden-md-up" name="package_interest_date2" placeholder="กำหนดการที่คาดว่าจะทำ">
+							<input type="text" class="form-control date-picker hidden-sm-down flatpickr-input active" placeholder="กำหนดการที่คาดว่าจะทำ" readonly="readonly" name="package_interest_date2">
+							<div class="invalid-feedback" style="bottom: -1.2rem;"></div>
+						</div>
+					</div>
+					
+					<!-- <div class="col-md-4">
 						<div class="form-group form-group--float">
 							<input type="text" name="objective_company" class="form-control">
 							<label>สถานประกอบการ / คลินิก</label>
@@ -744,8 +818,8 @@ $sql = new SQLiManager();
 							<div class="invalid-feedback"></div>
 							<i class="form-group__bar"></i>
 						</div>
-					</div>
-					<div class="col-md-12">
+					</div> -->
+					<!-- <div class="col-md-12">
 						<h4>ระยะเวลาผ่อนชำระ</h4>
 						<div class="radio radio--inline">
 							<input type="radio" name="objective_duration" id="objRadio_1" checked>
@@ -764,11 +838,11 @@ $sql = new SQLiManager();
 							<label class="radio__label" for="objRadio_4">12 เดือน</label>
 						</div>
 						<br><br>
-					</div>
+					</div> -->
 					<div class="col-md-12">
-						<h4>บุคคลอ้างอิง (1)</h4>
+						<h4>ผู้แนะนำ</h4>
 					</div>
-					<div class="col-md-12">
+					<!-- <div class="col-md-12">
 						<div class="radio radio--inline">
 							<input type="radio" name="person_prefix" id="refRadio_1" value="1" checked>
 							<label class="radio__label" for="refRadio_1">นาย</label>
@@ -781,7 +855,74 @@ $sql = new SQLiManager();
 							<input type="radio" name="person_prefix" id="refRadio_3" value="3">
 							<label class="radio__label" for="refRadio_3">นางสาว</label>
 						</div>
+					</div> -->
+					<div class="col-md-4">
+						<div class="form-group" style="padding-top: 8px;">
+							<label>ผู้แนะนำของท่าน</label>
+							<select class="select2 select2-hidden-accessible" name="saleagents_code" data-placeholder="กรุณาเลือกผู้แนะนำ" tabindex="-1" aria-hidden="true">
+								<option></option>
+								<?php 
+								$sql->table = "saleagents";
+								$query = $sql->select();
+								while($sale_agent = mysqli_fetch_assoc($query)){
+									echo '<option value="'.$sale_agent["id"].'">'.$sale_agent["code"].'</option>';
+								}
+								?>
+							</select>
+							<div class="invalid-feedback txt_err"></div>
+						</div>
+						
 					</div>
+					<div class="col-md-4">
+						<div class="form-group form-group--float">
+							<input type="text" class="form-control">
+							<label>ชื่อ</label>
+							<!-- <div class="invalid-feedback"></div> -->
+							<i class="form-group__bar"></i>
+						</div>
+					</div>
+					<div class="col-md-4">
+						<div class="form-group form-group--float">
+							<input type="text" class="form-control">
+							<label>นามสกุล</label>
+							<!-- <div class="invalid-feedback"></div> -->
+							<i class="form-group__bar"></i>
+						</div>
+					</div>
+					<!-- <div class="col-md-3">
+						<div class="form-group form-group--float">
+							<input type="text" name="person_phone" class="form-control">
+							<label>โทร</label>
+							<div class="invalid-feedback"></div>
+							<i class="form-group__bar"></i>
+						</div>
+					</div> -->
+					<!-- <div class="col-md-3">
+						<div class="form-group form-group--float">
+							<input type="text" name="person_relationship" class="form-control">
+							<label>ความสัมพันธ์</label>
+							<div class="invalid-feedback"></div>
+							<i class="form-group__bar"></i>
+						</div>
+					</div> -->
+					<div class="col-md-12">
+						<h4>บุคคลอ้างอิง</h4>
+					</div>
+					<div class="col-md-12">
+						<div class="radio radio--inline">
+							<input type="radio" name="person_prefix" id="refRadio_1" value="1">
+							<label class="radio__label" for="refRadio_1">นาย</label>
+						</div>
+						<div class="radio radio--inline">
+							<input type="radio" name="person_prefix" id="refRadio_2" value="2">
+							<label class="radio__label" for="refRadio_2">นาง</label>
+						</div>
+						<div class="radio radio--inline">
+							<input type="radio" name="person_prefix" id="refRadio_3" value="3">
+							<label class="radio__label" for="refRadio_3">นางสาว</label>
+						</div>
+					</div>
+
 					<div class="col-md-3">
 						<div class="form-group form-group--float">
 							<input type="text" name="person_firstname" class="form-control">
@@ -815,55 +956,6 @@ $sql = new SQLiManager();
 						</div>
 					</div>
 					<div class="col-md-12">
-						<h4>บุคคลอ้างอิง (2)</h4>
-					</div>
-					<div class="col-md-12">
-						<div class="radio radio--inline">
-							<input type="radio" name="person_prefix2" id="ref2Radio_1" value="1" checked>
-							<label class="radio__label" for="ref2Radio_1">นาย</label>
-						</div>
-						<div class="radio radio--inline">
-							<input type="radio" name="person_prefix2" id="ref2Radio_2" value="2">
-							<label class="radio__label" for="ref2Radio_2">นาง</label>
-						</div>
-						<div class="radio radio--inline">
-							<input type="radio" name="person_prefix2" id="ref2Radio_3" value="3">
-							<label class="radio__label" for="ref2Radio_3">นางสาว</label>
-						</div>
-					</div>
-					<div class="col-md-3">
-						<div class="form-group form-group--float">
-							<input type="text" name="person_firstname2" class="form-control">
-							<label>ชื่อ</label>
-							<div class="invalid-feedback"></div>
-							<i class="form-group__bar"></i>
-						</div>
-					</div>
-					<div class="col-md-3">
-						<div class="form-group form-group--float">
-							<input type="text" name="person_lastname2" class="form-control">
-							<label>นามสกุล</label>
-							<div class="invalid-feedback"></div>
-							<i class="form-group__bar"></i>
-						</div>
-					</div>
-					<div class="col-md-3">
-						<div class="form-group form-group--float">
-							<input type="text" name="person_phone2" class="form-control">
-							<label>โทร</label>
-							<div class="invalid-feedback"></div>
-							<i class="form-group__bar"></i>
-						</div>
-					</div>
-					<div class="col-md-3">
-						<div class="form-group form-group--float">
-							<input type="text" name="person_relationship2" class="form-control">
-							<label>ความสัมพันธ์</label>
-							<div class="invalid-feedback"></div>
-							<i class="form-group__bar"></i>
-						</div>
-					</div>
-					<div class="col-md-12">
 						<h4>รูปถ่ายพร้อมบัตรประชาชน</h4>
 					</div>
 					<div class="col-md-12" style="text-align: center;">
@@ -878,17 +970,386 @@ $sql = new SQLiManager();
 							<!-- <i class="form-group__bar"></i>
 						</div> -->
 					</div>
+
+
+					<div class="col-md-12">
+						<h4>รูปถ่าย Book Bank</h4>
+					</div>
+
+					<div class="col-md-12">
+					<input type="file" name="img_booking" multiple="multiple">
+				</div>
+					
 					<!-- <div class="col-md-12" style="text-align: center;">
 							<inout type="file" name="idcard_img" class="dropzone" id="dropzone-upload">
 							<div class="invalid-feedback"></div>
 						</div>
 					</div> -->
-					<div class="col-md-12">
+					<div class="col-md-12 js-poll">
 						<div class="checkbox" style="text-align: center; padding-top: 50px;">
-							<input type="checkbox" id="customCheck1" name="checkconfirm" value="1">
-							<label class="checkbox__label" for="customCheck1">ข้าพเจ้าขอยอมรับว่าข้อมูลที่กรอกเป็นความจริง</label>
+							<input type="checkbox" id="customCheck1" name="checkconfirm" value="1" class="ck-js-poll">
+							<label class="checkbox__label" for="customCheck1">ข้าพเจ้ารับทราบว่า ข้อมูลที่ให้อย่างครบถ้วนนี้ถือเป็นข้อมูลเพื่อประกอบการพิจารณาสินเชื่อ ข้าพเจ้ายืนยันว่าข้อมูลที่กรอกเป็นความจริงทุกประการ โดยยินยอมให้ใช้หรือเปิดเผยข้อมูลส่วนบุคคลที่เกี่ยวข้องกับข้าพเจ้า เพื่อประโยชน์ในการวิเคราะห์สินเชื่อ การออกบัตรเครดิต หรือเพื่อประโยชน์ด้านการศึกษาต่างๆ รวมทั้งเพื่อประโยชน์ในการทบทวนสินเชื่อ ต่ออายุสัญญา และให้ถือว่าคู่ฉบับและบรรดาสำเนาภาพถ่าย(อิเล็กทรอนิกส์) ภาพถ่ายหรือบันทึกไว้ในรูปแบบใด เป็นหลักฐานในการยินยอมของข้าพเจ้าเช่นกัน</label>
 						</div>
 					</div>
+
+					<div class="col-md-12 pollCheck" style="margin-top: 30px;">
+						<h4>โดยปกติใน 1 วันท่านใช้สื่อดิจิตอลมากน้อยเพียงใด</h4>
+						<div class="radio radio--inline">
+							<input type="radio" name="social_use" id="socialRadio_1" value="1">
+							<label class="radio__label" for="socialRadio_1">ตลอดวัน</label>
+						</div>
+						<div class="radio radio--inline">
+							<input type="radio" name="social_use" id="socialRadio_2" value="2">
+							<label class="radio__label" for="socialRadio_2">มากกว่า 12 ชั่วโมงต่อวัน</label>
+						</div>
+
+						<div class="radio radio--inline">
+							<input type="radio" name="social_use" id="socialRadio_3" value="3">
+							<label class="radio__label" for="socialRadio_3">6 – 12 ชั่วโมงต่อวัน</label>
+						</div>
+
+						<div class="radio radio--inline">
+							<input type="radio" name="social_use" id="socialRadio_4" value="4">
+							<label class="radio__label" for="socialRadio_4">2 -5 ชั่วโมงต่อวัน</label>
+						</div>
+
+						<div class="radio radio--inline">
+							<input type="radio" name="social_use" id="socialRadio_5" value="5">
+							<label class="radio__label" for="socialRadio_5">น้อยกว่า 2 ชั่วโมงต่อวัน</label>
+						</div>
+						
+						<br><br><br>
+					</div>
+
+					<div class="col-md-12 pollCheck">
+						<h4>ในระยะ 2 เดือน ที่ผ่านมาท่านมีประสบการณ์ในการใช้สื่อดิจิตอลเหล่านี้มากน้อยเพียงใด (ให้คะแนน 1-5)</h4>
+						<br><p><label>ใช้เพื่อสื่อสารใน Social Network เช่น Facebook, IG, LINE</label></p>
+						<div class="radio radio--inline">
+							<input type="radio" name="digital_use1" id="digital1Radio_1" value="1">
+							<label class="radio__label" for="digitalRadio_1">1</label>
+						</div>
+						<div class="radio radio--inline">
+							<input type="radio" name="digital_use1" id="digital1Radio_2" value="2">
+							<label class="radio__label" for="digital1Radio_2">2</label>
+						</div>
+						<div class="radio radio--inline">
+							<input type="radio" name="digital_use1" id="digital1Radio_3" value="3">
+							<label class="radio__label" for="digital1Radio_3">3</label>
+						</div>
+
+						<div class="radio radio--inline">
+							<input type="radio" name="digital_use1" id="digital1Radio_4" value="4">
+							<label class="radio__label" for="digital1Radio_4">4</label>
+						</div>
+
+						<div class="radio radio--inline">
+							<input type="radio" name="digital_use1" id="digital1Radio_5" value="5">
+							<label class="radio__label" for="digital1Radio_5">5</label>
+						</div>
+
+						<br><br><p><label>ดูหนัง ฟังเพลง เช่น Youtube</label></p>
+						<div class="radio radio--inline">
+							<input type="radio" name="digital_use2" id="digital2Radio_1" value="1">
+							<label class="radio__label" for="digita2Radio_1">1</label>
+						</div>
+						<div class="radio radio--inline">
+							<input type="radio" name="digital_use2" id="digital2Radio_2" value="2">
+							<label class="radio__label" for="digital2Radio_2">2</label>
+						</div>
+						<div class="radio radio--inline">
+							<input type="radio" name="digital_use2" id="digital2Radio_3" value="3">
+							<label class="radio__label" for="digital2Radio_3">3</label>
+						</div>
+
+						<div class="radio radio--inline">
+							<input type="radio" name="digital_use2" id="digital2Radio_4" value="4">
+							<label class="radio__label" for="digital2Radio_4">4</label>
+						</div>
+
+						<div class="radio radio--inline">
+							<input type="radio" name="digital_use2" id="digital2Radio_5" value="5">
+							<label class="radio__label" for="digital2Radio_5">5</label>
+						</div>
+
+						<br><br><p><label>สืบค้นข้อมูลบนอินเทอร์เน็ต เช่น google.com</label></p>
+						<div class="radio radio--inline">
+							<input type="radio" name="digital_use3" id="digital3Radio_1" value="1">
+							<label class="radio__label" for="digital3Radio_1">1</label>
+						</div>
+						<div class="radio radio--inline">
+							<input type="radio" name="digital_use3" id="digital3Radio_2" value="2">
+							<label class="radio__label" for="digital3Radio_2">2</label>
+						</div>
+						<div class="radio radio--inline">
+							<input type="radio" name="digital_use3" id="digital3Radio_3" value="3">
+							<label class="radio__label" for="digital3Radio_3">3</label>
+						</div>
+
+						<div class="radio radio--inline">
+							<input type="radio" name="digital_use3" id="digital3Radio_4" value="4">
+							<label class="radio__label" for="digital3Radio_4">4</label>
+						</div>
+
+						<div class="radio radio--inline">
+							<input type="radio" name="digital_use3" id="digital3Radio_5" value="5">
+							<label class="radio__label" for="digital3Radio_5">5</label>
+						</div>
+
+						<br><br><p><label>ธุรกรรมการเงิน เช่น Kbank Plus</label></p>
+						<div class="radio radio--inline">
+							<input type="radio" name="digital_use4" id="digital4Radio_1" value="1">
+							<label class="radio__label" for="digital4Radio_1">1</label>
+						</div>
+						<div class="radio radio--inline">
+							<input type="radio" name="digital_use4" id="digital4Radio_2" value="2">
+							<label class="radio__label" for="digital4Radio_2">2</label>
+						</div>
+						<div class="radio radio--inline">
+							<input type="radio" name="digital_use4" id="digital4Radio_3" value="3">
+							<label class="radio__label" for="digital4Radio_3">3</label>
+						</div>
+
+						<div class="radio radio--inline">
+							<input type="radio" name="digital_use4" id="digital4Radio_4" value="4">
+							<label class="radio__label" for="digital4Radio_4">4</label>
+						</div>
+
+						<div class="radio radio--inline">
+							<input type="radio" name="digital_use4" id="digital4Radio_5" value="5">
+							<label class="radio__label" for="digital4Radio_5">5</label>
+						</div>
+
+						<br><br><p><label>ดูข้อมูลท่องเที่ยว เช่น Traveloca</label></p>
+						<div class="radio radio--inline">
+							<input type="radio" name="digital_use5" id="digital5Radio_1" value="1">
+							<label class="radio__label" for="digital5Radio_1">1</label>
+						</div>
+						<div class="radio radio--inline">
+							<input type="radio" name="digital_use5" id="digital5Radio_2" value="2">
+							<label class="radio__label" for="digital5Radio_2">2</label>
+						</div>
+						<div class="radio radio--inline">
+							<input type="radio" name="digital_use5" id="digital5Radio_3" value="3">
+							<label class="radio__label" for="digital5Radio_3">3</label>
+						</div>
+
+						<div class="radio radio--inline">
+							<input type="radio" name="digital_use5" id="digital5Radio_4" value="4">
+							<label class="radio__label" for="digital5Radio_4">4</label>
+						</div>
+
+						<div class="radio radio--inline">
+							<input type="radio" name="digital_use5" id="digital5Radio_5" value="5">
+							<label class="radio__label" for="digital5Radio_5">5</label>
+						</div>
+
+						<br><br><p><label>ทำงาน/ ประชุม / E-mail เช่น Hotmail, Gmail</label></p>
+						<div class="radio radio--inline">
+							<input type="radio" name="digital_use6" id="digital6Radio_1" value="1">
+							<label class="radio__label" for="digital6Radio_1">1</label>
+						</div>
+						<div class="radio radio--inline">
+							<input type="radio" name="digital_use6" id="digital6Radio_2" value="2">
+							<label class="radio__label" for="digital6Radio_2">2</label>
+						</div>
+						<div class="radio radio--inline">
+							<input type="radio" name="digital_use6" id="digital6Radio_3" value="3">
+							<label class="radio__label" for="digital6Radio_3">3</label>
+						</div>
+
+						<div class="radio radio--inline">
+							<input type="radio" name="digital_use6" id="digital6Radio_4" value="4">
+							<label class="radio__label" for="digital6Radio_4">4</label>
+						</div>
+
+						<div class="radio radio--inline">
+							<input type="radio" name="digital_use6" id="digital6Radio_5" value="5">
+							<label class="radio__label" for="digital6Radio_5">5</label>
+						</div>
+
+						<br><br><p><label>การแสดงความคิดเห็นต่อกลุ่มชุมชนบนอินเตอร์เนต เช่น Pantip</label></p>
+						<div class="radio radio--inline">
+							<input type="radio" name="digital_use7" id="digital7Radio_1" value="1">
+							<label class="radio__label" for="digital7Radio_1">1</label>
+						</div>
+						<div class="radio radio--inline">
+							<input type="radio" name="digital_use7" id="digital7Radio_2" value="2">
+							<label class="radio__label" for="digital7Radio_2">2</label>
+						</div>
+						<div class="radio radio--inline">
+							<input type="radio" name="digital_use7" id="digital7Radio_3" value="3">
+							<label class="radio__label" for="digital7Radio_3">3</label>
+						</div>
+
+						<div class="radio radio--inline">
+							<input type="radio" name="digital_use7" id="digital7Radio_4" value="4">
+							<label class="radio__label" for="digital7Radio_4">4</label>
+						</div>
+
+						<div class="radio radio--inline">
+							<input type="radio" name="digital_use7" id="digital7Radio_5" value="5">
+							<label class="radio__label" for="digital7Radio_5">5</label>
+						</div>
+
+						<br><br><p><label>เพื่อติดตามข่าวสาร เช่น Twitter</label></p>
+						<div class="radio radio--inline">
+							<input type="radio" name="digital_use8" id="digital8Radio_1" value="1">
+							<label class="radio__label" for="digital8Radio_1">1</label>
+						</div>
+						<div class="radio radio--inline">
+							<input type="radio" name="digital_use8" id="digital8Radio_2" value="2">
+							<label class="radio__label" for="digital8Radio_2">2</label>
+						</div>
+						<div class="radio radio--inline">
+							<input type="radio" name="digital_use8" id="digital8Radio_3" value="3">
+							<label class="radio__label" for="digital8Radio_3">3</label>
+						</div>
+
+						<div class="radio radio--inline">
+							<input type="radio" name="digital_use8" id="digital8Radio_4" value="4">
+							<label class="radio__label" for="digital8Radio_4">4</label>
+						</div>
+
+						<div class="radio radio--inline">
+							<input type="radio" name="digital_use8" id="digital8Radio_5" value="5">
+							<label class="radio__label" for="digital8Radio_5">5</label>
+						</div>
+
+						<br><br><p><label>ช้อปปิ้ง สั่งซื้อสินค้า, ประมูลสินค้า เช่น Lazada, Shopee</label></p>
+						<div class="radio radio--inline">
+							<input type="radio" name="digital_use9" id="digital9Radio_1" value="1">
+							<label class="radio__label" for="digital9Radio_1">1</label>
+						</div>
+						<div class="radio radio--inline">
+							<input type="radio" name="digital_use9" id="digital9Radio_2" value="2">
+							<label class="radio__label" for="digital9Radio_2">2</label>
+						</div>
+						<div class="radio radio--inline">
+							<input type="radio" name="digital_use9" id="digital9Radio_3" value="3">
+							<label class="radio__label" for="digital9Radio_3">3</label>
+						</div>
+
+						<div class="radio radio--inline">
+							<input type="radio" name="digital_use9" id="digital9Radio_4" value="4">
+							<label class="radio__label" for="digital9Radio_4">4</label>
+						</div>
+
+						<div class="radio radio--inline">
+							<input type="radio" name="digital_use9" id="digital9Radio_5" value="5">
+							<label class="radio__label" for="digital9Radio_5">5</label>
+						</div>
+						
+						<br><br><p><label>การเล่นเกมออนไลน์ เช่น ROV, Free fire</label></p>
+						<div class="radio radio--inline">
+							<input type="radio" name="digital_use10" id="digital10Radio_1" value="1">
+							<label class="radio__label" for="digital10Radio_1">1</label>
+						</div>
+						<div class="radio radio--inline">
+							<input type="radio" name="digital_use10" id="digital10Radio_2" value="2">
+							<label class="radio__label" for="digital10Radio_2">2</label>
+						</div>
+						<div class="radio radio--inline">
+							<input type="radio" name="digital_use10" id="digital10Radio_3" value="3">
+							<label class="radio__label" for="digital10Radio_3">3</label>
+						</div>
+
+						<div class="radio radio--inline">
+							<input type="radio" name="digital_use10" id="digital10Radio_4" value="4">
+							<label class="radio__label" for="digital10Radio_4">4</label>
+						</div>
+
+						<div class="radio radio--inline">
+							<input type="radio" name="digital_use10" id="digital10Radio_5" value="5">
+							<label class="radio__label" for="digital10Radio_5">5</label>
+						</div>
+						
+						<br><br><p><label>การเล่นการพนันออนไลน์ เช่น ฟุตบอล</label></p>
+						<div class="radio radio--inline">
+							<input type="radio" name="digital_use11" id="digital11Radio_1" value="1">
+							<label class="radio__label" for="digital11Radio_1">1</label>
+						</div>
+						<div class="radio radio--inline">
+							<input type="radio" name="digital_use11" id="digital11Radio_2" value="2">
+							<label class="radio__label" for="digital11Radio_2">2</label>
+						</div>
+						<div class="radio radio--inline">
+							<input type="radio" name="digital_use11" id="digital11Radio_3" value="3">
+							<label class="radio__label" for="digital11Radio_3">3</label>
+						</div>
+
+						<div class="radio radio--inline">
+							<input type="radio" name="digital_use11" id="digital11Radio_4" value="4">
+							<label class="radio__label" for="digital11Radio_4">4</label>
+						</div>
+
+						<div class="radio radio--inline">
+							<input type="radio" name="digital_use11" id="digital11Radio_5" value="5">
+							<label class="radio__label" for="digital11Radio_5">5</label>
+						</div>
+					</div>
+						
+
+						<div class="col-md-12 pollCheck" style="margin-top: 30px;">
+						<h4>ท่านมีส่วนร่วมในสื่อดิจิทัลในรูปแบบใดบ้าง</h4>
+						<div class="checkbox checkbox--inline">
+							<input type="checkbox" id="participateCheck1" name="participate1" value="1">
+							<label class="checkbox__label" for="participateCheck1">โพสต์ (Post)</label>
+						</div>
+						<div class="checkbox checkbox--inline">
+							<input type="checkbox" id="participateCheck2" name="participate2" value="1">
+							<label class="checkbox__label" for="participateCheck2">ไลด์ (Like)</label>
+						</div>
+						<div class="checkbox checkbox--inline">
+							<input type="checkbox" id="participateCheck3" name="participate3" value="1">
+							<label class="checkbox__label" for="participateCheck3">แชร์ (Share)</label>
+						</div>
+						<div class="checkbox checkbox--inline">
+							<input type="checkbox" id="participateCheck4" name="participate4" value="1">
+							<label class="checkbox__label" for="participateCheck4">แท็ก (Tag)</label>
+						</div>
+						<div class="checkbox checkbox--inline">
+							<input type="checkbox" id="participateCheck5" name="participate5" value="1">
+							<label class="checkbox__label" for="participateCheck5">เชค อิน (Check In)</label>
+						</div>
+						<div class="checkbox checkbox--inline">
+							<input type="checkbox" id="participateCheck6" name="participate6" value="1">
+							<label class="checkbox__label" for="participateCheck6">ติดตาม (Subscribe, follow)</label>
+						</div>
+						</div>
+						
+						<div class="col-md-12 pollCheck" style="margin-top: 30px;">
+						<h4>ในระยะ 6 เดือนนี้ ท่านมีแนวโน้มจะซื้อสินค้าประเภทใดบ้าง</h4>
+						<div class="checkbox checkbox--inline">
+							<input type="checkbox" id="maybe_buyCheck1" name="maybe_buy1" value="1">
+							<label class="checkbox__label" for="maybe_buyCheck1">ยานยนต์</label>
+						</div>
+						<div class="checkbox checkbox--inline">
+							<input type="checkbox" id="maybe_buyCheck2" name="maybe_buy2" value="1">
+							<label class="checkbox__label" for="maybe_buyCheck2">อสังหาริมทรัพย์</label>
+						</div>
+						<div class="checkbox checkbox--inline">
+							<input type="checkbox" id="maybe_buyCheck3" name="maybe_buy3" value="1">
+							<label class="checkbox__label" for="maybe_buyCheck3">เครื่องใช้ไฟฟ้า</label>
+						</div>
+						<div class="checkbox checkbox--inline">
+							<input type="checkbox" id="maybe_buyCheck4" name="maybe_buy4" value="1">
+							<label class="checkbox__label" for="maybe_buyCheck4">สมาร์ทโฟนและอุปกรณ์อิเล็กทรอนิกส์</label>
+						</div>
+						<div class="checkbox checkbox--inline">
+							<input type="checkbox" id="maybe_buyCheck5" name="maybe_buy5" value="1">
+							<label class="checkbox__label" for="maybe_buyCheck5">การลงทุน</label>
+						</div>
+						<div class="checkbox checkbox--inline">
+							<input type="checkbox" id="maybe_buyCheck6" name="maybe_buy6" value="1">
+							<label class="checkbox__label" for="maybe_buyCheck6">การประกัน</label>
+						</div>
+						<div class="checkbox checkbox--inline">
+							<input type="checkbox" id="maybe_buyCheck7" name="maybe_buy7" value="1">
+							<label class="checkbox__label" for="maybe_buyCheck7">การท่องเที่ยว</label>
+						</div>
+						</div>
+					
+
 					<div class="col-md-12" style="text-align: center; margin-top: 50px;">
 						<button type="submit" class="btn btn-success btn--raised btn-submit">ส่งใบสมัคร</button>
 					</div>
@@ -927,6 +1388,18 @@ include("layouts/foot.php");
 		else{
 			$(".married").hide();
 			$(".married_txt_err").hide();
+		}
+	});
+
+	$(".pollCheck").hide();
+	$(".js-poll").change(function(){
+		if( $(this).find('.ck-js-poll').is(":checked") ){
+			$(".pollCheck").show();
+			$(".poll_txt_err").show();
+		}
+		else{
+			$(".pollCheck").hide();
+			$(".poll_txt_err").hide();
 		}
 	});
 // 	    flatpickr(document.getElementById("birthday"), {

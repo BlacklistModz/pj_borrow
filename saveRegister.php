@@ -11,7 +11,7 @@ foreach ($_POST as $key => $value) {
 	if( $key == "checkconfirm" ) continue;
 
 	if( $_POST["family_status"] != 2 ){
-		if( $key == "spouse_firstname" || $key == "spouse_lastname" || $key == "spouse_mobile" || $key == "spouse_career" || $key == "spouse_children" || $key == "spouse_income" ) continue;
+		if( $key == "spouse_firstname" || $key == "spouse_lastname" || $key == "spouse_mobile" ) continue;
 	}
 
 	if( $_POST["address_status"] == 1 ){
@@ -19,10 +19,10 @@ foreach ($_POST as $key => $value) {
 	}
 
 	if( $_POST["doc_address"] != 3 ){
-		if( $key == "doc_addr_number" || $key == "doc_addr_room" || $key == "doc_addr_soi" || $key == "doc_addr_street" || $key == "doc_addr_district" || $key == "doc_addr_amphur" || $key == "doc_addr_province" || $key == "doc_addr_zipcode" ) continue;
+		if( $key == "doc_addr_number" || $key == "doc_addr_district" || $key == "doc_addr_amphur" || $key == "doc_addr_province" || $key == "doc_addr_zipcode" ) continue;
 	}
 
-	if( $key == "address_hire" || $key == "work_income_etc" || $key == "work_old_year" ) continue;
+	if( $key == "address_hire" || $key == "work_income_etc" || $key == "work_old_year" || $key == "person_prefix" || $key == "person_firstname" || $key == "person_lastname" || $key == "person_phone" || $key == "person_relationship" || $key == "package_interest2" || $key == "package_interest_date2" || $key == "spouse_children" || $key == "address_room"|| $key == "address_soi"|| $key == "address_street"|| $key == "address_phone" || $key == "address_month" || $key == "address_year" || $key == "work_addr_floor" || $key == "work_addr_soi" || $key == "work_addr_street" || $key == "work_addr_mobile" || $key == "work_addr_fax" || $key == "work_old_month" || $key == "doc_addr_room" || $key == "doc_addr_soi" || $key == "doc_addr_street" || $key == "spouse_career" || $key == "spouse_income" || $key == "work_income_source" || $key == "work_addr_code" ) continue;
 
 	if( empty($value) ) $arr["error"][$key] = "กรุณากรอกข้อมูลให้ครบถ้วน";
 }
@@ -41,17 +41,17 @@ if( !empty($_POST["idcard"]) ){
 	}elseif( !checkPID($_POST["idcard"]) ){
 		$arr["error"]["idcard"] = "เลขบัตรประชาชนไม่ถูกต้อง กรุณาตรวจสอบอีกครั้ง";
 	}
-	$sql->table = "customers";
-	$sql->condition = "WHERE idcard='{$_POST["idcard"]}'";
-	$query = $sql->select();
-	if( mysqli_num_rows($query) > 0 ){
-		$arr["error"]["idcard"] = "ตรวจสอบพบข้อมูลผู้สมัครในระบบ กรุณาเข้าสู่ระบบผู้ลงทะเบียนเดิม";
-		$arr["alert"] = "true";
-		$arr["type"] = "error";
-		$arr["title"] = "ตรวจพบข้อมูลซ้ำ";
-		$arr["text"] = "ตรวจสอบพบเลขบัตรประชาชน {$_POST["idcard"]} ในระบบ";
-		$arr["status"] = 422; 
-	}
+	// $sql->table = "customers";
+	// $sql->condition = "WHERE idcard='{$_POST["idcard"]}'";
+	// $query = $sql->select();
+	// if( mysqli_num_rows($query) > 0 ){
+	// 	$arr["error"]["idcard"] = "ตรวจสอบพบข้อมูลผู้สมัครในระบบ กรุณาเข้าสู่ระบบผู้ลงทะเบียนเดิม";
+	// 	$arr["alert"] = "true";
+	// 	$arr["type"] = "error";
+	// 	$arr["title"] = "ตรวจพบข้อมูลซ้ำ";
+	// 	$arr["text"] = "ตรวจสอบพบเลขบัตรประชาชน {$_POST["idcard"]} ในระบบ";
+	// 	$arr["status"] = 422; 
+	// }
 }
 
 if( empty($_FILES["img_idcard"]) && empty($arr["error"]) ){
