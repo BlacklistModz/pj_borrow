@@ -66,7 +66,15 @@ if( empty($arr["error"]) ){
 	$sql->value = $value;
 	$sql->condition = "WHERE id={$_POST["id"]}";
 	if( $sql->update() ){
-	$arr = [
+
+		if( empty($_POST["code"]) ){
+			$code = "SBC".sprintf("%06d", $_POST["id"]);
+			$sql->value = "code='{$code}'";
+			$sql->condition = "WHERE id={$_POST["id"]}";
+			$sql->update();
+		}
+
+		$arr = [
 			"type" => "success",
 			"title" => "บันทึกข้อมูลเรียบร้อยแล้ว",
 			"url" => URL.'admin/customers/?page=customers',

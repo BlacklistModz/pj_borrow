@@ -159,8 +159,15 @@ if( !empty($_POST["checkconfirm"]) && empty($arr["error"]) ){
 	$sql->field = $field;
 	$sql->value = $value;
 	if( $sql->insert() ){
+
 		$_POST["customer_id"] = mysqli_insert_id($sql->connect);
 		$_POST["date"] = date("Y-m-d");
+
+		##SET Customer CODE
+		$code = "SBC".sprintf("%06d", $_POST["customer_id"]);
+		$sql->value = "code='{$code}'";
+		$sql->condition = "WHERE id={$_POST["customer_id"]}";
+		$sql->update();
 
 		//SET BORROWS
 		$field = '';

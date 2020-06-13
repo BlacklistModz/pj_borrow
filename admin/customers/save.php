@@ -50,6 +50,15 @@ if( empty($arr["error"]) ){
 	$sql->field = $field;
 	$sql->value = $value;
 	if( $sql->insert() ){
+
+		if( empty($_POST["code"]) ){
+			$id = mysqli_insert_id($sql->connect);
+			$code = "SBC".sprintf("%06d", $id);
+			$sql->value = "code='{$code}'";
+			$sql->condition = "WHERE id={$id}";
+			$sql->update();
+		}
+
 		$arr = [
 			"type" => "success",
 			"title" => "บันทึกข้อมูลเรียบร้อยแล้ว",
