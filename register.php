@@ -884,17 +884,19 @@ $sql = new SQLiManager();
 						
 					</div>
 					<div class="col-md-4">
-						<div class="form-group form-group--float">
-							<input type="text" class="form-control js-saleagents-firstname" readonly>
+						<div class="form-group" style="margin-top: 7px;">
 							<label>ชื่อ</label>
+							<input type="text" class="form-control js-saleagents-firstname" readonly>
+							
 							<!-- <div class="invalid-feedback"></div> -->
 							<i class="form-group__bar"></i>
 						</div>
 					</div>
 					<div class="col-md-4">
-						<div class="form-group form-group--float">
-							<input type="text" class="form-control js-saleagents-lastname" readonly>
+						<div class="form-group" style="margin-top: 7px;">
 							<label>นามสกุล</label>
+							<input type="text" class="form-control js-saleagents-lastname" readonly>
+							
 							<!-- <div class="invalid-feedback"></div> -->
 							<i class="form-group__bar"></i>
 						</div>
