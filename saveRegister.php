@@ -197,9 +197,9 @@ if( !empty($_POST["checkconfirm"]) && empty($arr["error"]) ){
 				$img_bookbank = 'ID_'.date('Y-m-d').'_'.md5(sprintf("%04d",$id)).'_'.($i+1).$typeFile;
 				move_uploaded_file($_FILES["img_bookbank"]["tmp_name"][$i], WWW_UPLOADS.$img_bookbank);
 
-				$sql->table = "borrow_bookbank";
+				$sql->table = "borrow_bookbanks";
 				$sql->field = "borrow_id, img_bookbank";
-				$sql->value = "{$id}, {$img_bookbank}";
+				$sql->value = "{$id}, '{$img_bookbank}'";
 				$sql->insert();
 			}
 			#####
