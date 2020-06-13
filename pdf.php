@@ -12,6 +12,8 @@ $ops = [
 
 // USE $html for content page //
 $html = '
+	<div style="page-break-after: always"></div>
+
 	<div class="pdf_name">นายจักรกฤษ แปงเมือง</div>
 
 	<div class="pdf_birth b-1">09</div>
@@ -191,6 +193,14 @@ $html = '
 	<div class="ref_2 rfn-5">086256489</div>
 
 	<div class="ref_2 rfn-6">หัวหน้างาน</div>
+	
+	<div style="page-break-after: always"></div>
+
+	<div style="page-break-after: always"></div>
+
+	<div style="page-break-after: always"></div>
+
+	<div style="page-break-after: always"></div>
 
 ';
 
