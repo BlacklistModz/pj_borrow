@@ -37,10 +37,11 @@ $query = $sql->select();
 								<th width="10%">C-Code</th>
 								<th width="10%">เลขที่</th>
 								<th width="10%">รหัสลูกค้า</th>
-								<th width="30%">ชื่อ-นามสกุล</th>
-								<th width="15%">สถานะ</th>
+								<th width="25%">ชื่อ-นามสกุล</th>
+								<th width="10%">สถานะ</th>
 								<th width="5%">PDF</th>
-								<th width="15%">จัดการ</th>
+								<th width="5%">อนุมัติ</th>
+								<th width="10%">จัดการ</th>
 							</tr>
 						</thead>
 						<tbody>
@@ -57,21 +58,26 @@ $query = $sql->select();
 									<td><?=showPrefixName($result["prefix_name"])." ".$result["first_name"]." ".$result["last_name"]?></td>
 									<td class="text-center">
 										<?php
-										// $status = getStatus($result["status"]);
-										// echo '<a class="'.$status['class'].' text-white">'.$status['name'].'</a>';
+										$status = getStatus($result["status"]);
+										echo '<a class="'.$status['class'].' text-white">'.$status['name'].'</a>';
 										?>
-										<select class="form-control js-select" data-url="<?=URL?>admin/borrows/change_status.php" data-id="<?=$result["id"]?>">
+										<!-- <select class="form-control js-select" data-url="<?=URL?>admin/borrows/change_status.php" data-id="<?=$result["id"]?>"> -->
 											<?php 
-											foreach (status() as $key => $value) {
-												$sel = "";
-												if( $result["status"] == $value["id"] ) $sel = "selected";
-												echo '<option value="'.$value["id"].'" '.$sel.'>'.$value["name"].'</option>';
-											}
+											// foreach (status() as $key => $value) {
+											// 	$sel = "";
+											// 	if( $result["status"] == $value["id"] ) $sel = "selected";
+											// 	echo '<option value="'.$value["id"].'" '.$sel.'>'.$value["name"].'</option>';
+											// }
 											?>
-										</select>
+										<!-- </select> -->
 									</td>
 									<td class="text-center">
 										<a href="<?=URL?>admin/borrows/pdf.php?id=<?=$result["id"]?>" target="_blank" class="btn btn-info btn-sm"><i class="far fa-file-pdf"></i></a>
+									</td>
+									<td class="text-center">
+										<a href="<?=URL?>admin/borrows/approved.php?page=<?=$_GET["page"]?>&id=<?=$result["id"]?>" class="btn btn-primary btn-sm text-white" title="อนุมัติ / ไม่อนุมัติ">
+											<i class="fa fa-info-circle"></i>
+										</a>
 									</td>
 									<td class="text-center">
 

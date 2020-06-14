@@ -209,3 +209,23 @@ function getRole($role){
 	return $data;
 
 }
+
+function period(){
+	$a = [];
+	$a[] = ["id"=>3, "name"=>"3 เดือน"];
+	$a[] = ["id"=>6, "name"=>"6 เดือน"];
+	$a[] = ["id"=>9, "name"=>"9 เดือน"];
+	$a[] = ["id"=>12, "name"=>"12 เดือน"];
+	return $a;
+}
+
+function getPeriod($id){
+	$data = "";
+	foreach (period() as $key => $value) {
+		if( $id == $value["id"] ){
+			$data = $value["name"];
+			break;
+		}
+	}
+	return $data;
+}
