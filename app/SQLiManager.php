@@ -18,7 +18,7 @@ if(class_exists('SQLiManager') === false)
 		var $condition;
 		var $sql;
 		var $deleteAlias;
-		public function SQLiManager()
+		public function __construct()
 		{
 			$this->connect = mysqli_connect(DB_HOST,DB_USER,DB_PASS,DB_NAME);
 			if(!$this->connect)
