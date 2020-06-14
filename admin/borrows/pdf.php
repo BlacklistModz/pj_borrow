@@ -8,7 +8,7 @@ $ops = [
 	"file" => "../../public/file_mpdf/Sabaijai_loan.pdf",
 	"file_template" => true,
 	"css" => [
-		URL."pdf.css"
+		URL."public/css/pdf.css"
 	]
 ];
 
@@ -17,9 +17,26 @@ if( empty($_GET["id"]) ){
 }
 
 $sql = new SQLiManager();
-// $sql->table = "borrows b LEFT JOIN customers c ON b.customer_id=c.id LEFT JOIN saleagents s ON b.saleagents_id=s.id";
-$sql->table = "borrows b LEFT JOIN customers c ON b.customer_id=c.id LEFT JOIN saleagents s ON b.saleagents_id=s.id";
-$sql->field = "*, c.code as cuscode, s.code as salecode, c.prefix_name as cprefix, c.first_name as cfname, c.last_name as clname";
+$sql->table = "borrows b LEFT JOIN customers c ON b.customer_id=c.id 
+						 LEFT JOIN saleagents s ON b.saleagents_id=s.id
+
+						 LEFT JOIN province ap ON b.address_province=ap.PROVINCE_ID
+						 LEFT JOIN amphur aa ON b.address_amphur=aa.AMPHUR_ID
+						 LEFT JOIN district ad ON b.address_district=ad.DISTRICT_ID
+
+						 LEFT JOIN province wp ON b.work_addr_province=wp.PROVINCE_ID
+						 LEFT JOIN amphur wa ON b.work_addr_amphur=wa.AMPHUR_ID
+						 LEFT JOIN district wd ON b.work_addr_district=wd.DISTRICT_ID
+
+						 LEFT JOIN province dp ON b.doc_addr_province=dp.PROVINCE_ID
+						 LEFT JOIN amphur da ON b.doc_addr_amphur=ad.AMPHUR_ID
+						 LEFT JOIN district dd ON b.doc_addr_district=dd.DISTRICT_ID";
+$sql->field = "b.*
+				, c.code as cuscode, c.prefix_name, c.first_name, c.last_name, c.birthday, c.idcard, c.idcard_expire
+				, s.code as salecode, s.prefix_name as sprefix, s.first_name as sfname, s.last_name as slname
+				, ap.PROVINCE_NAME AS addressProvince, aa.AMPHUR_NAME AS addressAmphur, ad.DISTRICT_NAME AS addressDistrict
+				, wp.PROVINCE_NAME AS workProvince, wa.AMPHUR_NAME AS workAmphur, wd.DISTRICT_NAME AS workDistrict
+				, dp.PROVINCE_NAME AS docProvince, da.AMPHUR_NAME AS docAmphur, dd.DISTRICT_NAME AS docDistrict";
 $sql->condition = "WHERE b.id={$_GET["id"]} LIMIT 1";
 $query = $sql->select();
 if( mysqli_num_rows($query) <= 0 ){
@@ -28,35 +45,35 @@ if( mysqli_num_rows($query) <= 0 ){
 
 $result = mysqli_fetch_assoc($query);
 
-$sql->table = "borrows b LEFT JOIN province p ON b.address_province=p.PROVINCE_ID LEFT JOIN district d ON b.address_district=d.DISTRICT_ID LEFT JOIN amphur a ON b.address_amphur=a.AMPHUR_ID";
-$sql->field = "PROVINCE_NAME, DISTRICT_NAME, AMPHUR_NAME";
-$sql->condition = "WHERE b.id={$_GET["id"]} LIMIT 1";
-$adQuery = $sql->select();
-if( mysqli_num_rows($adQuery) <= 0 ){
-	header('location:'.URL.'admin/borrows/?page=borrows');
-}
+// $sql->table = "borrows b LEFT JOIN province p ON b.address_province=p.PROVINCE_ID LEFT JOIN district d ON b.address_district=d.DISTRICT_ID LEFT JOIN amphur a ON b.address_amphur=a.AMPHUR_ID";
+// $sql->field = "PROVINCE_NAME, DISTRICT_NAME, AMPHUR_NAME";
+// $sql->condition = "WHERE b.id={$_GET["id"]} LIMIT 1";
+// $adQuery = $sql->select();
+// if( mysqli_num_rows($adQuery) <= 0 ){
+// 	header('location:'.URL.'admin/borrows/?page=borrows');
+// }
 
-$adResult = mysqli_fetch_assoc($adQuery);
+// $adResult = mysqli_fetch_assoc($adQuery);
 
-$sql->table = "borrows b LEFT JOIN province p ON b.work_addr_province=p.PROVINCE_ID LEFT JOIN district d ON b.work_addr_district=d.DISTRICT_ID LEFT JOIN amphur a ON b.work_addr_amphur=a.AMPHUR_ID";
-$sql->field = "PROVINCE_NAME, DISTRICT_NAME, AMPHUR_NAME";
-$sql->condition = "WHERE b.id={$_GET["id"]} LIMIT 1";
-$wkQuery = $sql->select();
-if( mysqli_num_rows($wkQuery) <= 0 ){
-	header('location:'.URL.'admin/borrows/?page=borrows');
-}
+// $sql->table = "borrows b LEFT JOIN province p ON b.work_addr_province=p.PROVINCE_ID LEFT JOIN district d ON b.work_addr_district=d.DISTRICT_ID LEFT JOIN amphur a ON b.work_addr_amphur=a.AMPHUR_ID";
+// $sql->field = "PROVINCE_NAME, DISTRICT_NAME, AMPHUR_NAME";
+// $sql->condition = "WHERE b.id={$_GET["id"]} LIMIT 1";
+// $wkQuery = $sql->select();
+// if( mysqli_num_rows($wkQuery) <= 0 ){
+// 	header('location:'.URL.'admin/borrows/?page=borrows');
+// }
 
-$wkResult = mysqli_fetch_assoc($wkQuery);
+// $wkResult = mysqli_fetch_assoc($wkQuery);
 
-$sql->table = "borrows b LEFT JOIN province p ON b.doc_addr_province=p.PROVINCE_ID LEFT JOIN district d ON b.doc_addr_district=d.DISTRICT_ID LEFT JOIN amphur a ON b.doc_addr_amphur=a.AMPHUR_ID";
-$sql->field = "PROVINCE_NAME, DISTRICT_NAME, AMPHUR_NAME";
-$sql->condition = "WHERE b.id={$_GET["id"]} LIMIT 1";
-$docQuery = $sql->select();
-if( mysqli_num_rows($adQuery) <= 0 ){
-	header('location:'.URL.'admin/borrows/?page=borrows');
-}
+// $sql->table = "borrows b LEFT JOIN province p ON b.doc_addr_province=p.PROVINCE_ID LEFT JOIN district d ON b.doc_addr_district=d.DISTRICT_ID LEFT JOIN amphur a ON b.doc_addr_amphur=a.AMPHUR_ID";
+// $sql->field = "PROVINCE_NAME, DISTRICT_NAME, AMPHUR_NAME";
+// $sql->condition = "WHERE b.id={$_GET["id"]} LIMIT 1";
+// $docQuery = $sql->select();
+// if( mysqli_num_rows($adQuery) <= 0 ){
+// 	header('location:'.URL.'admin/borrows/?page=borrows');
+// }
 
-$docResult = mysqli_fetch_assoc($docQuery);
+// $docResult = mysqli_fetch_assoc($docQuery);
 
 //SET DATA
 $date = date("d", strtotime($result["date"]));
@@ -83,7 +100,7 @@ $html = '
 	<div style="position: absolute; top: 119px; left: 710px; width: 50px;"> '.$year[2].' </div>
 	<div style="position: absolute; top: 119px; left: 728px; width: 50px;"> '.$year[3].' </div>
 
-	<div class="pdf_name">'.showPrefixName($result["cprefix"]).''.$result["cfname"].' &nbsp; '.$result["clname"].'</div>
+	<div class="pdf_name">'.showPrefixName($result["prefix_name"]).''.$result["first_name"].' &nbsp; '.$result["last_name"].'</div>
 	<div class="pdf_birth b-1">'.date("d", strtotime($result["birthday"])).'</div>
 	<div class="pdf_birth b-2">'.date("m", strtotime($result["birthday"])).'</div>
 	<div class="pdf_birth b-3">'.(date("Y", strtotime($result["birthday"]))+543).'</div>
@@ -137,10 +154,10 @@ $html .= '
 	<div class="ad_1 pdf_adroom">'.$result["address_room"].'</div>
 	<div class="ad_1 pdf_adsoi">'.$result["address_soi"].'</div>
 	<div class="ad_1 pdf_adstr">'.$result["address_street"].'</div>
-	<div class="ad_1 pdf_addis">'.$adResult["DISTRICT_NAME"].'</div>
-	<div class="ad_1 pdf_adamp">'.$adResult["AMPHUR_NAME"].'</div>
+	<div class="ad_1 pdf_addis">'.$result["addressDistrict"].'</div>
+	<div class="ad_1 pdf_adamp">'.$result["addressAmphur"].'</div>
 
-	<div class="ad_2 pdf_adpvn">'.$adResult["PROVINCE_NAME"].'</div>
+	<div class="ad_2 pdf_adpvn">'.$result["addressProvince"].'</div>
 	<div class="ad_2 pdf_adzip">'.$result["address_zipcode"].'</div>
 	<div class="ad_2 pdf_adphone">'.$result["address_phone"].'</div>
 	<div class="ad_2 pdf_adtel">'.$result["mobile"].'</div>
@@ -220,9 +237,9 @@ $html .= '
 	<div class="cp_1 pdf_cpsoi">'.$result["work_addr_soi"].'</div>
 
 	<div class="cp_2 pdf_cpstr">'.$result["work_addr_street"].'</div>
-	<div class="cp_2 pdf_cpdis">'.$wkResult["DISTRICT_NAME"].'</div>
-	<div class="cp_2 pdf_cpamp">'.$wkResult["AMPHUR_NAME"].'</div>
-	<div class="cp_2 pdf_cppvn">'.$wkResult["PROVINCE_NAME"].'</div>
+	<div class="cp_2 pdf_cpdis">'.$result["workDistrict"].'</div>
+	<div class="cp_2 pdf_cpamp">'.$result["workAmphur"].'</div>
+	<div class="cp_2 pdf_cppvn">'.$result["workProvince"].'</div>
 	<div class="cp_2 pdf_cpzip">'.$result["work_addr_zipcode"].'</div>
 
 	<div class="cp_3 pdf_cpphone">'.$result["work_addr_phone"].'</div>
@@ -247,7 +264,7 @@ $html .= '
 		$html .= '
 			<div class="ad_other">&#10004;</div>
 
-			<div class="other_add">'.$result["doc_addr_number"].' '.$result["doc_addr_room"].' '.$result["doc_addr_street"].' '.$docResult["DISTRICT_NAME"].' '.$docResult["AMPHUR_NAME"].' '.$docResult["PROVINCE_NAME"].' '.$result["doc_addr_zipcode"].'</div>
+			<div class="other_add">'.$result["doc_addr_number"].' '.$result["doc_addr_room"].' '.$result["doc_addr_street"].' '.$result["docDistrict"].' '.$result["docAmphur"].' '.$result["docProvince"].' '.$result["doc_addr_zipcode"].'</div>
 		';
 	}
 	
@@ -258,17 +275,18 @@ $html .= '
 	<div class="maybe_do_date_1">'.date("d / m / Y", strtotime("+543 years", strtotime($result['package_interest_date1']))).'</div>
 
 ';
-	if ($result["package_interest_date2"] != 0000-00-00) {
-		$html .= '
+
+if ($result["package_interest_date2"] != 0000-00-00) {
+	$html .= '
 			<div class="package_interest_2">'.$result["package_interest2"].'</div>
 			<div class="maybe_do_date_2">'.date("d / m / Y", strtotime("+543 years", strtotime($result['package_interest_date2']))).'</div>
-		';
-	}
+	';
+}
 
 $html .= '
 
-	<div class="sale_agent_name">'.showPrefixName($result["prefix_name"]).''.$result["first_name"].' &nbsp; '.$result["last_name"].'</div>
-	<div class="sale_agent_id">'.$result["code"].'</div>
+	<div class="sale_agent_name">'.showPrefixName($result["sprefix"]).''.$result["sfname"].' &nbsp; '.$result["slname"].'</div>
+	<div class="sale_agent_id">'.$result["salecode"].'</div>
 
 	<div class="ref_1 rfn-1">'.showPrefixName($result["person_prefix"]).''.$result["person_firstname"].' &nbsp; '.$result["person_lastname"].'</div>
 	<div class="ref_1 rfn-2">'.$result["person_phone"].'</div>
@@ -283,4 +301,3 @@ $html .= '
 
 $_startPathVendor = "../../";
 include "../../mpdf/display.php";
-?>

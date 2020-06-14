@@ -5,7 +5,7 @@ $ops = [
 	"file" => "public/file_mpdf/Sabaijai_loan.pdf",
 	"file_template" => true,
 	"css" => [
-		URL."pdf.css"
+		URL."public/css/pdf.css"
 	]
 
 ];
