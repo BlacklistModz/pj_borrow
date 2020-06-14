@@ -805,8 +805,9 @@ $sql = new SQLiManager();
 							<div class="input-group-prepend">
 								<span class="input-group-text"><i class="zmdi zmdi-calendar"></i></span>
 							</div>
-							<input type="date" class="form-control hidden-md-up" name="package_interest_date1" placeholder="กำหนดการที่คาดว่าจะทำ">
-							<input type="text" class="form-control date-picker hidden-sm-down flatpickr-input active" placeholder="กำหนดการที่คาดว่าจะทำ" readonly="readonly" name="package_interest_date1">
+							<!-- <input type="date" class="form-control hidden-md-up" name="package_interest_date1" placeholder="กำหนดการที่คาดว่าจะทำ">
+							<input type="text" class="form-control date-picker hidden-sm-down flatpickr-input active" placeholder="กำหนดการที่คาดว่าจะทำ" readonly="readonly" name="package_interest_date1"> -->
+							<input type="text" class="form-control DatePicker" name="package_interest_date1" placeholder="กำหนดการที่คาดว่าจะทำ" readonly>
 							<div class="invalid-feedback" style="bottom: -1.2rem;"></div>
 						</div>
 					</div>
@@ -825,8 +826,9 @@ $sql = new SQLiManager();
 							<div class="input-group-prepend">
 								<span class="input-group-text"><i class="zmdi zmdi-calendar"></i></span>
 							</div>
-							<input type="date" class="form-control hidden-md-up" name="package_interest_date2" placeholder="กำหนดการที่คาดว่าจะทำ">
-							<input type="text" class="form-control date-picker hidden-sm-down flatpickr-input active" placeholder="กำหนดการที่คาดว่าจะทำ" readonly="readonly" name="package_interest_date2">
+							<!-- <input type="date" class="form-control hidden-md-up" name="package_interest_date2" placeholder="กำหนดการที่คาดว่าจะทำ">
+							<input type="text" class="form-control date-picker hidden-sm-down flatpickr-input active" placeholder="กำหนดการที่คาดว่าจะทำ" readonly="readonly" name="package_interest_date2"> -->
+							<input type="text" class="form-control DatePicker" name="package_interest_date2" placeholder="กำหนดการที่คาดว่าจะทำ" readonly>
 							<div class="invalid-feedback" style="bottom: -1.2rem;"></div>
 						</div>
 					</div>

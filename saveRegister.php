@@ -179,6 +179,7 @@ if( !empty($_POST["checkconfirm"]) && empty($arr["error"]) ){
 			$field .= $key;
 
 			$value .= !empty($value) ? "," : "";
+			if( $key == "package_interest_date1" || $key == "package_interest_date2" ) $post = DateJQToPHP($post);
 			$value .= "'{$post}'";
 		}
 
