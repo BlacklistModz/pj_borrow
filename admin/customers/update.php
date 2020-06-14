@@ -58,7 +58,7 @@ if( empty($arr["error"]) ){
 		if( $key == "id" ) continue;
 
 		$value .= !empty($value) ? "," : "";
-		if( $key == "birthday" ) $val = DateJQToPHP($val);
+		if( $key == "birthday" || $key == "idcard_expire" ) $val = DateJQToPHP($val);
 		$value .= "{$key}='{$val}'";
 	}
 
