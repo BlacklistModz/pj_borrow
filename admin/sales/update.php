@@ -34,6 +34,23 @@ if( !empty($_POST["first_name"]) ){
 if( !empty($_POST["last_name"]) ){
 	if( !checkThai($_POST["last_name"]) ) $arr["error"]["last_name"] = "กรุณากรอกนามสกุลเป็นภาษาไทยเท่านั้น";
 }
+if( !empty($_POST["idcard"]) ){
+	if( !is_numeric($_POST["idcard"]) ){
+		$arr["error"]["idcard"] = "กรุณากรอกข้อมูลเป็นตัวเลข 0-9 และห้ามเว้นว่าง";
+	}elseif( !checkPID($_POST["idcard"]) ){
+		$arr["error"]["idcard"] = "เลขบัตรประชาชนไม่ถูกต้อง กรุณาตรวจสอบอีกครั้ง";
+	}
+
+	$has = true;
+	if( $old["idcard"] == $_POST["idcard"] ) $has = false;
+
+	$sql->table = "saleagents";
+	$sql->condition = "WHERE idcard='{$_POST["idcard"]}'";
+	$query = $sql->select();
+	if( mysqli_num_rows($query) > 0 && $has ){
+		$arr["error"]["idcard"] = "ตรวจสอบพบข้อมูลเลขบัตรประชาชนซ้ำในระบบ";
+	}
+}
 
 /* END CHECK ZONE */
 if( empty($arr["error"]) ){

@@ -77,13 +77,18 @@ if( !empty($_GET["id"]) ){
 								<div class="invalid-feedback"></div>
 							</div>
 						</div>
+						<div class="form-group">
+							<label for="idcard">รหัสประจำตัวประชาชน</label>
+							<input type="text" class="form-control" id="idcard" name="idcard" placeholder="รหัสประจำตัวประชาชน" value="<?= !empty($result["idcard"]) ? $result["idcard"] : "" ?>" maxlength="13">
+							<div class="invalid-feedback"></div>
+						</div>
 						<?php 
 						if( !empty($result["id"]) ) echo '<input type="hidden" name="id" value="'.$result["id"].'">';
 						?>
 					</div>
 					<div class="card-footer">
 						<div class="clearfix">
-							<a href="<?=URL?>admin/sales/?page=<?=$_GET["page"]?>" class="btn btn-danger float-left">
+							<a href="<?=URL?>admin/sales/?page=<?=$_GET["page"]?>&sub=<?=$_GET["sub"]?>" class="btn btn-danger float-left">
 								<i class="fa fa-arrow-left"></i> กลับหน้าหลัก
 							</a>
 							<button type="submit" class="btn btn-primary btn-submit float-right">
