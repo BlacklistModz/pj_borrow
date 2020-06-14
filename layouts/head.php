@@ -10,6 +10,8 @@ include($_pathURL."config.php");
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title><?=!empty($_title) ? $_title : 'Register System';?></title>
     <!-- Vendor styles -->
+    <!-- JQUERY UI -->
+    <link rel="stylesheet" href="<?=PLUGINS?>jquery-ui/jquery-ui.min.css">
     <link rel="stylesheet" href="<?=VENDORS?>material-design-iconic-font/css/material-design-iconic-font.min.css">
     <link rel="stylesheet" href="<?=VENDORS?>animate.css/animate.min.css">
     <link rel="stylesheet" href="<?=VENDORS?>jquery-scrollbar/jquery.scrollbar.css">
@@ -35,6 +37,16 @@ include($_pathURL."config.php");
     		padding: unset !important;
 			}
 		}
+        .ui-datepicker select.ui-datepicker-month{
+          width: 60%;
+          margin-top : 1px;
+          height: 29px;
+          margin : 1px;
+        }
+        .ui-datepicker select.ui-datepicker-year {
+          width: 38%;
+          height: 29px;
+        }
     </style>
 </head>
 <body data-ma-theme="cyan">

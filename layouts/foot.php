@@ -2,7 +2,7 @@
     <!-- Javascript -->
     <!-- Vendors -->
     <script src="<?=VENDORS?>jquery/jquery.min.js"></script>
-    <script src="<?=PLUGINS?>jquery-ui/jquery-ui.min.js"></script>
+    <script src="<?=PLUGINS?>jquery-ui/jquery-ui.js"></script>
     <script src="<?=VENDORS?>popper.js/popper.min.js"></script>
     <script src="<?=VENDORS?>bootstrap/js/bootstrap.min.js"></script>
     <script src="<?=JS?>jquery.validate.js"></script>
@@ -98,6 +98,14 @@
  Object.defineProperty(exports, '__esModule', { value: true });
 
  })); */
+    $(".DatePicker").datepicker({
+      changeMonth: true,
+      changeYear: true,
+      showButtonPanel: true,
+      yearRange: "-100:+0",
+      dateFormat: 'dd/mm/yy',
+      monthNamesShort: $.datepicker.regional["en"].monthNames
+    });
 
     </script>
 </body>

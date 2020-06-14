@@ -98,8 +98,9 @@ $sql = new SQLiManager();
 							<div class="input-group-prepend">
 								<span class="input-group-text"><i class="zmdi zmdi-calendar"></i></span>
 							</div>
-							<input type="date" class="form-control hidden-md-up" name="birthday" placeholder="กรุณากรอก วัน/เดือน/ปีเกิด">
-							<input type="text" class="form-control date-picker hidden-sm-down flatpickr-input active" placeholder="กรุณากรอก วัน/เดือน/ปีเกิด" readonly="readonly" name="birthday">
+							<input type="text" class="form-control DatePicker" name="birthday" placeholder="กรุณากรอก วัน/เดือน/ปี เกิด" readonly>
+							<!-- <input type="date" class="form-control hidden-md-up" name="birthday" placeholder="กรุณากรอก วัน/เดือน/ปีเกิด">
+							<input type="text" class="form-control date-picker hidden-sm-down flatpickr-input active" placeholder="กรุณากรอก วัน/เดือน/ปีเกิด" readonly="readonly" name="birthday"> -->
 							<div class="invalid-feedback" style="bottom: -1.2rem;"></div>
 						</div>
 					</div>
@@ -117,8 +118,9 @@ $sql = new SQLiManager();
 							<div class="input-group-prepend">
 								<span class="input-group-text"><i class="zmdi zmdi-calendar"></i></span>
 							</div>
-							<input type="date" class="form-control hidden-md-up" name="idcard_expire" placeholder="กรุณากรอกวันหมดอายุ">
-							<input type="text" class="form-control date-picker hidden-sm-down flatpickr-input active" placeholder="กรุณากรอกวันหมดอายุ" readonly="readonly" name="idcard_expire">
+							<!-- <input type="date" class="form-control hidden-md-up" name="idcard_expire" placeholder="กรุณากรอกวันหมดอายุ">
+							<input type="text" class="form-control date-picker hidden-sm-down flatpickr-input active" placeholder="กรุณากรอกวันหมดอายุ" readonly="readonly" name="idcard_expire"> -->
+							<input type="text" class="form-control DatePicker" name="idcard_expire" placeholder="กรุณากรอกวันหมดอายุ" readonly>
 							<div class="invalid-feedback" style="bottom: -1.2rem;"></div>
 						</div>
 					</div>
