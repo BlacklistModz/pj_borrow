@@ -5,7 +5,7 @@ session_start();
 $sql = new SQLiManager(); //ONLY AUTH
 if( !empty($_SESSION["admin"]) ){
 	$sql->table = "users";
-	$sql->field = "name, username";
+	$sql->field = "name, username, id";
 	$sql->condition = "WHERE id={$_SESSION["admin"]}";
 	$rsAuth = $sql->select();
 }

@@ -1,6 +1,9 @@
 <?php
 include("../../config.php");
 include("../../app/SQLiManager.php");
+include("../../app/check_auth.php");
+
+$_POST["staff_id"] = $auth["id"];
 
 $sql = new SQLiManager();
 

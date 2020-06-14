@@ -439,7 +439,7 @@ $sql = new SQLiManager();
 					<div class="col-md-4">
 						<div class="form-group form-group--float">
 							<input type="text" name="address_hire" class="form-control">
-							<label>ผ่อน / เช่าอยู่เดือนละ ... (บาท)</label>
+							<label>ผ่อน / เช่าอยู่เดือนละ ... (บาท) <label class="must">*</label></label>
 							<div class="invalid-feedback"></div>
 							<i class="form-group__bar"></i>
 						</div>
@@ -447,7 +447,7 @@ $sql = new SQLiManager();
 					<div class="col-md-2">
 						<div class="form-group form-group--float">
 							<input type="text" name="address_year" class="form-control">
-							<label>อาศัยมานาน ... (ปี)</label>
+							<label>อาศัยมานาน ... (ปี) <label class="must">*</label></label>
 							<div class="invalid-feedback"></div>
 							<i class="form-group__bar"></i>
 						</div>
@@ -455,7 +455,7 @@ $sql = new SQLiManager();
 					<div class="col-md-2">
 						<div class="form-group form-group--float">
 							<input type="text" name="address_month" class="form-control">
-							<label>อาศัยมานาน ... (เดือน)</label>
+							<label>อาศัยมานาน ... (เดือน) <label class="must">*</label></label>
 							<div class="invalid-feedback"></div>
 							<i class="form-group__bar"></i>
 						</div>
@@ -671,7 +671,7 @@ $sql = new SQLiManager();
 					<div class="col-md-2">
 						<div class="form-group form-group--float">
 							<input type="text" name="work_old_year" class="form-control">
-							<label>อายุงาน ... (ปี)</label>
+							<label>อายุงาน ... (ปี) <label class="must">*</label></label>
 							<div class="invalid-feedback"></div>
 							<i class="form-group__bar"></i>
 						</div>
@@ -679,7 +679,7 @@ $sql = new SQLiManager();
 					<div class="col-md-2">
 						<div class="form-group form-group--float">
 							<input type="text" name="work_old_month" class="form-control">
-							<label>อายุงาน ... (เดือน)</label>
+							<label>อายุงาน ... (เดือน) <label class="must">*</label></label>
 							<i class="form-group__bar"></i>
 						</div>
 					</div>
@@ -791,7 +791,7 @@ $sql = new SQLiManager();
 					<div class="col-md-12">
 						<h4>วัตถุประสงค์การขอกู้</h4>
 					</div>
-					<div class="col-md-6">
+					<!-- <div class="col-md-6">
 						<div class="form-group form-group--float">
 							<input type="text" name="package_interest1" class="form-control">
 							<label>โปรแกรมที่สนใจ 1 <label class="must">*</label></label>
@@ -799,6 +799,22 @@ $sql = new SQLiManager();
 							<i class="form-group__bar"></i>
 						</div>
 					</div>
+ -->
+					<div class="col-md-6">
+						<div class="form-group" style="padding-top: 8px;">
+							<label>โปรแกรมที่สนใจ 1 <label class="must">*</label></label>
+							<select class="select2 select2-hidden-accessible" name="package_interest1" data-placeholder="กรุณาเลือกโปรแกรมที่สนใจ 1" tabindex="-1" aria-hidden="true">
+								<option></option>
+								<option value="โปรแกรมศัลยกรรมตา">โปรแกรมศัลยกรรมตา</option>
+								<option value="โปรแกรมศัลยกรรมจมูก">โปรแกรมศัลยกรรมจมูก</option>
+								<option value="โปรแกรมศัลยกรรมหน้าอก">โปรแกรมศัลยกรรมหน้าอก</option>
+								<option value="โปรแกรมศัลยกรรมกระชับใบหน้าและรูปร่าง (Non surgury)">โปรแกรมศัลยกรรมกระชับใบหน้าและรูปร่าง (Non surgury)</option>
+								<option value="โปรแกรมศัลยกรรมดูดไขมัน">โปรแกรมศัลยกรรมดูดไขมัน</option>
+							</select>
+							<div class="invalid-feedback"></div>
+						</div>
+					</div>
+
 					<div class="col-md-6">
 						<label>กำหนดการที่คาดว่าจะทำ <label class="must">*</label></label>
 						<div class="input-group" style="padding-top: 7px;">
@@ -812,14 +828,30 @@ $sql = new SQLiManager();
 						</div>
 					</div>
 
-					<div class="col-md-6">
+					<!-- <div class="col-md-6">
 						<div class="form-group form-group--float">
 							<input type="text" name="package_interest2" class="form-control">
 							<label>โปรแกรมที่สนใจ 2</label>
 							<div class="invalid-feedback"></div>
 							<i class="form-group__bar"></i>
 						</div>
+					</div> -->
+
+					<div class="col-md-6">
+						<div class="form-group" style="padding-top: 8px;">
+							<label>โปรแกรมที่สนใจ 2</label>
+							<select class="select2 select2-hidden-accessible" name="package_interest2" data-placeholder="กรุณาเลือกโปรแกรมที่สนใจ 1" tabindex="-1" aria-hidden="true">
+								<option></option>
+								<option value="โปรแกรมศัลยกรรมตา">โปรแกรมศัลยกรรมตา</option>
+								<option value="โปรแกรมศัลยกรรมจมูก">โปรแกรมศัลยกรรมจมูก</option>
+								<option value="โปรแกรมศัลยกรรมหน้าอก">โปรแกรมศัลยกรรมหน้าอก</option>
+								<option value="โปรแกรมศัลยกรรมกระชับใบหน้าและรูปร่าง (Non surgury)">โปรแกรมศัลยกรรมกระชับใบหน้าและรูปร่าง (Non surgury)</option>
+								<option value="โปรแกรมศัลยกรรมดูดไขมัน">โปรแกรมศัลยกรรมดูดไขมัน</option>
+							</select>
+							<div class="invalid-feedback"></div>
+						</div>
 					</div>
+
 					<div class="col-md-6">
 						<label>กำหนดการที่คาดว่าจะทำ</label>
 						<div class="input-group" style="padding-top: 7px;">
@@ -955,7 +987,7 @@ $sql = new SQLiManager();
 					</div>
 					<div class="col-md-12">
 						<div class="radio radio--inline">
-							<input type="radio" name="person_prefix" id="refRadio_1" value="1">
+							<input type="radio" name="person_prefix" id="refRadio_1" value="1" checked>
 							<label class="radio__label" for="refRadio_1">นาย</label>
 						</div>
 						<div class="radio radio--inline">
@@ -971,7 +1003,7 @@ $sql = new SQLiManager();
 					<div class="col-md-3">
 						<div class="form-group form-group--float">
 							<input type="text" name="person_firstname" class="form-control">
-							<label>ชื่อ</label>
+							<label>ชื่อ <label class="must">*</label></label>
 							<div class="invalid-feedback"></div>
 							<i class="form-group__bar"></i>
 						</div>
@@ -979,7 +1011,7 @@ $sql = new SQLiManager();
 					<div class="col-md-3">
 						<div class="form-group form-group--float">
 							<input type="text" name="person_lastname" class="form-control">
-							<label>นามสกุล</label>
+							<label>นามสกุล <label class="must">*</label></label>
 							<div class="invalid-feedback"></div>
 							<i class="form-group__bar"></i>
 						</div>
@@ -987,7 +1019,7 @@ $sql = new SQLiManager();
 					<div class="col-md-3">
 						<div class="form-group form-group--float">
 							<input type="text" name="person_phone" class="form-control">
-							<label>โทร</label>
+							<label>โทร <label class="must">*</label></label>
 							<div class="invalid-feedback"></div>
 							<i class="form-group__bar"></i>
 						</div>
@@ -995,7 +1027,7 @@ $sql = new SQLiManager();
 					<div class="col-md-3">
 						<div class="form-group form-group--float">
 							<input type="text" name="person_relationship" class="form-control">
-							<label>ความสัมพันธ์</label>
+							<label>ความสัมพันธ์ <label class="must">*</label></label>
 							<div class="invalid-feedback"></div>
 							<i class="form-group__bar"></i>
 						</div>
@@ -1072,7 +1104,8 @@ $sql = new SQLiManager();
 
 					<div class="col-md-12 pollCheck">
 						<h4>ในระยะ 2 เดือน ที่ผ่านมาท่านมีประสบการณ์ในการใช้สื่อดิจิตอลเหล่านี้มากน้อยเพียงใด (ให้คะแนน 1-5)</h4>
-						<div class="row" style="background-color: #f3f3f3; padding: 10px 0px 10px 0px;">
+						<label class="must">*** 1 คือน้อยที่สุด - 5 คือมากที่สุด</label>
+						<div class="row" style="background-color: #f3f3f3; padding: 10px 0px 10px 0px; margin-top: 15px;">
 						<div class="col-md-6" style="margin-top: 6px;"><label>ใช้เพื่อสื่อสารใน Social Network เช่น Facebook, IG, LINE</label></div>
 						<div class="col-md-6"><div class="radio radio--inline">
 							<input type="radio" name="poll[digital_use1]" id="digital1Radio_1" value="1">
@@ -1199,7 +1232,7 @@ $sql = new SQLiManager();
 						</div></div></div>
 
 						<div class="row" style="padding: 10px 0px 10px 0px;">
-						<div class="col-md-6" style="margin-top: 6px;"><label>ทำงาน/ ประชุม / E-mail เช่น Hotmail, Gmail</label></div>
+						<div class="col-md-6" style="margin-top: 6px;"><label>ทำงาน / ประชุม / E-mail เช่น Hotmail, Gmail</label></div>
 						<div class="col-md-6"><div class="radio radio--inline">
 							<input type="radio" name="poll[digital_use6]" id="digital6Radio_1" value="1">
 							<label class="radio__label" for="digital6Radio_1">1</label>
