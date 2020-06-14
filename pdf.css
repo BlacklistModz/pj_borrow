@@ -40,7 +40,7 @@
 
 .pdf_idcard {
     position: absolute;
-    top: 308px;
+    top: 307px;
     left: 193px;
     width: 100%;
     letter-spacing: 11.4px;
@@ -48,7 +48,7 @@
 
 .pdf_cardexp {
     position: absolute;
-    top: 308px;
+    top: 307px;
     width: 100%;
     letter-spacing: 11.5px;
 }
@@ -70,7 +70,7 @@
     font-size: 18px;
     position: absolute;
     width: 100%;
-    top: 329px;
+    top: 328px;
 }
 
 .edu-1 {
@@ -98,7 +98,7 @@
     font-size: 18px;
     position: absolute;
     width: 100%;
-    top: 354px;
+    top: 353px;
 }
 
 .fm-1 {
@@ -164,7 +164,7 @@
 }
 
 .pdf_adsoi {
-    left: 290px;
+    left: 280px;
     width: 70px
 }
 
@@ -219,7 +219,7 @@
     font-size: 18px;
     position: absolute;
     width: 100%;
-    top: 486px;
+    top: 484px;
 }
 
 .hs-1 {
@@ -255,7 +255,7 @@
     font-size: 18px;
     position: absolute;
     width: 100%;
-    top: 511px;
+    top: 510px;
 }
 
 .lvs-1 {
@@ -448,7 +448,7 @@
     font-size: 18px;
     position: absolute;
     width: 100%;
-    top: 731px;
+    top: 730px;
 }
 
 .std-1 {
@@ -464,7 +464,7 @@
     font-size: 18px;
     position: absolute;
     width: 100%;
-    top: 756px;
+    top: 755px;
     left: 162px;
 }
 
@@ -475,14 +475,23 @@
     left: 250px;
 }
 
-.clinic_name {
+.package_interest_1 {
     position: absolute;
-    width: 700px;
+    text-align: center;
+    width: 160px;
     top: 799px;
-    left: 190px;
+    left: 140px;
 }
 
-.clinic_cost {
+.maybe_do_date_1 {
+    position: absolute;
+    text-align: center;
+    width: 120px;
+    top: 799px;
+    left: 450px;
+}
+
+.package_interest_2 {
     position: absolute;
     text-align: center;
     width: 160px;
@@ -490,42 +499,34 @@
     left: 140px;
 }
 
-.cost_price {
+.maybe_do_date_2 {
     position: absolute;
     text-align: center;
     width: 120px;
     top: 818px;
-    left: 350px;
+    left: 450px;
 }
 
-.cost_duration {
-    font-family: helvetica;
-    font-size: 18px;
+.sale_agent_name {
     position: absolute;
-    width: 100%;
-    top: 839px;
+    text-align: center;
+    top: 846px;
+    left: 210px;
+    width: 200px;
 }
 
-.cd-1 {
-    left: 162.5px;
-}
-
-.cd-2 {
-    left: 246px;
-}
-
-.cd-3 {
-    left: 328px;
-}
-
-.cd-4 {
-    left: 413px;
+.sale_agent_id {
+    position: absolute;
+    text-align: center;
+    top: 846px;
+    left: 460px;
+    width: 200px;
 }
 
 .ref_1 {
     position: absolute;
     text-align: center;
-    top: 877px;
+    top: 870px;
 }
 
 .rfn-1 {
@@ -543,10 +544,10 @@
     left: 673px;
 }
 
-.ref_2 {
+/*.ref_2 {
     position: absolute;
     text-align: center;
-    top: 901px;
+    top: 894px;
 }
 
 .rfn-4 {
@@ -562,4 +563,4 @@
 .rfn-6 {
     width: 65px;
     left: 673px;
-}
+}*/
