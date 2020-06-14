@@ -147,6 +147,7 @@ if( !empty($_POST["checkconfirm"]) && empty($arr["error"]) ){
 			$field .= $key;
 
 			$value .= !empty($value) ? "," : "";
+			if( $key == "birthday" || $key == "idcard_expire" ) $post = DateJQToPHP($post);
 			$value .= "'{$post}'";
 
 			//clear for borrows
