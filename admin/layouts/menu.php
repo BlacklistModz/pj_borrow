@@ -54,9 +54,13 @@
                               <ul class="nav nav-treeview">
                                    <?php 
                                    foreach ($value["sub"] as $sub) {
+                                        $active = '';
+                                        if( !empty($_GET["sub"]) ){
+                                             if( $_GET["sub"] == $sub["key"] ) $active = 'active';
+                                        }
                                         ?>
                                         <li class="nav-item">
-                                             <a href="<?=$sub['url']?>?page=<?=$value["key"]?>&sub=<?=$sub["key"]?>" class="nav-link  <?= $sub['key'] == $_GET['sub'] ? "active" : "" ?>">
+                                             <a href="<?=$sub['url']?>?page=<?=$value["key"]?>&sub=<?=$sub["key"]?>" class="nav-link <?=$active?>">
                                                   <i class="<?=$sub['icon']?> nav-icon"></i>
                                                   <p><?=$sub['label']?></p>
                                              </a>
