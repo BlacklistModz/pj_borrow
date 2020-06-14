@@ -14,6 +14,7 @@ define('DS', DIRECTORY_SEPARATOR);
 define('ROOT', dirname(__FILE__));
 define('WWW_PATH', ROOT . DS );
 define('WWW_UPLOADS', ROOT . DS . "public". DS. 'uploads' . DS);
+define('WWW_MPDF', ROOT . DS . "public". DS. 'file_mpdf' . DS);
 
 define('CSS', URL . 'public/css/');
 define('JS', URL . 'public/js/');
