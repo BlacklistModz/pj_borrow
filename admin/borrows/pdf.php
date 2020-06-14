@@ -1,11 +1,11 @@
 <?php 
 include("../../config.php"); // use for varible;
-include("../../app/SQLiManager.php");
-include("../../app/fn.php"); // use function on this page
+include(WWW_PATH."app/SQLiManager.php");
+include(WWW_PATH."app/fn.php"); // use function on this page
 
 $ops = [
 	"title" => "Sabaijai_Loan",
-	"file" => "../../public/file_mpdf/Sabaijai_loan.pdf",
+	"file" => WWW_MPDF."Sabaijai_loan.pdf",
 	"file_template" => true,
 	"css" => [
 		URL."public/css/pdf.css"
