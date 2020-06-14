@@ -2,7 +2,7 @@
 include("config.php"); // use for varible;
 $ops = [
 	"title" => "Sabaijai_Loan",
-	"file" => "public/file_mpdf/Sabaijai_loan.pdf",
+	"file" => WWW_PATH."public/file_mpdf/Sabaijai_loan.pdf",
 	"file_template" => true,
 	"css" => [
 		URL."public/css/pdf.css"
@@ -204,5 +204,4 @@ $html = '
 
 ';
 
-$_startPathVendor = __DIR__;
-include "mpdf/display.php";
+include WWW_PATH."mpdf/display.php";

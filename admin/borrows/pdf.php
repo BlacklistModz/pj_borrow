@@ -298,6 +298,4 @@ $html .= '
 	<div style="page-break-after: always"></div>
 ';
 
-
-$_startPathVendor = "../../";
-include "../../mpdf/display.php";
+include WWW_PATH."mpdf/display.php";
