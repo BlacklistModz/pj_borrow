@@ -840,7 +840,7 @@ $sql = new SQLiManager();
 					<div class="col-md-6">
 						<div class="form-group" style="padding-top: 8px;">
 							<label>โปรแกรมที่สนใจ 2</label>
-							<select class="select2 select2-hidden-accessible" name="package_interest2" data-placeholder="กรุณาเลือกโปรแกรมที่สนใจ 1" tabindex="-1" aria-hidden="true">
+							<select class="select2 select2-hidden-accessible" name="package_interest2" data-placeholder="กรุณาเลือกโปรแกรมที่สนใจ 2" tabindex="-1" aria-hidden="true">
 								<option></option>
 								<option value="โปรแกรมศัลยกรรมตา">โปรแกรมศัลยกรรมตา</option>
 								<option value="โปรแกรมศัลยกรรมจมูก">โปรแกรมศัลยกรรมจมูก</option>

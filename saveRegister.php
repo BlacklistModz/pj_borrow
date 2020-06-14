@@ -179,7 +179,9 @@ if( !empty($_POST["checkconfirm"]) && empty($arr["error"]) ){
 			$field .= $key;
 
 			$value .= !empty($value) ? "," : "";
-			if( $key == "package_interest_date1" || $key == "package_interest_date2" ) $post = DateJQToPHP($post);
+			if( $key == "package_interest_date1" || $key == "package_interest_date2" ) {
+				if(!empty($post)) $post = DateJQToPHP($post);
+			}
 			$value .= "'{$post}'";
 		}
 
@@ -234,7 +236,7 @@ if( !empty($_POST["checkconfirm"]) && empty($arr["error"]) ){
 			$arr["type"] = "success";
 			$arr["title"] = "บันทึกข้อมูลเรียบร้อยแล้ว";
 			$arr["text"] = "ระบบกำลังจะพากลับหน้าหลัก";
-			$arr["url"] = URL;
+			$arr["url"] = "success.html";
 			$arr["status"] = 200;
 		}
 		else{
