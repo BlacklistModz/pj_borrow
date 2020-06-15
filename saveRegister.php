@@ -182,6 +182,11 @@ if( !empty($_POST["checkconfirm"]) && empty($arr["error"]) ){
 			if( $key == "package_interest_date1" || $key == "package_interest_date2" ) {
 				if(!empty($post)) $post = DateJQToPHP($post);
 			}
+
+			//|| $key == "objective_price"
+			if( $key == "spouse_income" || $key == "address_hire" || $key == "work_income" || $key == "work_income_etc" ){
+				$post = str_replace(",", "", $post);
+			}
 			$value .= "'{$post}'";
 		}
 
