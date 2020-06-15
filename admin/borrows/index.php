@@ -33,14 +33,15 @@ $query = $sql->select();
 						<thead class="table-dark text-center">
 							<tr>
 								<th width="5%">#</th>
-								<th width="10%">วันที่</th>
-								<th width="10%">C-Code</th>
-								<th width="10%">เลขที่</th>
+								<th width="10%">วันที่สมัคร</th>				
 								<th width="10%">รหัสลูกค้า</th>
-								<th width="25%">ชื่อ-นามสกุล</th>
+								<th width="20%">ชื่อ-นามสกุล</th>
 								<th width="10%">สถานะ</th>
-								<th width="5%">PDF</th>
+								<th width="5%">หลักฐาน</th>
 								<th width="5%">อนุมัติ</th>
+								<th width="5%">พิมพ์</th>
+								<th width="10%">วงเงินที่อนุมัติ</th>
+								<th width="10%">ระยะเวลา</th>
 								<th width="10%">จัดการ</th>
 							</tr>
 						</thead>
@@ -52,9 +53,9 @@ $query = $sql->select();
 								<tr>
 									<td class="text-center"><?=$no++?></td>
 									<td class="text-center"><?=DateTH($result["date"])?></td>
-									<td class="text-center"></td>
-									<td class="text-center"></td>
-									<td class="text-center"></td>
+									
+									
+									<td class="text-center"><?=$result["code"] ?></td>
 									<td><?=showPrefixName($result["prefix_name"])." ".$result["first_name"]." ".$result["last_name"]?></td>
 									<td class="text-center">
 										<?php
@@ -71,14 +72,22 @@ $query = $sql->select();
 											?>
 										<!-- </select> -->
 									</td>
-									<td class="text-center">
-										<a href="<?=URL?>admin/borrows/pdf.php?id=<?=$result["id"]?>" target="_blank" class="btn btn-info btn-sm"><i class="far fa-file-pdf"></i></a>
-									</td>
+
+									<td class="text-center"><button type="button" class="btn btn-default" data-toggle="modal" data-target="#modal-default"><i class="far fa-image"></i></button></td>
+									
 									<td class="text-center">
 										<a href="<?=URL?>admin/borrows/approved.php?page=<?=$_GET["page"]?>&id=<?=$result["id"]?>" class="btn btn-primary btn-sm text-white" title="อนุมัติ / ไม่อนุมัติ">
 											<i class="fa fa-info-circle"></i>
 										</a>
 									</td>
+									<td class="text-center">
+										<a href="<?=URL?>admin/borrows/pdf.php?id=<?=$result["id"]?>" target="_blank" class="btn btn-info btn-sm"><i class="far fa-file-pdf"></i></a>
+									</td>
+
+									<td class="text-center"><?php if ($result["approve_limit"] != 0.00 ) { echo number_format($result["approve_limit"]).'.-'; } ?></td>
+
+									<td class="text-center"><?php if ($result["approve_period"] != 0 ) { echo $result["approve_period"].' เดือน'; } ?></td>
+
 									<td class="text-center">
 
 										<a href="<?=URL?>admin/borrows/forms.php?page=<?=$_GET["page"]?>&id=<?=$result["id"]?>" class="btn btn-warning btn-sm text-white" title="แก้ไขข้อมูล">
@@ -109,6 +118,30 @@ $query = $sql->select();
 		</div>
 	</section>
 </div>
+
+<div class="modal fade" id="modal-default">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h4 class="modal-title">Default Modal</h4>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <p>One fine body&hellip;</p>
+            </div>
+            <div class="modal-footer justify-content-between">
+              <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+              <button type="button" class="btn btn-primary">Save changes</button>
+            </div>
+          </div>
+          <!-- /.modal-content -->
+        </div>
+        <!-- /.modal-dialog -->
+      </div>
+      <!-- /.modal -->
+
 <!-- End Content -->
 <?php
 //FOOTER

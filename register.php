@@ -52,6 +52,10 @@ $sql = new SQLiManager();
 		display: none;
 	}
 
+	.card-title {
+		display: none;
+	}
+
 	@media screen and (max-width: 991px) {
 		.banner-loan {
 			display: none;
@@ -66,14 +70,29 @@ $sql = new SQLiManager();
 		.card {
 			margin-bottom: 0rem;
 		}
-	}
-	.head-notic {
-		color: #da464a;
+		.card-title {
+			display: block;
+		}
+		.card-subtitle {
+			display: none;
+		}
+		.resp-img, .resp-img img {
+			max-width: 230px;
+		}
 	}
 	.card-subtitle {
-		font-size: 1.2rem;
+		font-size: 1.7rem;
+		background-color: #da464a;
+		padding: 8px;
+		margin-top: 5px;
+		margin-bottom: 0px !important;
+		text-align: center;
+		color: #f3f3f3;
 	}
-}
+	.ui-datepicker {
+    	width: 18.5em !important;
+	}
+
 </style>
 
 <div class="container">
@@ -88,9 +107,10 @@ $sql = new SQLiManager();
 		<div class="card">
 			<img class="card-img-top banner-loan" src="banner.jpg">
 			<img class="card-img-top banner-loan-mobile" src="banner-mobile.jpg">
+			<h6 class="card-subtitle">ข้อมูลผู้สมัคร</h6>
 			<div class="card-body">
-				<!-- <h4 class="card-title" style="font-size: 1.85rem;">ใบสมัครสินเชื่อ</h4> -->
-				<h6 class="card-subtitle head-notic">* กรุณากรอกข้อมูลของท่านให้ครบถ้วน</h6>
+				<h4 class="card-title" style="font-size: 1.5rem;">ข้อมูลผู้สมัคร</h4>
+				
 				<form class="row form-submit" action="saveRegister.php" name="registration" id="registration" method="POST" enctype=multipart/form-data>
 					<div class="col-md-12">
 						<div class="radio radio--inline">
@@ -1071,7 +1091,7 @@ $sql = new SQLiManager();
 							<!-- <input type="file" name="img_upload" class="filestyle form-control" onchange="readURL(this);"> -->
 							<label for="file" class="btn btn-info btn--raised" style="margin-top: 20px;">กดเพื่ออัพโหลดรูปถ่าย</label>
 							<input type="file" id="file" class="js-img" name="img_idcard" multiple style="visibility: hidden; display: block;" accept=".jfif,.jpg,.jpeg,.png,.gif">
-							<img id="js-img" style="max-height: 200px; padding-top: 20px">
+							<img class="resp-img" id="js-img" style="max-height: 200px; padding-top: 20px">
 
 							<!-- <label>อัพโหลดรูปถ่าย</label> -->
 							<notification class="invalid-feedback"></notification>
@@ -1086,10 +1106,10 @@ $sql = new SQLiManager();
 					</div>
 
 					<div class="col-md-12" style="text-align: center;">
-						<label for="ImageMedias" class="btn btn-warning btn--raised" style="margin-top: 20px;">กดเพื่ออัพโหลดรูปถ่าย</label>
+						<label for="ImageMedias" class="btn btn-danger btn--raised" style="margin-top: 20px;">กดเพื่ออัพโหลดรูปถ่าย</label>
 						<input type="file" id="ImageMedias" name="img_bookbank[]" accept=".jfif,.jpg,.jpeg,.png,.gif" class="custom-file-input" multiple style="visibility: hidden; display: block;">
 
-						<div id="divImageMediaPreview" style="text-align: center;"></div>
+						<div class="resp-img" id="divImageMediaPreview" style="text-align: center; display: inline-block;"></div>
 					</div>
 					
 					<!-- <div class="col-md-12" style="text-align: center;">
@@ -1100,7 +1120,7 @@ $sql = new SQLiManager();
 					<div class="col-md-12 js-poll">
 						<div class="checkbox" style="text-align: center; padding-top: 50px;">
 							<input type="checkbox" id="customCheck1" name="checkconfirm" value="1" class="ck-js-poll">
-							<label class="checkbox__label" for="customCheck1">ข้าพเจ้ารับทราบว่า ข้อมูลที่ให้อย่างครบถ้วนนี้ถือเป็นข้อมูลเพื่อประกอบการพิจารณาสินเชื่อ ข้าพเจ้ายืนยันว่าข้อมูลที่กรอกเป็นความจริงทุกประการ โดยยินยอมให้ใช้หรือเปิดเผยข้อมูลส่วนบุคคลที่เกี่ยวข้องกับข้าพเจ้า เพื่อประโยชน์ในการวิเคราะห์สินเชื่อ การออกบัตรเครดิต หรือเพื่อประโยชน์ด้านการศึกษาต่างๆ รวมทั้งเพื่อประโยชน์ในการทบทวนสินเชื่อ ต่ออายุสัญญา และให้ถือว่าคู่ฉบับและบรรดาสำเนาภาพถ่าย(อิเล็กทรอนิกส์) ภาพถ่ายหรือบันทึกไว้ในรูปแบบใด เป็นหลักฐานในการยินยอมของข้าพเจ้าเช่นกัน</label>
+							<label class="checkbox__label" for="customCheck1">ข้าพเจ้ารับทราบว่า ข้อมูลที่ให้อย่างครบถ้วนนี้ถือเป็นข้อมูลเพื่อประกอบการพิจารณาสินเชื่อ ข้าพเจ้ายืนยันว่าข้อมูลที่กรอกเป็นความจริงทุกประการ โดยยินยอมให้ใช้หรือเปิดเผยข้อมูลส่วนบุคคลที่เกี่ยวข้องกับข้าพเจ้า เพื่อประโยชน์ในการวิเคราะห์สินเชื่อ การออกบัตรเครดิต หรือเพื่อประโยชน์ด้านการศึกษาต่างๆ รวมทั้งเพื่อประโยชน์ในการทบทวนสินเชื่อ ต่ออายุสัญญา และให้ถือว่าคู่ฉบับและบรรดาสำเนาภาพถ่าย (อิเล็กทรอนิกส์) ภาพถ่ายหรือบันทึกไว้ในรูปแบบใด เป็นหลักฐานในการยินยอมของข้าพเจ้าเช่นกัน</label>
 						</div>
 					</div>
 
@@ -1189,7 +1209,7 @@ $sql = new SQLiManager();
 					</div></div>
 
 						<div class="row" style="background-color: #f3f3f3; padding: 10px 0px 10px 0px;">
-						<div class="col-md-6" style="margin-top: 6px;"><label>สืบค้นข้อมูลบนอินเทอร์เน็ต เช่น google.com</label></div>
+						<div class="col-md-6" style="margin-top: 6px;"><label>สืบค้นข้อมูลบนอินเทอร์เน็ต เช่น Google.com</label></div>
 						<div class="col-md-6"><div class="radio radio--inline">
 							<input type="radio" name="poll[digital_use3]" id="digital3Radio_1" value="1">
 							<label class="radio__label" for="digital3Radio_1">1</label>
@@ -1363,7 +1383,7 @@ $sql = new SQLiManager();
 						</div></div></div>
 						
 						<div class="row" style="padding: 10px 0px 10px 0px;">
-						<div class="col-md-6" style="margin-top: 6px;"><label>การเล่นเกมออนไลน์ เช่น ROV, Free fire</label></div>
+						<div class="col-md-6" style="margin-top: 6px;"><label>การเล่นเกมออนไลน์ เช่น ROV, Free Fire, PUBG</label></div>
 						<div class="col-md-6"><div class="radio radio--inline">
 							<input type="radio" name="poll[digital_use10]" id="digital10Radio_1" value="1">
 							<label class="radio__label" for="digital10Radio_1">1</label>
@@ -1438,7 +1458,7 @@ $sql = new SQLiManager();
 						</div>
 						<div class="checkbox checkbox--inline">
 							<input type="checkbox" id="participateCheck6" name="poll[participate6]" value="1">
-							<label class="checkbox__label" for="participateCheck6">ติดตาม (Subscribe, follow)</label>
+							<label class="checkbox__label" for="participateCheck6">ติดตาม (Subscribe, Follow)</label>
 						</div>
 						</div>
 						

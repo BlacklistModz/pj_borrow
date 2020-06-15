@@ -8,7 +8,7 @@ include($_pathURL."config.php");
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title><?=!empty($_title) ? $_title : 'Register System';?></title>
+    <title><?=!empty($_title) ? $_title : 'ใบสมัครสินเชื่อ';?></title>
     <!-- Vendor styles -->
     <!-- JQUERY UI -->
     <link rel="stylesheet" href="<?=PLUGINS?>jquery-ui/jquery-ui.min.css">

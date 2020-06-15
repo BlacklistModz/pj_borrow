@@ -20,7 +20,7 @@ $query = $sql->select();
 				<div class="col-sm-12">
 					<div class="clearfix">
 						<h4 class="m-0 text-dark float-left"><i class="fa fa-user"></i> <?= !empty($_title) ? $_title : "" ?></h4>
-						<a href="<?=URL?>admin/customers/forms.php?page=<?=$_GET["page"]?>" class="btn btn-primary float-right"><i class="fa fa-plus"></i> เพิ่มข้อมูล</a>
+						<!-- <a href="<?=URL?>admin/customers/forms.php?page=<?=$_GET["page"]?>" class="btn btn-primary float-right"><i class="fa fa-plus"></i> เพิ่มข้อมูล</a> -->
 
 						<a href="<?=URL?>admin/customers/exportExcel.php" class="btn btn-success float-right mr-3"><i class="fa fa-file-excel mr-1"></i> Export Excel</a>
 					</div>
@@ -67,7 +67,8 @@ $query = $sql->select();
 										?>
 									</td>
 									<td class="text-center"><?=$result["work_position"]?></td>
-									<td class="text-center"><?=number_format($result["work_income"],2)?></td>
+									<!-- <td class="text-center"><?=number_format($result["work_income"],2)?></td> -->
+									<td class="text-center"><?=number_format($result["work_income"]).'.-'?></td>
 									<td class="text-center">
 										<?php 
 										if( !empty($result["updated_at"]) ){
