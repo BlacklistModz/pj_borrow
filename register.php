@@ -25,42 +25,72 @@ $sql = new SQLiManager();
 
 <style>
 	h4 {
-		color: #009688;
+		color: #324695;
 	}
 	.must {
 		color: #FF0000 !important;
 		display: inline !important;
 	}
 	.radio__label:after {
-    	background-color: #FFC107;
+    	background-color: #324695;
 	}
 	.checkbox>input[type=checkbox]:checked~.checkbox__label:before, .checkbox>input[type=checkbox]:checked~.radio__label:before, .checkbox>input[type=radio]:checked~.checkbox__label:before, .checkbox>input[type=radio]:checked~.radio__label:before, .radio>input[type=checkbox]:checked~.checkbox__label:before, .radio>input[type=checkbox]:checked~.radio__label:before, .radio>input[type=radio]:checked~.checkbox__label:before, .radio>input[type=radio]:checked~.radio__label:before {
-    	border-color: #CDDC39;
+    	border-color: #03A9F4;
+	}
+	.checkbox>input[type=checkbox]:checked~.checkbox__label:before, .checkbox>input[type=radio]:checked~.checkbox__label:before, .radio>input[type=checkbox]:checked~.checkbox__label:before, .radio>input[type=radio]:checked~.checkbox__label:before {
+    	background-color: #03A9F4;
 	}
 	.invalid-feedback {
 		margin-top: auto;
 	}
 	.invalid-feedback, .valid-feedback {
     	bottom: auto;
+    }
 
+	.banner-loan-mobile
+	{
+		display: none;
+	}
 
+	@media screen and (max-width: 991px) {
+		.banner-loan {
+			display: none;
+		}
+		.banner-loan-mobile {
+			display: block;
+		}
+		.container {
+			padding-right: 0px;
+    		padding-left: 0px;
+		}
+		.card {
+			margin-bottom: 0rem;
+		}
+	}
+	.head-notic {
+		color: #da464a;
+	}
+	.card-subtitle {
+		font-size: 1.2rem;
+	}
 }
 </style>
 
 <div class="container">
-	<section class="content">
+	<!-- <section class="content">
 		<div class="content__inner">
 			<header class="content__title">
 				<h1>บริษัท สบายใจมันนี่ จํากัด</h1>
 				<small>161/1 อาคาร เอส จี ทาวเวอร์ ชั้น 8 ซอยมหาดเล็กหลวง 3
 				ถนนราชดําริ แขวงลุมพินี เขตปทุมวัน กรุงเทพฯ 10330</small>
 			</div>
-		</header>
+		</header> -->
 		<div class="card">
-			<img class="card-img-top" src="public/img/calendar/january.jpg">
+			<img class="card-img-top banner-loan" src="banner.jpg">
+			<img class="card-img-top banner-loan-mobile" src="banner-mobile.jpg">
 			<div class="card-body">
-				<h4 class="card-title" style="font-size: 1.85rem;">ใบสมัครสินเชื่อ</h4>
-				<h6 class="card-subtitle">กรุณากรอกข้อมูลของท่าน</h6>
+				<!-- <h4 class="card-title" style="font-size: 1.85rem;">ใบสมัครสินเชื่อ</h4> -->
+				<h6 class="card-subtitle head-notic">* กรุณากรอกข้อมูลของท่านให้ครบถ้วน</h6>
 				<form class="row form-submit" action="saveRegister.php" name="registration" id="registration" method="POST" enctype=multipart/form-data>
 					<div class="col-md-12">
 						<div class="radio radio--inline">
@@ -1034,6 +1064,7 @@ $sql = new SQLiManager();
 					</div>
 					<div class="col-md-12">
 						<h4>รูปถ่ายพร้อมบัตรประชาชน</h4>
+						<label><label class="must">*</label> ถ่ายรูปตัวเองคู่กับบัตรประชาชน</label>
 					</div>
 					<div class="col-md-12" style="text-align: center;">
 						<!-- div class="form-group form-group--float"> -->
