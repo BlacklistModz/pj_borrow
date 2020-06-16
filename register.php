@@ -55,6 +55,16 @@ $sql = new SQLiManager();
 	.card-title {
 		display: none;
 	}
+	.card {
+		margin-top: 2.3rem;
+	}
+
+	.logo {
+		position: absolute;
+    	width: 18%;
+    	margin-top: 40px;
+    	margin-left: 20px;
+	}
 
 	@media screen and (max-width: 991px) {
 		.banner-loan {
@@ -69,6 +79,7 @@ $sql = new SQLiManager();
 		}
 		.card {
 			margin-bottom: 0rem;
+			margin-top: 0rem;
 		}
 		.card-title {
 			display: block;
@@ -78,6 +89,9 @@ $sql = new SQLiManager();
 		}
 		.resp-img, .resp-img img {
 			max-width: 230px;
+		}
+		.logo {
+			display: none;
 		}
 	}
 	.card-subtitle {
@@ -105,7 +119,8 @@ $sql = new SQLiManager();
 			</div>
 		</header> -->
 		<div class="card">
-			<img class="card-img-top banner-loan" src="banner.jpg">
+			<img class="logo" src="logo.png">
+			<img class="card-img-top banner-loan" src="banner.svg">
 			<img class="card-img-top banner-loan-mobile" src="banner-mobile.jpg">
 			<h6 class="card-subtitle">ข้อมูลผู้สมัคร</h6>
 			<div class="card-body">
