@@ -1,6 +1,15 @@
 <?php 
 
 include("../../config.php");
+include(WWW_PATH.'app/SQLiManager.php');
+include(WWW_PATH.'app/fn.php');
+
+$sql = new SQLiManager();
+
+$sql->table = "borrows";
+$sql->condition = "WHERE id='{$_GET["id"]}'";
+$query = $sql->select();
+$result = mysqli_fetch_assoc($query);
 
 // $arr['dialogClass'] = 'modal-lg'; //ขยายให้ใหญ่ขึ้น
 // $arr['dialogClass'] = 'modal-sm'; //ย่อให้เล็กลง

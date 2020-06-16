@@ -75,7 +75,7 @@ $query = $sql->select();
 
 									<td class="text-center">
 										<!-- <button type="button" class="btn btn-default" data-toggle="modal" data-target="#modal-default"><i class="far fa-image"></i></button> -->
-										<a href="<?=URL?>admin/borrows/dataModal.php" data-plugins="modal" class="btn btn-primary">SHOW</a>
+										<a href="<?=URL?>admin/borrows/dataModal.php?id=<?=$result["id"]?>" data-plugins="modal" class="btn btn-primary">SHOW</a>
 									</td>
 									
 									<td class="text-center">
