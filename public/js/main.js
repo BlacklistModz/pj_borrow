@@ -284,6 +284,60 @@ if ( typeof Object.create !== 'function' ) {
 		},'json');
 	};
 
+	$.fn.setModal = function( res ){
+		var modal = $(".modal");
+
+		if( !res.attr('href') ){
+			$.fn.sweetalert( {type:"error", title:"เกิดข้อผิดพลาด...", text:"กรุณาระบุ a.href สำหรับโหลดข้อมูล", "timer":2000} );
+			return false;
+		}
+
+		$.get( res.attr('href'), function( result ) {
+
+			var setCenter = result.center || "true";
+
+			var $elem = $(result.form || '<div>').addClass("modal-content").addClass( result.addClass ).addClass( result.style ? 'style-'+result.style: '' );
+
+			if( result.title || result.headClose ){
+				$elem.append( $('<div>', {class:"modal-header"}) );
+			}
+
+			if( result.title ){
+				$elem.find('.modal-header').append(
+					$('<div>', {class:'modal-title'}).html( result.title )
+				);
+			}
+			if( result.headClose ){
+				$elem.find('.modal-header').append( 
+					$('<button>', {class:'close', 'data-dismiss':'modal', 'aria-label':'Exit'}).append( 
+						$('<span>', {'aria-hidden':'true'}).html('&times;') 
+					)
+				);
+			}
+			if( result.body ){
+				$elem.append( $('<div>', {class:"modal-body"}).html( result.body ) );
+			}
+			if( result.btnclose || result.btnsubmit ){
+				$elem.append( $('<div>', {class:"modal-footer"}) );
+				if( result.btnsubmit ){
+					$elem.find('.modal-footer').append( result.btnsubmit );
+				}
+				if( result.btnclose ){
+					$elem.find('.modal-footer').append( result.btnclose );
+				}
+			}
+
+			if( setCenter == "true" ){
+				modal.find('.modal-dialog').addClass('modal-dialog-centered')
+			}
+
+			modal.find('.modal-dialog').empty(); //Clear Old Modal
+			modal.find('.modal-dialog').addClass( result.dialogClass ).append( $elem );
+			modal.modal('show');
+
+		}, 'json');
+	};
+
 })( jQuery );
 
 //Event//
@@ -340,4 +394,9 @@ $(".js-doc-province").change(function(){
 
 $(".js-doc-amphur").change(function(){
 	$.fn.getDistrictDoc( $(this).val() );
+});
+
+$("a[data-plugins=modal]").click(function(){
+	$.fn.setModal( $(this) );
+	return false;
 });
