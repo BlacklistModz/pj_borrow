@@ -25,6 +25,11 @@ foreach ($_POST as $key => $value) {
 	if( empty($value) ) $arr["error"][$key] = "กรุณากรอกข้อมูลให้ครบถ้วน";
 }
 
+if( $_POST["status"] == 2 ){
+	$_POST["approve_limit"] = 0;
+	$_POST["approve_period"] = "";
+}
+
 if( empty($arr["error"]) ){
 	$value = '';
 	foreach ($_POST as $key => $val) {

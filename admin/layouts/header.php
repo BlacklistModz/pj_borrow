@@ -37,18 +37,7 @@ include($_pathURL."app/fn.php");
   <link rel="stylesheet" href="<?=PLUGINS?>datatables-bs4/css/dataTables.bootstrap4.css">
   <!-- SWEETALERT -->
   <link rel="stylesheet" href="<?=CSS?>sweetalert2.css">
-  <style type="text/css" media="screen">
-    .ui-datepicker select.ui-datepicker-month{
-      width: 60%;
-      margin-top : 1px;
-      height: 30px;
-      margin : 1px;
-    }
-    .ui-datepicker select.ui-datepicker-year {
-      width: 38%;
-      height: 28px;
-    }
-  </style>
+  <link rel="stylesheet" href="<?=CSS?>main.css">
 </head>
 <body class="hold-transition sidebar-mini layout-fixed">
 <div class="wrapper">

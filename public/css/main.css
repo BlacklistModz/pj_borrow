@@ -1,0 +1,11 @@
+.ui-datepicker select.ui-datepicker-month {
+    width: 60%;
+    margin-top: 1px;
+    height: 30px;
+    margin: 1px;
+}
+
+.ui-datepicker select.ui-datepicker-year {
+    width: 38%;
+    height: 28px;
+}

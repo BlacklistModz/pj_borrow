@@ -4,7 +4,10 @@ $menu[] = ["label"=>"จัดการข้อมูลลูกค้า", "k
 // $menu[] = ["label"=>"จัดการข้อมูลผู้ใช้งาน", "key"=>"users", "url"=>URL."admin/users", 'icon'=>'fa fa-user'];
 
 // EX. MENU WITH SUB //
-$sub_admin[] = ["label"=>"ผู้ใช้งานระบบ (หลังบ้าน)", "key"=>"admins", "url"=>URL."admin/users", 'icon'=>''];
+if( $auth['role'] == 'admin' ){
+	$sub_admin[] = ["label"=>"ผู้ใช้งานระบบ (หลังบ้าน)", "key"=>"admins", "url"=>URL."admin/users", 'icon'=>''];
+}
+
 $sub_admin[] = ["label"=>"Sale Agents", "key"=>"users", "url"=>URL."admin/sales", 'icon'=>''];
 $menu[] = ["label"=>"ข้อมูลผู้ใช้งานระบบ", "key"=>"admins", 'icon'=>'fa fa-user', "sub"=>$sub_admin];
 // END //

@@ -21,7 +21,7 @@
       </div>
       <div class="modal-body">
       </div>
-      <div class="modal-footer justify-content-between">
+      <div class="modal-footer">
       </div>
     </div>
     <!-- /.modal-content -->

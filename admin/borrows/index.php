@@ -32,12 +32,12 @@ $query = $sql->select();
 					<table class="table table-bordered DataTable">
 						<thead class="table-dark text-center">
 							<tr>
-								<th width="5%">#</th>
+								<th width="3%">#</th>
 								<th width="10%">วันที่สมัคร</th>				
 								<th width="10%">รหัสลูกค้า</th>
 								<th width="20%">ชื่อ-นามสกุล</th>
 								<th width="10%">สถานะ</th>
-								<th width="5%">หลักฐาน</th>
+								<th width="7%">หลักฐาน</th>
 								<th width="5%">อนุมัติ</th>
 								<th width="5%">พิมพ์</th>
 								<th width="10%">วงเงินที่อนุมัติ</th>
@@ -75,7 +75,7 @@ $query = $sql->select();
 
 									<td class="text-center">
 										<!-- <button type="button" class="btn btn-default" data-toggle="modal" data-target="#modal-default"><i class="far fa-image"></i></button> -->
-										<a href="<?=URL?>admin/borrows/dataModal.php?id=<?=$result["id"]?>" data-plugins="modal" class="btn btn-primary">SHOW</a>
+										<a href="<?=URL?>admin/borrows/dataModal.php?id=<?=$result["id"]?>" data-plugins="modal" class="btn btn-primary btn-sm">แสดง</a>
 									</td>
 									
 									<td class="text-center">
@@ -89,7 +89,7 @@ $query = $sql->select();
 
 									<td class="text-center"><?php if ($result["approve_limit"] != 0.00 ) { echo number_format($result["approve_limit"]).'.-'; } ?></td>
 
-									<td class="text-center"><?php if ($result["approve_period"] != 0 ) { echo $result["approve_period"].' เดือน'; } ?></td>
+									<td class="text-center"><?php if ( !empty($result["approve_period"]) ) { echo $result["approve_period"].' เดือน'; } ?></td>
 
 									<td class="text-center">
 
