@@ -152,8 +152,8 @@ if ( typeof Object.create !== 'function' ) {
 			}
 
 			// Clear Modal And Hide After Success //
-			$(".modal").find(".modal-dialog").empty();
 			$(".modal").modal('hide');
+			$.fn.clearModal();
 		}
 		else{
 			res.alert = res.alert || false;
@@ -354,6 +354,13 @@ if ( typeof Object.create !== 'function' ) {
 		return $('<input>', {type:"hidden", "name":input.name, "value":input.value});
 	};
 
+	$.fn.clearModal = function(){
+		var modal = $('.modal');
+		setTimeout(function(){
+			modal.find(".modal-dialog").empty();
+		}, 1000);
+	};
+
 })( jQuery );
 
 //Event//
@@ -419,5 +426,5 @@ $("a[data-plugins=modal]").click(function(){
 
 $("body").delegate('[data-dismiss=modal]', 'click', function(event) {
 	var modal = $(".modal");
-	modal.find(".modal-dialog").empty();
+	$.fn.clearModal();
 });
