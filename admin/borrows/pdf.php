@@ -104,8 +104,8 @@ $html = '
 	<div class="pdf_birth b-1">'.date("d", strtotime($result["birthday"])).'</div>
 	<div class="pdf_birth b-2">'.date("m", strtotime($result["birthday"])).'</div>
 	<div class="pdf_birth b-3">'.(date("Y", strtotime($result["birthday"]))+543).'</div>
-	<div class="pdf_yold y-1">'.$age["year"].'</div>
-	<div class="pdf_yold y-2">'.$age["month"].'</div>
+	<div class="pdf_yold y-1">'.( !empty($age["year"]) ? $age["year"] : 0 ).'</div>
+	<div class="pdf_yold y-2">'.( !empty($age["month"]) ? $age["month"] : 0 ).'</div>
 	<div class="pdf_idcard">'.$result["idcard"].'</div>
 	<div class="pdf_cardexp e-1">'.date("d", strtotime($result["idcard_expire"])).'</div>
 	<div class="pdf_cardexp e-2">'.date("m", strtotime($result["idcard_expire"])).'</div>
@@ -138,7 +138,7 @@ $html = '
 			<div class="sp_main pdf_sptel">'.$result["spouse_mobile"].'</div>
 			<div class="sp_main pdf_sppos">'.$result["spouse_career"].'</div>
 			<div class="sp_main pdf_spchd">'.$result["spouse_children"].'</div>
-			<div class="sp_main pdf_spsal">'.$result["spouse_income"].'</div>
+			<div class="sp_main pdf_spsal">'.number_format($result["spouse_income"], 2).'</div>
 		';
 	}
 	if ($result["family_status"] == 3) {
@@ -204,7 +204,7 @@ $html .= '
 	
 	
 	if ($result["address_hire"] != 0.00) {
-		$html .= '<div class="pdf_rental rt-1">'.$result["address_hire"].'</div>';
+		$html .= '<div class="pdf_rental rt-1">'.number_format($result["address_hire"], 2).'</div>';
 	}
 	if ($result["address_year"] != 0) {
 		$html .= '<div class="pdf_rental rt-2">'.$result["address_year"].'</div>';
@@ -221,10 +221,10 @@ $html .= '
 	<div class="pdf_cpystatus">'.$result["work_status"].'</div>
 	<div class="pdf_position">'.$result["work_position"].'</div>
 	<div class="pdf_depart">'.$result["work_department"].'</div>
-	<div class="pdf_salary">'.$result["work_income"].'</div>
+	<div class="pdf_salary">'.number_format($result["work_income"], 2).'</div>
 ';
 	if ($result["work_income_etc"] != 0.00) {
-		$html .= '<div class="pdf_salmore">'.$result["work_income_etc"].'</div>';
+		$html .= '<div class="pdf_salmore">'.number_format($result["work_income_etc"], 2).'</div>';
 	}
 
 $html .= '

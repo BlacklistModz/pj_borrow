@@ -10,6 +10,7 @@ include($_pathURL."admin/layouts/navbar.php");
 include($_pathURL."admin/layouts/menu.php");
 
 $sql->table = "borrows b LEFT JOIN customers c ON b.customer_id = c.id";
+$sql->field = "b.*, c.code, c.prefix_name, c.first_name, c.last_name, c.idcard";
 $query = $sql->select();
 ?>
 <!-- Content -->
