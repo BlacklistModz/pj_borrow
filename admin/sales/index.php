@@ -63,7 +63,7 @@ $query = $sql->select();
 									</td>
 									<td class="text-center">
 
-										<a href="<?=URL?>admin/sales/forms.php?page=<?=$_GET["page"]?>&sub=<?=$_GET["sub"]?>&id=<?=$result["id"]?>" class="btn btn-warning btn-sm text-white" title="แก้ไขข้อมูล">
+										<a data-plugins="modal" href="<?=URL?>admin/sales/add.php?page=<?=$_GET["page"]?>&sub=<?=$_GET["sub"]?>&id=<?=$result["id"]?>" class="btn btn-warning btn-sm text-white" title="แก้ไขข้อมูล">
 											<i class="fa fa-pen"></i>
 										</a>
 										<?php 

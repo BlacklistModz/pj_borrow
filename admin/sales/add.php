@@ -21,6 +21,9 @@ if( !empty($_GET["id"]) ){
 	//SET FORM
 	$_title = "แก้ไขข้อมูล";
 	$_action = URL."admin/sales/update.php?page={$_GET["page"]}";
+
+	//Set Input type Hidden
+	$arr['hiddenInput'][] = ['name'=>'id', 'value'=>$_GET['id']];
 }
 
 $arr['dialogClass'] = 'modal-lg';

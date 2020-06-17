@@ -18,6 +18,9 @@ else{
 	$sql->field = "*";
 	$sql->condition = "WHERE saleagents_id={$_GET["id"]}";
 	if( $sql->countRow() <= 0 ){
+		
+		$sql->table = "saleagents";
+		$sql->condition = "WHERE id={$_GET["id"]}";
 		if( $sql->delete() ){
 			$arr["type"] = "success";
 			$arr["title"] = "ลบข้อมูลเรียบร้อยแล้ว";
