@@ -32,8 +32,8 @@ $query = $sql->select();
 		<div class="container-fluid">
 			<div class="card p-3">
 				<div class="table-responsive">
-					<table class="table table-bordered DataTable">
-						<thead class="table-dark text-center">
+					<table class="table table-striped table-bordered DataTable" style="border: 1px solid #343a40;">
+						<thead class="table-dark text-center" style="background-color: #343a40;">
 							<tr>
 								<th width="5%">#</th>
 								<th width="12%">รหัสลูกค้า</th>

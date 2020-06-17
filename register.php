@@ -158,7 +158,7 @@ $sql = new SQLiManager();
 						</div>
 					</div>
 					<div class="col-md-4">
-						<label>วัน/เดือน/ปีเกิด <label class="must">*</label></label>
+						<label>วัน/เดือน/ปีเกิด (ระบุปีเป็น ค.ศ.) <label class="must">*</label></label>
 						<div class="input-group" style="padding-top: 7px;">
 							<div class="input-group-prepend">
 								<span class="input-group-text"><i class="zmdi zmdi-calendar"></i></span>
@@ -178,7 +178,7 @@ $sql = new SQLiManager();
 						</div>
 					</div>
 					<div class="col-md-6">
-						<label>บัตรหมดอายุ <label class="must">*</label></label>
+						<label>บัตรหมดอายุ (ระบุปีเป็น ค.ศ.) <label class="must">*</label></label>
 						<div class="input-group" style="padding-top: 7px;">
 							<div class="input-group-prepend">
 								<span class="input-group-text"><i class="zmdi zmdi-calendar"></i></span>
@@ -881,7 +881,7 @@ $sql = new SQLiManager();
 					</div>
 
 					<div class="col-md-6">
-						<label>กำหนดการที่คาดว่าจะทำ <label class="must">*</label></label>
+						<label>กำหนดการที่คาดว่าจะทำ (ระบุปีเป็น ค.ศ.) <label class="must">*</label></label>
 						<div class="input-group" style="padding-top: 7px;">
 							<div class="input-group-prepend">
 								<span class="input-group-text"><i class="zmdi zmdi-calendar"></i></span>
@@ -918,7 +918,7 @@ $sql = new SQLiManager();
 					</div>
 
 					<div class="col-md-6">
-						<label>กำหนดการที่คาดว่าจะทำ</label>
+						<label>กำหนดการที่คาดว่าจะทำ (ระบุปีเป็น ค.ศ.) </label>
 						<div class="input-group" style="padding-top: 7px;">
 							<div class="input-group-prepend">
 								<span class="input-group-text"><i class="zmdi zmdi-calendar"></i></span>

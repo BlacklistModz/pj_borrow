@@ -9,11 +9,17 @@ include($_pathURL."admin/layouts/navbar.php");
 //MENU
 include($_pathURL."admin/layouts/menu.php");
 
-$sql->table = "borrows b LEFT JOIN customers c ON b.customer_id = c.id";
-$sql->field = "b.*, c.code, c.prefix_name, c.first_name, c.last_name, c.idcard";
+$sql->table = "borrows b LEFT JOIN customers c ON b.customer_id = c.id LEFT JOIN saleagents s ON b.saleagents_id=s.id";
+$sql->field = "b.*, c.code, c.prefix_name, c.first_name, c.last_name, c.idcard, s.code as sale_code";
 $query = $sql->select();
 ?>
 <!-- Content -->
+
+<style>
+	.modal-body {
+		max-height: 640px;
+		overflow-y: auto;
+</style>
 <div class="content-wrapper">
 	<div class="content-header">
 		<div class="container-fluid">
@@ -30,20 +36,21 @@ $query = $sql->select();
 		<div class="container-fluid">
 			<div class="card p-3">
 				<div class="table-responsive">
-					<table class="table table-bordered DataTable">
-						<thead class="table-dark text-center">
+					<table class="table table-striped table-bordered DataTable" style="border: 1px solid #343a40;">
+						<thead class="table-dark text-center" style="background-color: #343a40;">
 							<tr>
 								<th width="3%">#</th>
-								<th width="10%">วันที่สมัคร</th>				
+								<th width="10%">วันที่สมัคร</th>	
+								<th width="7%">Agent</th>			
 								<th width="10%">รหัสลูกค้า</th>
-								<th width="20%">ชื่อ-นามสกุล</th>
+								<th width="22%">ชื่อ-นามสกุล</th>
 								<th width="10%">สถานะ</th>
 								<th width="7%">หลักฐาน</th>
 								<th width="5%">อนุมัติ</th>
 								<th width="5%">พิมพ์</th>
-								<th width="10%">วงเงินที่อนุมัติ</th>
-								<th width="10%">ระยะเวลา</th>
-								<th width="10%">จัดการ</th>
+								<th width="9%">วงเงินที่อนุมัติ</th>
+								<th width="7%">ระยะเวลา</th>
+								<th width="5%">จัดการ</th>
 							</tr>
 						</thead>
 						<tbody>
@@ -55,6 +62,7 @@ $query = $sql->select();
 									<td class="text-center"><?=$no++?></td>
 									<td class="text-center"><?=DateTH($result["date"])?></td>
 									
+									<td class="text-center"><?=$result["sale_code"]?></td>
 									
 									<td class="text-center"><?=$result["code"] ?></td>
 									<td><?=showPrefixName($result["prefix_name"])." ".$result["first_name"]." ".$result["last_name"]?></td>
@@ -80,7 +88,7 @@ $query = $sql->select();
 									</td>
 									
 									<td class="text-center">
-										<a href="<?=URL?>admin/borrows/approved.php?page=<?=$_GET["page"]?>&id=<?=$result["id"]?>" class="btn btn-primary btn-sm text-white" title="อนุมัติ / ไม่อนุมัติ">
+										<a href="<?=URL?>admin/borrows/approved.php?page=<?=$_GET["page"]?>&id=<?=$result["id"]?>" class="btn btn-warning btn-sm text-white" title="อนุมัติ / ไม่อนุมัติ">
 											<i class="fa fa-info-circle"></i>
 										</a>
 									</td>
@@ -94,9 +102,9 @@ $query = $sql->select();
 
 									<td class="text-center">
 
-										<a href="<?=URL?>admin/borrows/forms.php?page=<?=$_GET["page"]?>&id=<?=$result["id"]?>" class="btn btn-warning btn-sm text-white" title="แก้ไขข้อมูล">
+										<!-- <a href="<?=URL?>admin/borrows/forms.php?page=<?=$_GET["page"]?>&id=<?=$result["id"]?>" class="btn btn-warning btn-sm text-white" title="แก้ไขข้อมูล">
 											<i class="fa fa-pen"></i>
-										</a>
+										</a> -->
 
 										<?php 
 										$ops = [

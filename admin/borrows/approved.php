@@ -99,7 +99,7 @@ if( !empty($_GET["id"]) ){
 			<div class="card mt-2">
 				<h5 class="ml-2 mt-2 mb-2"><i class="fa fa-file-pdf"></i> ใบสมัครขอกู้เงิน <?=$result["code"]?> : <?=showPrefixName($result["prefix_name"])?><?=$result["first_name"]?> <?=$result["last_name"]?> (วันที่ <?=dateTH($result["date"])?>)</h5>
 				<div class="text-center m-1">
-					<iframe src="<?=URL?>admin/borrows/pdf.php?id=<?=$result["id"]?>" type=frame&vlink=xx&link=xx&css=xxx&bg=xx&bgcolor=xx marginwidth=0 marginheight=0 hspace=0 vspace=0 frameborder=0 scorlling=yes width="900" height="1024"></iframe>
+					<iframe src="<?=URL?>admin/borrows/pdf.php?id=<?=$result["id"]?>" type=frame&vlink=xx&link=xx&css=xxx&bg=xx&bgcolor=xx marginwidth=0 marginheight=0 hspace=0 vspace=0 frameborder=0 scorlling=yes width="100%" height="1024"></iframe>
 				</div>
 			</div>
 		</div>

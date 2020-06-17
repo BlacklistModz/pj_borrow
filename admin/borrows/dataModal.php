@@ -6,32 +6,39 @@ include(WWW_PATH.'app/fn.php');
 
 $sql = new SQLiManager();
 
-$sql->table = "borrows b LEFT JOIN borrow_bookbanks bb ON b.id=bb.borrow_id";
-$sql->condition = "WHERE b.id='{$_GET["id"]}'";
+$sql->table = "borrows";
+$sql->condition = "WHERE id='{$_GET["id"]}'";
 $query = $sql->select();
 $result = mysqli_fetch_assoc($query);
 
-// $arr['dialogClass'] = 'modal-lg'; //ขยายให้ใหญ่ขึ้น
+$arr['dialogClass'] = 'modal-lg'; //ขยายให้ใหญ่ขึ้น
 // $arr['dialogClass'] = 'modal-sm'; //ย่อให้เล็กลง
 ## ถ้าไม่ใส่ dialogClass จะแสดงขนาดปกติ ##
 
 $arr['form'] = '<form class="form-submit" method="POST" action="'.URL.'admin/borrows/do_approve.php">'; // สามารถใช้ Form เพื่อ Insert / Update ได้
 // $arr['center'] = "false"; //แสดง Modal ด้านบน (ค่า Defualt คือ true จะแสดงกึ่งกลางหน้าจอ)
 
-// $arr['headClose'] = true; //แสดงกากบาทบน Header Modal
+ $arr['headClose'] = true; //แสดงกากบาทบน Header Modal
 
 $arr['title'] = "หลักฐานการสมัคร";
-$arr['body'] = $result["work_department"];
+$arr['body'] = '<h5 style="text-align: center; margin: 10px;">รูปถ่ายพร้อมบัตรประชาชน</h5>';
 
-$arr['body'] .= '
-				<img style="width: 100%;" src="'.URL.'public/uploads/'.$result["img_idcard"].'">
-				<img style="width: 100%;" src="'.URL.'public/uploads/'.$result["img_bookbank"].'">
+$arr['body'] .= '<img style="width: 100%; margin-bottom: 30px;" src="'.URL.'public/uploads/'.$result["img_idcard"].'">';
+ 
+$arr['body'] .= '<h5 style="text-align: center; margin: 10px;">รูปถ่าย Book Bank</h5>';
 
-';
+$sql->table = "borrow_bookbanks";
+$sql->condition="WHERE borrow_id = {$_GET["id"]}";
+$queryPic = $sql->select();
+while ($resultPic = mysqli_fetch_assoc($queryPic)) {
+	$arr['body'] .= '<img style="width: 100%;" src="'.URL.'public/uploads/'.$resultPic["img_bookbank"].'">';
+}
+
+
 
 // <button type="submit" class="btn btn-primary btn-submit">Save changes</button>
-$arr['btnclose'] = '<button type="button" class="float-left btn btn-default" data-dismiss="modal">Close</button>'; // ปุ่มปิด
-$arr['btnsubmit'] = '<button type="submit" class="float-right btn btn-primary btn-submit">Save changes</button>'; // ปุ่ม Submit
+//$arr['btnclose'] = '<button type="button" class="float-left btn btn-default" data-dismiss="modal">Close</button>'; // ปุ่มปิด
+//$arr['btnsubmit'] = '<button type="submit" class="float-right btn btn-primary btn-submit">Save changes</button>'; // ปุ่ม Submit
 
 //* ตั้งค่า input type hidden *//
 $arr['hiddenInput'][] = ["name"=>"id", "value"=>1];
