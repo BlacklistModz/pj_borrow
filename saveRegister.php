@@ -259,6 +259,7 @@ if( !empty($_POST["checkconfirm"]) && empty($arr["error"]) ){
 	}
 }
 else{
+	$arr['alert'] = true;
 	$arr["type"] = "error";
 	$arr["title"] = "เกิดข้อผิดพลาด";
 	$arr["text"] = "กรุณาตรวจสอบการกรอกข้อมูลอีกครั้ง";
