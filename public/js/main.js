@@ -318,7 +318,7 @@ if ( typeof Object.create !== 'function' ) {
 			}
 			if( result.title ){
 				$elem.find('.modal-header').append(
-					$('<div>', {class:'modal-title'}).html( result.title )
+					$('<h5>', {class:'modal-title'}).html( result.title )
 				);
 			}
 			if( result.headClose ){
