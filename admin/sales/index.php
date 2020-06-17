@@ -20,7 +20,7 @@ $query = $sql->select();
 				<div class="col-sm-12">
 					<div class="clearfix">
 						<h4 class="m-0 text-dark float-left"><i class="fa fa-user"></i> <?= !empty($_title) ? $_title : "" ?></h4>
-						<a href="<?=URL?>admin/sales/forms.php?page=<?=$_GET["page"]?>&sub=<?=$_GET["sub"]?>" class="btn btn-primary float-right"><i class="fa fa-plus"></i> เพิ่มข้อมูล</a>
+						<a data-plugins="modal" href="<?=URL?>admin/sales/add.php?page=<?=$_GET["page"]?>&sub=<?=$_GET["sub"]?>" class="btn btn-primary float-right"><i class="fa fa-plus"></i> เพิ่มข้อมูล</a>
 					</div>
 				</div>
 			</div>

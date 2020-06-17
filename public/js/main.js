@@ -332,12 +332,12 @@ if ( typeof Object.create !== 'function' ) {
 				$elem.append( $('<div>', {class:"modal-body"}).html( result.body ) );
 			}
 			if( result.btnclose || result.btnsubmit ){
-				$elem.append( $('<div>', {class:"modal-footer"}) );
-				if( result.btnsubmit ){
-					$elem.find('.modal-footer').append( result.btnsubmit );
-				}
+				$elem.append( $('<div>', {class:"modal-footer clearfix"}) );
 				if( result.btnclose ){
 					$elem.find('.modal-footer').append( result.btnclose );
+				}
+				if( result.btnsubmit ){
+					$elem.find('.modal-footer').append( result.btnsubmit );
 				}
 			}
 			if( setCenter == "true" ){
