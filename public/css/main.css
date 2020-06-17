@@ -9,3 +9,8 @@
     width: 38%;
     height: 28px;
 }
+.modal-footer {
+	display: block;
+	text-align: center;
+	padding: 0.7rem;
+}
