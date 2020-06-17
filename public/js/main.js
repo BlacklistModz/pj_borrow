@@ -358,7 +358,7 @@ if ( typeof Object.create !== 'function' ) {
 		var modal = $('.modal');
 		setTimeout(function(){
 			modal.find(".modal-dialog").empty();
-		}, 1000);
+		}, 400);
 	};
 
 })( jQuery );
