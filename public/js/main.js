@@ -150,6 +150,10 @@ if ( typeof Object.create !== 'function' ) {
 					window.location = res.url;
 				}, res.timer);
 			}
+
+			// Clear Modal And Hide After Success //
+			$(".modal").find(".modal-dialog").empty();
+			$(".modal").modal('hide');
 		}
 		else{
 			res.alert = res.alert || false;
@@ -294,14 +298,24 @@ if ( typeof Object.create !== 'function' ) {
 
 		$.get( res.attr('href'), function( result ) {
 
+			if( !result.bgClose ){
+				modal.modal({backdrop: 'static', keyboard: false});
+			}
+
 			var setCenter = result.center || "true";
 
 			var $elem = $(result.form || '<div>').addClass("modal-content").addClass( result.addClass ).addClass( result.style ? 'style-'+result.style: '' );
 
+			if( result.hiddenInput ){
+				$.each( result.hiddenInput, function(i, input) {
+					var hiddenInput = $.fn.setHiddenInput( input );
+					$elem.append( hiddenInput );
+				});
+			}
+
 			if( result.title || result.headClose ){
 				$elem.append( $('<div>', {class:"modal-header"}) );
 			}
-
 			if( result.title ){
 				$elem.find('.modal-header').append(
 					$('<div>', {class:'modal-title'}).html( result.title )
@@ -326,7 +340,6 @@ if ( typeof Object.create !== 'function' ) {
 					$elem.find('.modal-footer').append( result.btnclose );
 				}
 			}
-
 			if( setCenter == "true" ){
 				modal.find('.modal-dialog').addClass('modal-dialog-centered')
 			}
@@ -334,8 +347,11 @@ if ( typeof Object.create !== 'function' ) {
 			modal.find('.modal-dialog').empty(); //Clear Old Modal
 			modal.find('.modal-dialog').addClass( result.dialogClass ).append( $elem );
 			modal.modal('show');
-
 		}, 'json');
+	};
+
+	$.fn.setHiddenInput = function( input ){
+		return $('<input>', {type:"hidden", "name":input.name, "value":input.value});
 	};
 
 })( jQuery );
@@ -399,4 +415,9 @@ $(".js-doc-amphur").change(function(){
 $("a[data-plugins=modal]").click(function(){
 	$.fn.setModal( $(this) );
 	return false;
+});
+
+$("body").delegate('[data-dismiss=modal]', 'click', function(event) {
+	var modal = $(".modal");
+	modal.find(".modal-dialog").empty();
 });

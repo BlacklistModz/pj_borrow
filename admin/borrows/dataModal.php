@@ -33,4 +33,11 @@ $arr['body'] .= '<div class="form-group col-md-12">
 $arr['btnclose'] = '<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>'; // ปุ่มปิด
 $arr['btnsubmit'] = '<button type="submit" class="btn btn-primary btn-submit">Save changes</button>'; // ปุ่ม Submit
 
+//* ตั้งค่า input type hidden *//
+$arr['hiddenInput'][] = ["name"=>"id", "value"=>1];
+// $arr['hiddenInput'][] = ["name"=>"customer_id", "value"=>2];
+
+// ตั้งค่าให้สามารถกดพื้นหลังแล้วปิด Modal //
+$arr['bgClose'] = true;
+
 echo json_encode($arr);
