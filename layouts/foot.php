@@ -102,7 +102,7 @@
       changeMonth: true,
       changeYear: true,
       showButtonPanel: true,
-      yearRange: "-100:+30",
+      yearRange: "-100:+15",
       dateFormat: 'dd/mm/yy',
       monthNamesShort: $.datepicker.regional["en"].monthNames
     });
