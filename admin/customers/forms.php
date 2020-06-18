@@ -78,7 +78,7 @@ if( !empty($_GET["id"]) ){
 							</div>
 						</div>
 						<div class="form-group">
-							<label for="birthday">วันเดือนปีเกิด (พ.ศ.) <span class="text-red">* ระบบจะแสดงผลในช่องกรอกเป็น ค.ศ.</span></label>
+							<label for="birthday">วันเดือนปีเกิด <span class="text-red">* (ระบุปีเป็น ค.ศ.)</span></label>
 							<input type="text" id="birthday" name="birthday" class="form-control DatePicker" value="<?= !empty($result["birthday"]) ? date("d/m/Y", strtotime($result["birthday"])) : "" ?>" readonly style="background-color:#fff;" placeholder="กรุณาเลือก วันเดือนปีเกิด">
 						</div>
 						<div class="form-group">
@@ -87,7 +87,7 @@ if( !empty($_GET["id"]) ){
 							<div class="invalid-feedback"></div>
 						</div>
 						<div class="form-group">
-							<label for="idcard_expire">วันหมดอายุบัตรประชาชน (พ.ศ.) <span class="text-red">* ระบบจะแสดงผลในช่องกรอกเป็น ค.ศ.</span></label>
+							<label for="idcard_expire">วันหมดอายุบัตรประชาชน <span class="text-red">* (ระบุปีเป็น ค.ศ.)</span></label>
 							<input type="text" id="idcard_expire" name="idcard_expire" class="form-control DatePicker" value="<?= !empty($result["idcard_expire"]) ? date("d/m/Y", strtotime($result["idcard_expire"])) : "" ?>" readonly style="background-color:#fff;" placeholder="กรุณาเลือก วันหมดอายุบัตรประชาชน">
 						</div>
 						<div class="form-group">
