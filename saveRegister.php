@@ -137,31 +137,54 @@ if( !empty($_POST["checkconfirm"]) && empty($arr["error"]) ){
 	// SET SEX
 	$_POST["sex"] = $_POST["prefix_name"] == 1 ? "male" : "female";
 
+	$sql->table = "customers";
+	$sql->condition = "WHERE idcard='{$_POST["idcard"]}'";
+	$query = $sql->select();
+	if( mysqli_num_rows($query) > 0 ){
+		$customers = mysqli_fetch_assoc($query);
+	}
+
 	//SET CUSTOMERS
 	$field = '';
 	$value = '';
 	foreach ($_POST as $key => $post) {
 
 		if( $key == "prefix_name" || $key == "first_name" || $key == "last_name" || $key == "birthday" || $key == "idcard" || $key == "idcard_expire" || $key == "sex" ){
-			$field .= !empty($field) ? "," : "";
-			$field .= $key;
 
-			$value .= !empty($value) ? "," : "";
-			if( $key == "birthday" || $key == "idcard_expire" ) $post = DateJQToPHP($post);
-			$value .= "'{$post}'";
+			if( empty($customers) ){ //FOR INSERT
+				$field .= !empty($field) ? "," : "";
+				$field .= $key;
+
+				$value .= !empty($value) ? "," : "";
+				if( $key == "birthday" || $key == "idcard_expire" ) $post = DateJQToPHP($post);
+				$value .= "'{$post}'";
+			}
+			else{ // FOR UPDATE
+				$value .= !empty($value) ? "," : "";
+				if( $key == "birthday" || $key == "idcard_expire" ) $post = DateJQToPHP($post);
+				$value .= "{$key}='{$post}'";
+			}
 
 			//clear for borrows
 			unset($_POST[$key]);
 		}
 	}
 	//
-
+	//SET CUSTOMER FOR UPDATE OR INSERT
 	$sql->table = "customers";
-	$sql->field = $field;
-	$sql->value = $value;
-	if( $sql->insert() ){
+	if( !empty($customers) ){
+		$sql->value = $value;
+		$query = $sql->update();
+	}
+	else{
+		$sql->field = $field;
+		$sql->value = $value;
+		$query = $sql->insert();
+	}
 
-		$_POST["customer_id"] = mysqli_insert_id($sql->connect);
+	if( $query ){
+
+		$_POST["customer_id"] = !empty($customers["id"]) ? $customers["id"] : mysqli_insert_id($sql->connect);
 		$_POST["date"] = date("Y-m-d");
 
 		##SET Customer CODE
