@@ -20,7 +20,7 @@ $query = $sql->select();
 				<div class="col-sm-12">
 					<div class="clearfix">
 						<h4 class="m-0 text-dark float-left"><i class="fa fa-user"></i> <?= !empty($_title) ? $_title : "" ?></h4>
-						<a data-plugins="modal" href="<?=URL?>admin/sales/add.php?page=<?=$_GET["page"]?>&sub=<?=$_GET["sub"]?>" class="btn btn-primary float-right"><i class="fa fa-plus"></i> เพิ่มข้อมูล</a>
+						<a data-plugins="modal" href="<?=URL?>admin/sales/add.php?page=<?=$_GET["page"]?>&sub=<?=$_GET["sub"]?>" class="btn btn-primary btn--sh float-right"><i class="fa fa-plus"></i> เพิ่มข้อมูล</a>
 					</div>
 				</div>
 			</div>
@@ -50,7 +50,7 @@ $query = $sql->select();
 									<td class="text-center"><?=$no++?></td>
 									<td class="text-center"><?=$result["code"]?></td>
 									<td><?=showPrefixName($result["prefix_name"])." ".$result["first_name"]." ".$result["last_name"]?></td>
-									<td class="text-center"><a href="<?=URL?>register.php?s=<?php echo base64_encode($result["code"])?>" class="btn btn-success btn-sm" target="_blank"><i class="fas fa-link"></i> รับลิงค์</a></td>
+									<td class="text-center"><a href="<?=URL?>register.php?s=<?php echo base64_encode($result["code"])?>" class="btn btn-success btn-sm btn--sh" target="_blank"><i class="fas fa-link"></i> รับลิงค์</a></td>
 									<td class="text-center">
 										<?php 
 										if( !empty($result["updated_at"]) ){
@@ -63,7 +63,7 @@ $query = $sql->select();
 									</td>
 									<td class="text-center">
 
-										<a data-plugins="modal" href="<?=URL?>admin/sales/add.php?page=<?=$_GET["page"]?>&sub=<?=$_GET["sub"]?>&id=<?=$result["id"]?>" class="btn btn-warning btn-sm text-white" title="แก้ไขข้อมูล">
+										<a data-plugins="modal" href="<?=URL?>admin/sales/add.php?page=<?=$_GET["page"]?>&sub=<?=$_GET["sub"]?>&id=<?=$result["id"]?>" class="btn btn-warning btn-sm btn--sh text-white" title="แก้ไขข้อมูล">
 											<i class="fa fa-pen"></i>
 										</a>
 										<?php 
@@ -74,7 +74,7 @@ $query = $sql->select();
 											"textconfirm" => "ลบข้อมูล"
 										];
 										?>
-										<a href="<?=URL?>admin/sales/delete.php?page=<?=$_GET["page"]?>&sub=<?=$_GET["sub"]?>&id=<?=$result["id"]?>" class="btn btn-danger btn-confirm btn-sm" data-title="ยืนยันการลบข้อมูล" data-options="<?=stringify($ops)?>">
+										<a href="<?=URL?>admin/sales/delete.php?page=<?=$_GET["page"]?>&sub=<?=$_GET["sub"]?>&id=<?=$result["id"]?>" class="btn btn-danger btn-confirm btn-sm btn--sh" data-title="ยืนยันการลบข้อมูล" data-options="<?=stringify($ops)?>">
 											<i class="fa fa-trash"></i>
 										</a>
 

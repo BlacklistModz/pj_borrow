@@ -20,7 +20,7 @@ $query = $sql->select();
 				<div class="col-sm-12">
 					<div class="clearfix">
 						<h4 class="m-0 text-dark float-left"><i class="fa fa-user"></i> <?= !empty($_title) ? $_title : "" ?></h4>
-						<a href="<?=URL?>admin/users/forms.php?page=<?=$_GET["page"]?>" class="btn btn-primary float-right"><i class="fa fa-plus"></i> เพิ่มข้อมูล</a>
+						<a href="<?=URL?>admin/users/forms.php?page=<?=$_GET["page"]?>" class="btn btn-primary btn--sh float-right"><i class="fa fa-plus"></i> เพิ่มข้อมูล</a>
 					</div>
 				</div>
 			</div>
@@ -65,14 +65,14 @@ $query = $sql->select();
 										<?php
 										if( empty($result["is_owner"]) ){
 											?>
-											<a href="<?=URL?>admin/users/password.php?page=<?=$_GET["page"]?>&id=<?=$result["id"]?>" class="btn btn-info btn-sm text-white" title="เปลี่ยนรหัสผ่าน">
+											<a href="<?=URL?>admin/users/password.php?page=<?=$_GET["page"]?>&id=<?=$result["id"]?>" class="btn btn-info btn-sm btn--sh text-white" title="เปลี่ยนรหัสผ่าน">
 												<i class="fa fa-key"></i>
 											</a>
 											<?php 
 										} 
 										?>
 
-										<a href="<?=URL?>admin/users/forms.php?page=<?=$_GET["page"]?>&id=<?=$result["id"]?>" class="btn btn-warning btn-sm text-white" title="แก้ไขข้อมูล">
+										<a href="<?=URL?>admin/users/forms.php?page=<?=$_GET["page"]?>&id=<?=$result["id"]?>" class="btn btn-warning btn-sm btn--sh text-white" title="แก้ไขข้อมูล">
 											<i class="fa fa-pen"></i>
 										</a>
 
@@ -85,7 +85,7 @@ $query = $sql->select();
 												"textconfirm" => "ลบข้อมูล"
 											];
 											?>
-											<a href="<?=URL?>admin/users/delete.php?page=<?=$_GET["page"]?>&id=<?=$result["id"]?>" class="btn btn-danger btn-confirm btn-sm" data-title="ยืนยันการลบข้อมูล" data-options="<?=stringify($ops)?>">
+											<a href="<?=URL?>admin/users/delete.php?page=<?=$_GET["page"]?>&id=<?=$result["id"]?>" class="btn btn-danger btn-confirm btn-sm btn--sh" data-title="ยืนยันการลบข้อมูล" data-options="<?=stringify($ops)?>">
 												<i class="fa fa-trash"></i>
 											</a>
 											<?php 

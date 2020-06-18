@@ -47,23 +47,29 @@ if( !empty($_GET["id"]) ){
 			<div class="card">
 				<form class="form-submit" action="<?=URL?>admin/users/change_password.php?page=<?=$_GET["page"]?>" method="POST">
 					<div class="card-body">
+						<div class="row">
+						<div class="col-md-6">
 						<div class="form-group">
 							<label for="password">รหัสผ่าน (Password)</label>
 							<input type="password" class="form-control" id="password" name="password" placeholder="Password">
 							<div class="invalid-feedback"></div>
 						</div>
+						</div>
+						<div class="col-md-6">
 						<div class="form-group">
 							<label for="password2">ยืนยันรหัสผ่าน (Confirm Password)</label>
 							<input type="password" class="form-control" id="password2" name="password2" placeholder="Confirm Password">
 							<div class="invalid-feedback"></div>
 						</div>
+						</div>
+						</div>
 					</div>
 					<div class="card-footer">
 						<div class="clearfix">
-							<a href="<?=URL?>admin/users/?page=<?=$_GET["page"]?>" class="btn btn-danger float-left">
+							<a href="<?=URL?>admin/users/?page=<?=$_GET["page"]?>" class="btn btn-danger btn--sh float-left">
 								<i class="fa fa-arrow-left"></i> กลับหน้าหลัก
 							</a>
-							<button type="submit" class="btn btn-primary btn-submit float-right">
+							<button type="submit" class="btn btn-primary btn-submit btn--sh float-right">
 								<i class="fa fa-save"></i> บันทึกข้อมูล
 							</button>
 						</div>

@@ -72,7 +72,7 @@ $arr['body'] = '<div class="form-group">
 					<div class="invalid-feedback"></div>
 				</div>';
 
-$arr['btnclose'] = '<button type="button" class="btn btn-default float-left" data-dismiss="modal"><i class="fas fa-ban"></i> ยกเลิก</button>'; // ปุ่มปิด
-$arr['btnsubmit'] = '<button type="submit" class="btn btn-primary float-right btn-submit"><i class="fa fa-save"></i> บันทึก</button>'; // ปุ่ม Submit
+$arr['btnclose'] = '<button type="button" class="btn btn-default btn--sh float-left" data-dismiss="modal"><i class="fas fa-ban"></i> ยกเลิก</button>'; // ปุ่มปิด
+$arr['btnsubmit'] = '<button type="submit" class="btn btn-primary btn--sh float-right btn-submit"><i class="fa fa-save"></i> บันทึก</button>'; // ปุ่ม Submit
 
 echo json_encode($arr);

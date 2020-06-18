@@ -10,6 +10,7 @@ include($_pathURL."admin/layouts/navbar.php");
 include($_pathURL."admin/layouts/menu.php");
 
 $sql->table = "customers LEFT JOIN borrows on customers.id = borrows.id";
+$sql->field = "*, customers.created_at AS created_date, customers.updated_at AS updated_date";
 $query = $sql->select();
 ?>
 <!-- Content -->
@@ -22,7 +23,7 @@ $query = $sql->select();
 						<h4 class="m-0 text-dark float-left"><i class="fa fa-user"></i> <?= !empty($_title) ? $_title : "" ?></h4>
 						<!-- <a href="<?=URL?>admin/customers/forms.php?page=<?=$_GET["page"]?>" class="btn btn-primary float-right"><i class="fa fa-plus"></i> เพิ่มข้อมูล</a> -->
 
-						<a href="<?=URL?>admin/customers/exportExcel.php" class="btn btn-success float-right mr-3"><i class="fa fa-file-excel mr-1"></i> Export Excel</a>
+						<a href="<?=URL?>admin/customers/exportExcel.php" class="btn btn-success btn--sh float-right mr-3"><i class="fa fa-file-excel mr-1"></i> Export Excel</a>
 					</div>
 				</div>
 			</div>
@@ -71,28 +72,28 @@ $query = $sql->select();
 									<td class="text-center"><?=number_format($result["work_income"]).'.-'?></td>
 									<td class="text-center">
 										<?php 
-										if( !empty($result["updated_at"]) ){
-											echo dateTH($result["updated_at"],0,1);
+										if( !empty($result["updated_date"]) ){
+											echo dateTH($result["updated_date"],0,1);
 										}
 										else{
-											echo dateTH($result["created_at"],0,1);
+											echo dateTH($result["created_date"],0,1);
 										}
 										?>
 									</td>
 									<td class="text-center">
 
-										<a href="<?=URL?>admin/customers/forms.php?page=<?=$_GET["page"]?>&id=<?=$result["id"]?>" class="btn btn-warning btn-sm text-white" title="แก้ไขข้อมูล">
+										<a href="<?=URL?>admin/customers/forms.php?page=<?=$_GET["page"]?>&id=<?=$result["id"]?>" class="btn btn-warning btn-sm btn--sh text-white" title="แก้ไขข้อมูล">
 											<i class="fa fa-pen"></i>
 										</a>
 										<?php 
 										$ops = [
 											"title" => "ยืนยันการลบข้อมูล",
-											"text" => "คุณต้องการลบข้อมูล ".$result["idcard"]. "หรือไม่ ?",
+											"text" => "คุณต้องการลบข้อมูล ".$result["code"]. " หรือไม่ ?",
 											"btnconfirm" => "btn btn-danger m-1",
 											"textconfirm" => "ลบข้อมูล"
 										];
 										?>
-										<a href="<?=URL?>admin/customers/delete.php?page=<?=$_GET["page"]?>&id=<?=$result["id"]?>" class="btn btn-danger btn-confirm btn-sm" data-title="ยืนยันการลบข้อมูล" data-options="<?=stringify($ops)?>">
+										<a href="<?=URL?>admin/customers/delete.php?page=<?=$_GET["page"]?>&id=<?=$result["id"]?>" class="btn btn-danger btn-confirm btn-sm btn--sh" data-title="ยืนยันการลบข้อมูล" data-options="<?=stringify($ops)?>">
 											<i class="fa fa-trash"></i>
 										</a>
 

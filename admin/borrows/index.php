@@ -69,7 +69,8 @@ $query = $sql->select();
 									<td class="text-center">
 										<?php
 										$status = getStatus($result["status"]);
-										echo '<a class="'.$status['class'].' text-white">'.$status['name'].'</a>';
+										// echo '<a class="'.$status['class'].' text-white">'.$status['name'].'</a>';
+										echo '<a class="'.$status['class'].' text-setup">'.$status['name'].'</a>';
 										?>
 										<!-- <select class="form-control js-select" data-url="<?=URL?>admin/borrows/change_status.php" data-id="<?=$result["id"]?>"> -->
 											<?php 
@@ -84,16 +85,16 @@ $query = $sql->select();
 
 									<td class="text-center">
 										<!-- <button type="button" class="btn btn-default" data-toggle="modal" data-target="#modal-default"><i class="far fa-image"></i></button> -->
-										<a href="<?=URL?>admin/borrows/dataModal.php?id=<?=$result["id"]?>" data-plugins="modal" class="btn btn-primary btn-sm">แสดง</a>
+										<a href="<?=URL?>admin/borrows/dataModal.php?id=<?=$result["id"]?>" data-plugins="modal" class="btn btn-primary btn-sm btn--sh">แสดง</a>
 									</td>
 									
 									<td class="text-center">
-										<a href="<?=URL?>admin/borrows/approved.php?page=<?=$_GET["page"]?>&id=<?=$result["id"]?>" class="btn btn-warning btn-sm text-white" title="อนุมัติ / ไม่อนุมัติ">
+										<a href="<?=URL?>admin/borrows/approved.php?page=<?=$_GET["page"]?>&id=<?=$result["id"]?>" class="btn btn-warning btn-sm btn--sh text-white" title="อนุมัติ / ไม่อนุมัติ">
 											<i class="fa fa-info-circle"></i>
 										</a>
 									</td>
 									<td class="text-center">
-										<a href="<?=URL?>admin/borrows/pdf.php?id=<?=$result["id"]?>" target="_blank" class="btn btn-info btn-sm"><i class="far fa-file-pdf"></i></a>
+										<a href="<?=URL?>admin/borrows/pdf.php?id=<?=$result["id"]?>" target="_blank" class="btn btn-success btn-sm btn--sh"><i class="far fa-file-pdf"></i></a>
 									</td>
 
 									<td class="text-center"><?php if ($result["approve_limit"] != 0.00 ) { echo number_format($result["approve_limit"]).'.-'; } ?></td>
@@ -109,12 +110,12 @@ $query = $sql->select();
 										<?php 
 										$ops = [
 											"title" => "ยืนยันการลบข้อมูล",
-											"text" => "คุณต้องการลบข้อมูล ".$result["idcard"]. "หรือไม่ ?",
+											"text" => "คุณต้องการลบข้อมูลใบสมัครสินเชื่อนี้หรือไม่ ?",
 											"btnconfirm" => "btn btn-danger m-1",
 											"textconfirm" => "ลบข้อมูล"
 										];
 										?>
-										<a href="<?=URL?>admin/borrows/delete.php?page=<?=$_GET["page"]?>&id=<?=$result["id"]?>" class="btn btn-danger btn-confirm btn-sm" data-title="ยืนยันการลบข้อมูล" data-options="<?=stringify($ops)?>">
+										<a href="<?=URL?>admin/borrows/delete.php?page=<?=$_GET["page"]?>&id=<?=$result["id"]?>" class="btn btn-danger btn-confirm btn-sm btn--sh" data-title="ยืนยันการลบข้อมูล" data-options="<?=stringify($ops)?>">
 											<i class="fa fa-trash"></i>
 										</a>
 

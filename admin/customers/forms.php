@@ -112,10 +112,10 @@ if( !empty($_GET["id"]) ){
 					</div>
 					<div class="card-footer">
 						<div class="clearfix">
-							<a href="<?=URL?>admin/customers/?page=<?=$_GET["page"]?>" class="btn btn-danger float-left">
+							<a href="<?=URL?>admin/customers/?page=<?=$_GET["page"]?>" class="btn btn-danger btn--sh float-left">
 								<i class="fa fa-arrow-left"></i> กลับหน้าหลัก
 							</a>
-							<button type="submit" class="btn btn-primary btn-submit float-right">
+							<button type="submit" class="btn btn-primary btn-submit btn--sh float-right">
 								<i class="fa fa-save"></i> บันทึกข้อมูล
 							</button>
 						</div>

@@ -63,8 +63,8 @@ $result = mysqli_fetch_assoc($query);
 					</div>
 					<div class="card-footer">
 						<div class="clearfix">
-							<button class="btn btn-warning float-left text-white" type="reset"><i class="fas fa-eraser"></i> ยกเลิก</button>
-							<button type="submit" class="btn btn-primary btn-submit float-right">
+							<button class="btn btn-warning float-left btn--sh text-white" type="reset"><i class="fas fa-eraser"></i> ยกเลิก</button>
+							<button type="submit" class="btn btn-primary btn-submit btn--sh float-right">
 								<i class="fa fa-save"></i> เปลี่ยนรหัสผ่าน
 							</button>
 						</div>

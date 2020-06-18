@@ -135,9 +135,12 @@ function showSex($sex){
 //STATUS
 function status(){
 	$_status = [];
-	$_status[] = ['id'=>0, 'name'=>'รอตรวจสอบ', 'class'=>'btn btn-secondary btn-sm', 'icon'=>'fa fa-info'];
-	$_status[] = ['id'=>1, 'name'=>'อนุมัติ', 'class'=>'btn btn-success btn-sm', 'icon'=>'fa fa-check'];
-	$_status[] = ['id'=>2, 'name'=>'ไม่อนุมัติ', 'class'=>'btn btn-danger btn-sm', 'icon'=>'fa fa-remove'];
+	// $_status[] = ['id'=>0, 'name'=>'รอตรวจสอบ', 'class'=>'btn btn-secondary btn-sm', 'icon'=>'fa fa-info'];
+	// $_status[] = ['id'=>1, 'name'=>'อนุมัติ', 'class'=>'btn btn-success btn-sm', 'icon'=>'fa fa-check'];
+	// $_status[] = ['id'=>2, 'name'=>'ไม่อนุมัติ', 'class'=>'btn btn-danger btn-sm', 'icon'=>'fa fa-remove'];
+	$_status[] = ['id'=>0, 'name'=>'รอตรวจสอบ', 'class'=>'text-info'];
+	$_status[] = ['id'=>1, 'name'=>'อนุมัติแล้ว', 'class'=>'text-success'];
+	$_status[] = ['id'=>2, 'name'=>'ไม่อนุมัติ', 'class'=>'text-danger'];
 	return $_status;
 }
 function getStatus($status){
