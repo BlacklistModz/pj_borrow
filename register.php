@@ -2,22 +2,18 @@
 include("layouts/head.php");
 include("app/SQLiManager.php");
 
-if( empty($_GET["s"]) ){
-	header("location:errors/404.php");
-	exit;
-}
-
 //SET FOR SALE AGENTS LINK
-$sql = new SQLiManager();
-$sql->table = "saleagents";
-$sql->condition = "WHERE code='".base64_decode($_GET["s"])."'";
-$sQuery = $sql->select();
-if( mysqli_num_rows($sQuery) <= 0 ){
-	header("location:errors/404.php");
-	exit;
+if( !empty($_GET['s']) ){
+	$sql = new SQLiManager();
+	$sql->table = "saleagents";
+	$sql->condition = "WHERE code='".base64_decode($_GET["s"])."'";
+	$sQuery = $sql->select();
+	if( mysqli_num_rows($sQuery) <= 0 ){
+		header("location:errors/404.php");
+		exit;
+	}
+	$sResult = mysqli_fetch_assoc($sQuery);
 }
-
-$sResult = mysqli_fetch_assoc($sQuery);
 
 //CLEAR DATA FOR FORM
 $sql = new SQLiManager();
@@ -994,7 +990,7 @@ $sql = new SQLiManager();
 					<div class="col-md-4">
 						<div class="form-group" style="padding-top: 8px;">
 							<label>รหัสผู้แนะนำ <label class="must">*</label></label>
-							<select class="select2 select2-hidden-accessible js-saleagents" name="saleagents_id" data-placeholder="กรุณาเลือกผู้แนะนำ" tabindex="-1" aria-hidden="true" disabled>
+							<select class="select2 select2-hidden-accessible js-saleagents" name="saleagents_id" data-placeholder="กรุณาเลือกผู้แนะนำ" tabindex="-1" aria-hidden="true" <?= !empty($sResult['id']) ? 'disabled' : '' ?>>
 								<option></option>
 								<?php 
 								$sql->table = "saleagents";
@@ -1009,9 +1005,14 @@ $sql = new SQLiManager();
 								?>
 							</select>
 							<div class="invalid-feedback txt_err"></div>
-							<input type="hidden" name="saleagents_id" value="<?=$sResult["id"]?>">
+							<?php 
+							if( !empty($sResult['id']) ){
+								?>
+								<input type="hidden" name="saleagents_id" value="<?=$sResult["id"]?>">
+								<?php
+							}
+							?>
 						</div>
-						
 					</div>
 					<div class="col-md-4">
 						<div class="form-group" style="margin-top: 7px;">
