@@ -284,8 +284,8 @@ if( !empty($_POST["checkconfirm"]) && empty($arr["error"]) ){
 else{
 	$arr['alert'] = true;
 	$arr["type"] = "error";
-	$arr["title"] = "เกิดข้อผิดพลาด";
-	$arr["text"] = "กรุณาตรวจสอบการกรอกข้อมูลอีกครั้ง";
+	$arr["title"] = !empty($arr['title']) ? $arr['title'] : "เกิดข้อผิดพลาด";
+	$arr["text"] = !empty($arr['text']) ? $arr['text'] : "กรุณาตรวจสอบการกรอกข้อมูลอีกครั้ง";
 	$arr["status"] = 422;
 }
 echo json_encode($arr);
