@@ -21,17 +21,17 @@ $arr['form'] = '<form class="form-submit" method="POST" action="'.URL.'admin/bor
  $arr['headClose'] = true; //แสดงกากบาทบน Header Modal
 
 $arr['title'] = "หลักฐานการสมัคร";
-$arr['body'] = '<h5 style="text-align: center; margin: 10px;">รูปถ่ายพร้อมบัตรประชาชน</h5>';
+$arr['body'] = '<h5 class="do--idcard" style="text-align: center; margin: 10px;">รูปถ่ายพร้อมบัตรประชาชน</h5>';
 
 $arr['body'] .= '<img style="width: 100%; margin-bottom: 30px;" src="'.URL.'public/uploads/'.$result["img_idcard"].'">';
  
-$arr['body'] .= '<h5 style="text-align: center; margin: 10px;">รูปถ่าย Book Bank</h5>';
+$arr['body'] .= '<h5 class="do--bookbank" style="text-align: center; margin: 10px;">รูปถ่าย Book Bank</h5>';
 
 $sql->table = "borrow_bookbanks";
 $sql->condition="WHERE borrow_id = {$_GET["id"]}";
 $queryPic = $sql->select();
 while ($resultPic = mysqli_fetch_assoc($queryPic)) {
-	$arr['body'] .= '<img style="width: 100%;" src="'.URL.'public/uploads/'.$resultPic["img_bookbank"].'">';
+	$arr['body'] .= '<img style="width: 100%; margin-top: 10px;" src="'.URL.'public/uploads/'.$resultPic["img_bookbank"].'">';
 }
 
 

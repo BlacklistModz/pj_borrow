@@ -232,3 +232,42 @@ function getPeriod($id){
 	}
 	return $data;
 }
+
+function educate(){
+	$_educate = [];
+	$_educate[] = ['id'=>1, 'name'=>'ประถมศึกษา'];
+	$_educate[] = ['id'=>2, 'name'=>'มัธยมศึกษา'];
+	$_educate[] = ['id'=>3, 'name'=>'ปวช./ปวส./ปวท.'];
+	$_educate[] = ['id'=>4, 'name'=>'ปริญญาตรี'];
+	$_educate[] = ['id'=>5, 'name'=>'สูงกว่าปริญญาตรี'];
+	return $_educate;
+}
+function showEducate($educate){
+	$data = "";
+	foreach (educate() as $key => $value) {
+		if( $educate == $value["id"] ){
+			$data = $value["name"];
+			break;
+		}
+	}
+	return $data;
+}
+
+function sta(){
+	$sta = [];
+	$sta[] = ['id'=>1, 'name'=>'โสด'];
+	$sta[] = ['id'=>2, 'name'=>'สมรส'];
+	$sta[] = ['id'=>3, 'name'=>'หย่า'];
+	$sta[] = ['id'=>4, 'name'=>'หม้าย'];
+	return $sta;
+}
+function showSta($sta){
+	$data = "";
+	foreach (sta() as $key => $value) {
+		if( $sta == $value["id"] ){
+			$data = $value["name"];
+			break;
+		}
+	}
+	return $data;
+}
