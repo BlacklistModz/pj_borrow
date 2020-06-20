@@ -103,9 +103,9 @@ if( !empty($_FILES["img_bookbank"]) ){
 				$arr["alert"] = "true";
 				$arr["type"] = "error";
 				$arr["title"] = "เกิดข้อผิดพลาดในการยืนยันตัวตน";
-				$arr["text"] = "รูปภาพต้องเป็นไฟล์ .jpg / .png / .jpeg เท่านั้น";
+				$arr["text"] = "รูปภาพ Bookbank ต้องเป็นไฟล์ .jpg / .png / .jpeg เท่านั้น";
 				$arr["status"] = 422;
-				exit;
+				break;
 			}
 		}
 	}
