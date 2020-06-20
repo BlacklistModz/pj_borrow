@@ -236,7 +236,7 @@ $sql = new SQLiManager();
 						<br><br>
 						<h4>ข้อมูลคู่สมรส</h4>
 						<div class="radio radio--inline">
-							<input type="radio" name="spouse_prefix" id="sp_prefixRadio_1" value="1" checked>
+							<input type="radio" name="spouse_prefix" id="sp_prefixRadio_1" value="1">
 							<label class="radio__label" for="sp_prefixRadio_1">นาย</label>
 						</div>
 						<div class="radio radio--inline">
