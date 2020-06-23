@@ -141,6 +141,7 @@ function status(){
 	$_status[] = ['id'=>0, 'name'=>'รอตรวจสอบ', 'class'=>'text-info'];
 	$_status[] = ['id'=>1, 'name'=>'อนุมัติแล้ว', 'class'=>'text-success'];
 	$_status[] = ['id'=>2, 'name'=>'ไม่อนุมัติ', 'class'=>'text-danger'];
+	$_status[] = ['id'=>3, 'name'=>'รอเอกสาร', 'class'=>'text-warning'];
 	return $_status;
 }
 function getStatus($status){
