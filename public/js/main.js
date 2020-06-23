@@ -324,7 +324,7 @@ if ( typeof Object.create !== 'function' ) {
 			});
 		}
 
-		if( result.title || result.headClose ){
+		if( result.title || result.headClose || !result.btnclose ){
 			$elem.append( $('<div>', {class:"modal-header"}) );
 		}
 		if( result.title ){
@@ -332,7 +332,7 @@ if ( typeof Object.create !== 'function' ) {
 				$('<h5>', {class:'modal-title'}).html( result.title )
 				);
 		}
-		if( result.headClose ){
+		if( result.headClose || !result.btnclose ){
 			$elem.find('.modal-header').append( 
 				$('<button>', {class:'close', 'data-dismiss':'modal', 'aria-label':'Exit'}).append( 
 					$('<span>', {'aria-hidden':'true'}).html('&times;') 
