@@ -44,14 +44,14 @@ $query = $sql->select();
 								<th width="10%">วันที่สมัคร</th>	
 								<th width="7%">Agent</th>			
 								<th width="10%">รหัสลูกค้า</th>
-								<th width="22%">ชื่อ-นามสกุล</th>
+								<th width="20%">ชื่อ-นามสกุล</th>
 								<th width="10%">สถานะ</th>
 								<th width="7%">หลักฐาน</th>
-								<th width="5%">อนุมัติ</th>
+								<th width="7%">อนุมัติ</th>
 								<th width="5%">พิมพ์</th>
-								<th width="9%">วงเงินที่อนุมัติ</th>
+								<th width="10%">วงเงินที่อนุมัติ</th>
 								<th width="7%">ระยะเวลา</th>
-								<th width="5%">จัดการ</th>
+								<th width="4%">จัดการ</th>
 							</tr>
 						</thead>
 						<tbody>
@@ -86,12 +86,17 @@ $query = $sql->select();
 
 									<td class="text-center">
 										<!-- <button type="button" class="btn btn-default" data-toggle="modal" data-target="#modal-default"><i class="far fa-image"></i></button> -->
-										<a href="<?=URL?>admin/borrows/dataModal.php?id=<?=$result["id"]?>" data-plugins="modal" class="btn btn-primary btn-sm btn--sh">แสดง</a>
+										<a href="<?=URL?>admin/borrows/dataModal.php?id=<?=$result["id"]?>" data-plugins="modal" class="btn btn-primary btn-sm btn--sh">
+											<i class="fas fa-images"></i>
+										</a>
 									</td>
 									
 									<td class="text-center">
 										<a href="<?=URL?>admin/borrows/approved.php?page=<?=$_GET["page"]?>&id=<?=$result["id"]?>" class="btn btn-warning btn-sm btn--sh text-white" title="อนุมัติ / ไม่อนุมัติ">
 											<i class="fa fa-info-circle"></i>
+										</a>
+										<a data-plugins="modal" href="<?=URL?>admin/borrows/contract.php?&id=<?=$result["id"]?>" class="btn btn-info btn--sh btn-sm text-white" title="วันที่เริ่มสัญญา">
+											<i class="fas fa-signature"></i>
 										</a>
 									</td>
 									<td class="text-center">

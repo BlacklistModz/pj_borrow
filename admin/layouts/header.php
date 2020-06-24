@@ -35,6 +35,8 @@ include($_pathURL."app/fn.php");
   <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
   <!-- DataTables -->
   <link rel="stylesheet" href="<?=PLUGINS?>datatables-bs4/css/dataTables.bootstrap4.css">
+<!--   <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/responsive/2.2.5/css/responsive.bootstrap4.min.css"> -->
+
   <!-- SWEETALERT -->
   <link rel="stylesheet" href="<?=CSS?>sweetalert2.css">
   <link rel="stylesheet" href="<?=CSS?>main.css">
