@@ -77,30 +77,18 @@ if( !empty($_GET["id"]) ){
 								<div class="invalid-feedback"></div>
 							</div>
 						</div>
-						<?php
-						$birthday = ''; 
-						if( !empty($result['birthday']) ){
-							if( $result['birthday'] != "0000-00-00" ) $birthday = $result['birthday'];
-						}
-						?>
 						<div class="form-group">
 							<label for="birthday">วันเดือนปีเกิด <span class="text-red">* (ระบุปีเป็น ค.ศ.)</span></label>
-							<input type="text" id="birthday" name="birthday" class="form-control DatePicker" value="<?= !empty($birthday) ? date("d/m/Y", strtotime($birthday)) : "" ?>" readonly style="background-color:#fff;" placeholder="กรุณาเลือก วันเดือนปีเกิด">
+							<input type="text" id="birthday" name="birthday" class="form-control DatePicker" value="<?= !empty($result["birthday"]) ? date("d/m/Y", strtotime($result["birthday"])) : "" ?>" readonly style="background-color:#fff;" placeholder="กรุณาเลือก วันเดือนปีเกิด">
 						</div>
 						<div class="form-group">
 							<label for="idcard">รหัสประจำตัวประชาชน</label>
 							<input type="text" class="form-control" id="idcard" name="idcard" placeholder="รหัสประจำตัวประชาชน" value="<?= !empty($result["idcard"]) ? $result["idcard"] : "" ?>" maxlength="13">
 							<div class="invalid-feedback"></div>
 						</div>
-						<?php
-						$idcard_expire = ''; 
-						if( !empty($result['idcard_expire']) ){
-							if( $result['idcard_expire'] != "0000-00-00" ) $idcard_expire = $result['idcard_expire'];
-						}
-						?>
 						<div class="form-group">
 							<label for="idcard_expire">วันหมดอายุบัตรประชาชน <span class="text-red">* (ระบุปีเป็น ค.ศ.)</span></label>
-							<input type="text" id="idcard_expire" name="idcard_expire" class="form-control DatePicker" value="<?= !empty($idcard_expire) ? date("d/m/Y", strtotime($idcard_expire)) : "" ?>" readonly style="background-color:#fff;" placeholder="กรุณาเลือก วันหมดอายุบัตรประชาชน">
+							<input type="text" id="idcard_expire" name="idcard_expire" class="form-control DatePicker" value="<?= !empty($result["idcard_expire"]) ? date("d/m/Y", strtotime($result["idcard_expire"])) : "" ?>" readonly style="background-color:#fff;" placeholder="กรุณาเลือก วันหมดอายุบัตรประชาชน">
 						</div>
 						<div class="form-group">
 							<label for="sex">เพศ</label>
