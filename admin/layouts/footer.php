@@ -44,9 +44,10 @@
 <script src="<?=JS?>adminlte.min.js"></script>
 <!-- SWEETALERT -->
 <script src="<?=JS?>sweetalert2.js"></script>
+<!-- DataTables -->
+<script src="<?=PLUGINS?>datatables/jquery.dataTables.js"></script>
+<script src="<?=PLUGINS?>datatables-bs4/js/dataTables.bootstrap4.js"></script>
 <!-- MAIN -->
 <script src="<?=JS?>main.js"></script>
-<!-- DataTables --><script src="<?=PLUGINS?>datatables/jquery.dataTables.js"></script>
-<script src="<?=PLUGINS?>datatables-bs4/js/dataTables.bootstrap4.js"></script>
 </body>
 </html>
