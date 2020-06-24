@@ -9,8 +9,7 @@ include($_pathURL."admin/layouts/navbar.php");
 //MENU
 include($_pathURL."admin/layouts/menu.php");
 
-$sql->table = "customers LEFT JOIN borrows on customers.id = borrows.id";
-$sql->field = "*, customers.created_at AS created_date, customers.updated_at AS updated_date";
+$sql->table = "customers";
 $query = $sql->select();
 ?>
 <!-- Content -->
@@ -51,6 +50,13 @@ $query = $sql->select();
 							<?php 
 							$no = 1;
 							while($result = mysqli_fetch_assoc($query)){
+
+								$sql->table = "borrows";
+								$sql->field = "work_position, work_income";
+								$sql->condition = "WHERE customer_id={$result["id"]} ORDER BY id DESC LIMIT 1";
+								$bQuery = $sql->select();
+								$borrows = mysqli_fetch_assoc($bQuery);
+
 								?>
 								<tr>
 									<td class="text-center"><?=$no++?></td>
@@ -67,16 +73,15 @@ $query = $sql->select();
 										}
 										?>
 									</td>
-									<td class="text-center"><?=$result["work_position"]?></td>
-									<!-- <td class="text-center"><?=number_format($result["work_income"],2)?></td> -->
-									<td class="text-center"><?=number_format($result["work_income"]).'.-'?></td>
+									<td class="text-center"><?= !empty($borrows["work_position"]) ? $borrows["work_position"] : "-" ?></td>
+									<td class="text-center"><?= !empty($borrows["work_income"]) ? number_format($borrows["work_income"]).'.-' : "-" ?></td>
 									<td class="text-center">
 										<?php 
-										if( !empty($result["updated_date"]) ){
-											echo dateTH($result["updated_date"],0,1);
+										if( !empty($result["updated_at"]) ){
+											echo dateTH($result["updated_at"],0,1);
 										}
 										else{
-											echo dateTH($result["created_date"],0,1);
+											echo dateTH($result["created_at"],0,1);
 										}
 										?>
 									</td>
