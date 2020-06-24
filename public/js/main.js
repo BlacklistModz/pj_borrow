@@ -377,7 +377,7 @@ if ( typeof Object.create !== 'function' ) {
 			showButtonPanel: settings.showButtonPanel || true,
 			yearRange:  settings.yearRange || "-100:+15",
 			dateFormat: settings.dateFormat || 'dd/mm/yy',
-			monthNamesShort: settings.monthNamesShort || $.datepicker.regional["en"].monthNames
+			monthNamesShort: $.datepicker.regional["en"].monthNames
 		});
 	};
 
