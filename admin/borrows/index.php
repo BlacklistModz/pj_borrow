@@ -11,6 +11,7 @@ include($_pathURL."admin/layouts/menu.php");
 
 $sql->table = "borrows b LEFT JOIN customers c ON b.customer_id = c.id LEFT JOIN saleagents s ON b.saleagents_id=s.id";
 $sql->field = "b.*, c.code, c.prefix_name, c.first_name, c.last_name, c.idcard, s.code as sale_code";
+$sql->condition = "ORDER BY b.id DESC";
 $query = $sql->select();
 ?>
 <!-- Content -->
