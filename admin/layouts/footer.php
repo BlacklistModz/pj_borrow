@@ -1,8 +1,8 @@
   <footer class="main-footer">
-    <strong>Copyright &copy; 2020 <a href="">SabaijaiMoney CO.,LTD</a></strong>
+    <strong>Copyright &copy; 2020 <a href="http://sabaijaimoney.co.th/">บริษัท สบายใจมันนี่ จํากัด</a></strong>
     All rights reserved.
     <div class="float-right d-none d-sm-inline-block">
-      <b>Version</b> 1.0
+      <b>Version</b> 1.1 <b>Release</b> 250620
     </div>
   </footer>
 

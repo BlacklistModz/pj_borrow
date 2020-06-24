@@ -12,7 +12,7 @@ if( !empty($_SESSION["admin"]) ){
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>LOGIN TO MANAGEMENT SYSTEM</title>
+	<title>LOGIN TO (CMS)</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<!-- Font Awesome -->
 	<link rel="stylesheet" href="<?=PLUGINS?>fontawesome-free/css/all.min.css">
@@ -31,7 +31,7 @@ if( !empty($_SESSION["admin"]) ){
 	<div class="hold-transition login-page">
 		<div class="login-box">
 			<div class="login-logo">
-				<a href="<?=URL?>">Admin Management System</a>
+				<a href="<?=URL?>">Content Management System (CMS)</a>
 			</div>
 			<!-- /.login-logo -->
 			<div class="card">

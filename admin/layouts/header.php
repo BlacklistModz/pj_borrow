@@ -16,7 +16,7 @@ include($_pathURL."app/fn.php");
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title><?=!empty($_title) ? $_title : 'Office System';?></title>
+  <title><?=!empty($_title) ? $_title : 'CMS';?></title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <!-- JQUERY UI -->
