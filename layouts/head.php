@@ -16,12 +16,12 @@ include($_pathURL."config.php");
     <link rel="stylesheet" href="<?=VENDORS?>animate.css/animate.min.css">
     <link rel="stylesheet" href="<?=VENDORS?>jquery-scrollbar/jquery.scrollbar.css">
     <link rel="stylesheet" href="<?=VENDORS?>select2/css/select2.min.css">
-    <link rel="stylesheet" href="<?=VENDORS?>dropzone/dropzone.css">
-    <link rel="stylesheet" href="<?=VENDORS?>nouislider/nouislider.min.css">
-    <link rel="stylesheet" href="<?=VENDORS?>trumbowyg/ui/trumbowyg.min.css">
-    <link rel="stylesheet" href="<?=VENDORS?>flatpickr/flatpickr.min.css" />
-    <link rel="stylesheet" href="<?=VENDORS?>rateyo/jquery.rateyo.min.css">
-    <link rel="stylesheet" href="<?=VENDORS?>bootstrap-colorpicker/css/bootstrap-colorpicker.min.css">
+<!--     <link rel="stylesheet" href="<?=VENDORS?>dropzone/dropzone.css"> -->
+<!--     <link rel="stylesheet" href="<?=VENDORS?>nouislider/nouislider.min.css"> -->
+<!--     <link rel="stylesheet" href="<?=VENDORS?>trumbowyg/ui/trumbowyg.min.css"> -->
+<!--     <link rel="stylesheet" href="<?=VENDORS?>flatpickr/flatpickr.min.css" /> -->
+<!--     <link rel="stylesheet" href="<?=VENDORS?>rateyo/jquery.rateyo.min.css"> -->
+<!--     <link rel="stylesheet" href="<?=VENDORS?>bootstrap-colorpicker/css/bootstrap-colorpicker.min.css"> -->
     <!-- App styles -->
     <link rel="stylesheet" href="<?=CSS?>app.min.css">
     <!-- Core Framework -->

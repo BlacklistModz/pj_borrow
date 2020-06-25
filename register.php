@@ -1106,7 +1106,7 @@ $sql = new SQLiManager();
 						<!-- div class="form-group form-group--float"> -->
 							<!-- <input type="file" name="img_upload" class="filestyle form-control" onchange="readURL(this);"> -->
 							<label for="file" class="btn btn-info btn--raised" style="margin-top: 20px;">กดเพื่ออัพโหลดรูปถ่าย</label>
-							<input type="file" id="file" class="js-img" name="img_idcard" multiple style="visibility: hidden; display: block;" accept="image/*">
+							<input type="file" id="file" class="js-img" name="img_idcard" style="visibility: hidden; display: block;" accept="image/*">
 							<img class="resp-img" id="js-img" style="max-height: 200px; padding-top: 20px">
 
 							<!-- <label>อัพโหลดรูปถ่าย</label> -->

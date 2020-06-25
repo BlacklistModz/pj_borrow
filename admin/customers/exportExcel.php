@@ -17,14 +17,20 @@ $sheet = $spreadsheet->getActiveSheet();
 //SET HEADER
 $spreadsheet->getActiveSheet()->setCellValue('A1', 'รหัสลูกค้า')
     ->setCellValue('B1', 'วันที่สมัคร')
-    ->setCellValue('C1', 'ชื่อ-นามสกุล')
+    ->setCellValue('C1', 'ชื่อผู้สมัคร')
+    ->setCellValue('C1', 'วัน/เดือน/ปีเกิด')
     ->setCellValue('D1', 'บัตรประชาชน')
-    ->setCellValue('E1', 'อาชีพ')
-    ->setCellValue('F1', 'รายได้')
+    ->setCellValue('C1', 'วันหมดอายุ')
     ->setCellValue('G1', 'ระดับการศึกษา')
     ->setCellValue('H1', 'สถานภาพ')
-    ->setCellValue('I1', 'ชื่อคู่สมรส')
-    ->setCellValue('J1', 'อาชีพคู่สมรส');
+    ->setCellValue('E1', 'ที่อยู่ปัจจุบัน')
+    ->setCellValue('F1', 'ข้อมูลที่ทำงาน')
+    ->setCellValue('I1', 'รายได้ส่วนตัวต่อเดือน')
+    ->setCellValue('J1', 'ที่อยู่ที่ทำงาน')
+    ->setCellValue('J1', 'โปรแกรมที่สนใจ (1)')
+    ->setCellValue('J1', 'โปรแกรมที่สนใจ (2)')
+    ->setCellValue('J1', 'วงเงินที่อนุมัติ')
+    ->setCellValue('J1', 'โปรแกรมที่สนใจ (2)');
 
 $cell = 2;
 $sql->table = "borrows b LEFT JOIN customers c ON b.customer_id=c.id 
@@ -58,7 +64,7 @@ while($result = mysqli_fetch_assoc($query)){
 		->setCellValue('F'.$cell , $result["work_income"])
         ->setCellValue('G'.$cell , showEducate($result["education"]))
         ->setCellValue('H'.$cell , showSta($result["family_status"]))
-        ->setCellValue('I'.$cell , showPrefixName($result["spouse_prefix"])." ".$result["spouse_firstname"]." ".$result["spouse_lastname"])
+        // ->setCellValue('I'.$cell , showPrefixName($result["spouse_prefix"])." ".$result["spouse_firstname"]." ".$result["spouse_lastname"])
         ->setCellValue('J'.$cell , $result["spouse_mobile"]);
   //       ->setCellValue('G'.$cell , $result["addressProvince"])
 		// ->setCellValue('G'.$cell , $result["addressProvince"]);
@@ -87,10 +93,10 @@ $spreadsheet->getActiveSheet()->getStyle('A1:J1')->getFill()
     ->getStartColor()->setARGB('8DB4E2');
 
 //SET FILED CENTER
-$sheet->getStyle('A1:G1')->getAlignment()->setHorizontal('center');
+$sheet->getStyle('A1:J1')->getAlignment()->setHorizontal('center');
 $sheet->getStyle('A2:A'.$lastRow)->getAlignment()->setHorizontal('center');
 $sheet->getStyle('B2:B'.$lastRow)->getAlignment()->setHorizontal('center');
-$sheet->getStyle('C2:C'.$lastRow)->getAlignment()->setHorizontal('center');
+$sheet->getStyle('C2:C'.$lastRow)->getAlignment()->setHorizontal('left');
 $sheet->getStyle('D2:D'.$lastRow)->getAlignment()->setHorizontal('center');
 $sheet->getStyle('E2:E'.$lastRow)->getAlignment()->setHorizontal('center');
 $sheet->getStyle('G2:G'.$lastRow)->getAlignment()->setHorizontal('center');
