@@ -1156,17 +1156,19 @@ $sql = new SQLiManager();
 							<div class="invalid-feedback"></div>
 						</div>
 					</div> -->
-					<div class="col-md-12 js-poll">
-						<div class="checkbox" style="text-align: center; padding-top: 50px;">
-							<input type="checkbox" id="customCheck1" name="checkconfirm" value="1" class="ck-js-poll">
-							<label class="checkbox__label" for="customCheck1">ข้าพเจ้ารับทราบว่าข้อมูลที่ให้อย่างครบถ้วนนี้ถือเป็นข้อมูลเพื่อประกอบการพิจารณาสินเชื่อ ข้าพเจ้ายืนยันว่าข้อมูลที่กรอกเป็นความจริงทุกประการ โดยยินยอมให้ใช้หรือเปิดเผยข้อมูลส่วนบุคคลที่เกี่ยวข้องกับข้าพเจ้า เพื่อประโยชน์ในการวิเคราะห์สินเชื่อ การออกบัตรเครดิต หรือเพื่อประโยชน์ด้านการศึกษาต่างๆ รวมทั้งเพื่อประโยชน์ในการทบทวนสินเชื่อ ต่ออายุสัญญา และให้ถือว่าคู่ฉบับและบรรดาสำเนาภาพถ่าย (อิเล็กทรอนิกส์) ภาพถ่ายหรือบันทึกไว้ในรูปแบบใด เป็นหลักฐานในการยินยอมของข้าพเจ้าเช่นกัน</label>
+					<div class="js-poll">
+						<div class="col-md-12">
+							<div class="checkbox" style="text-align: center; padding-top: 50px;">
+								<input type="checkbox" id="customCheck1" name="checkconfirm" value="1" class="ck-js-poll">
+								<label class="checkbox__label" for="customCheck1">ข้าพเจ้ารับทราบว่าข้อมูลที่ให้อย่างครบถ้วนนี้ถือเป็นข้อมูลเพื่อประกอบการพิจารณาสินเชื่อ ข้าพเจ้ายืนยันว่าข้อมูลที่กรอกเป็นความจริงทุกประการ โดยยินยอมให้ใช้หรือเปิดเผยข้อมูลส่วนบุคคลที่เกี่ยวข้องกับข้าพเจ้า เพื่อประโยชน์ในการวิเคราะห์สินเชื่อ การออกบัตรเครดิต หรือเพื่อประโยชน์ด้านการศึกษาต่างๆ รวมทั้งเพื่อประโยชน์ในการทบทวนสินเชื่อ ต่ออายุสัญญา และให้ถือว่าคู่ฉบับและบรรดาสำเนาภาพถ่าย (อิเล็กทรอนิกส์) ภาพถ่ายหรือบันทึกไว้ในรูปแบบใด เป็นหลักฐานในการยินยอมของข้าพเจ้าเช่นกัน</label>
+							</div>
 						</div>
-					</div>
 
-					<div class="col-md-12 js-poll">
-						<div class="checkbox" style="text-align: center; padding-top: 50px;">
-							<input type="checkbox" id="customCheck2" name="checkconfirm2" value="1" class="ck-js-poll">
-							<label class="checkbox__label" for="customCheck2">ข้าพเจ้าตกลงยอมรับการสื่อสารผ่านทางช่องทางอิเล็กทรอนิกส์ต่างๆ รวมถึงการส่งใบทวงถามหนี้ ใบแจ้งหนี้ ใบเสร็จ หรือเอกสารใดใด โดยถือว่าบริษัทได้ส่งโดยชอบ โดยหากข้าพเจ้าประสงค์จะเปลี่ยนแปลงข้อมูลดังกล่าวจะแจ้งให้บริษัทฯ ทราบเป็นลายลักษณ์อักษรตามช่องทางที่บริษัทกําหนด</label>
+						<div class="col-md-12">
+							<div class="checkbox" style="text-align: center; padding-top: 50px;">
+								<input type="checkbox" id="customCheck2" name="checkconfirm2" value="1" class="ck-js-poll2">
+								<label class="checkbox__label" for="customCheck2">ข้าพเจ้าตกลงยอมรับการสื่อสารผ่านทางช่องทางอิเล็กทรอนิกส์ต่างๆ รวมถึงการส่งใบทวงถามหนี้ ใบแจ้งหนี้ ใบเสร็จ หรือเอกสารใดใด โดยถือว่าบริษัทได้ส่งโดยชอบ โดยหากข้าพเจ้าประสงค์จะเปลี่ยนแปลงข้อมูลดังกล่าวจะแจ้งให้บริษัทฯ ทราบเป็นลายลักษณ์อักษรตามช่องทางที่บริษัทกําหนด</label>
+							</div>
 						</div>
 					</div>
 
@@ -1584,7 +1586,7 @@ include("layouts/foot.php");
 
 	$(".pollCheck").hide();
 	$(".js-poll").change(function(){
-		if( $(this).find('.ck-js-poll').is(":checked") ){
+		if( $(this).find('.ck-js-poll').is(":checked") && $(this).find('.ck-js-poll2').is(":checked") ){
 			$(".pollCheck").show();
 			$(".poll_txt_err").show();
 		}
