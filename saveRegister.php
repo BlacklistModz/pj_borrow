@@ -111,7 +111,7 @@ if( !empty($_FILES["img_bookbank"]) ){
 	}
 }
 
-if( empty($_POST["checkconfirm"]) && empty($arr["error"]) ){
+if( empty($_POST["checkconfirm"]) && !empty($_POST["checkconfirm2"]) && empty($arr["error"]) ){
 	$arr["alert"] = "true";
 	$arr["type"] = "error";
 	$arr["title"] = "กรุณายืนยันข้อมูล";
@@ -119,7 +119,15 @@ if( empty($_POST["checkconfirm"]) && empty($arr["error"]) ){
 	$arr["status"] = 422; 
 }
 
-if( !empty($_POST["checkconfirm"]) && empty($_POST["poll"]) ){
+if( !empty($_POST["checkconfirm"]) && empty($_POST["checkconfirm2"]) && empty($arr["error"]) ){
+	$arr["alert"] = "true";
+	$arr["type"] = "error";
+	$arr["title"] = "กรุณายืนยันข้อมูล";
+	$arr["text"] = "กรุณายืนยัน ข้าพเจ้าตกลงยอมรับการสื่อสารผ่านทางช่องทางอิเล็กทรอนิกส์ต่างๆ";
+	$arr["status"] = 422; 
+}
+
+if( !empty($_POST["checkconfirm"]) && !empty($_POST["checkconfirm2"]) && empty($_POST["poll"]) ){
 	$arr["alert"] = "true";
 	$arr["type"] = "error";
 	$arr["title"] = "กรุณากรอกแบบสำรวจ";
@@ -130,9 +138,10 @@ if( !empty($_POST["checkconfirm"]) && empty($_POST["poll"]) ){
 }
 //
 
-if( !empty($_POST["checkconfirm"]) && empty($arr["error"]) ){
+if( !empty($_POST["checkconfirm"]) && !empty($_POST["checkconfirm2"]) && empty($arr["error"]) ){
 	// CLEAR CONFIRM
 	unset($_POST["checkconfirm"]);
+	unset($_POST["checkconfirm2"]);
 
 	// SET SEX
 	$_POST["sex"] = $_POST["prefix_name"] == 1 ? "male" : "female";
@@ -192,6 +201,9 @@ if( !empty($_POST["checkconfirm"]) && empty($arr["error"]) ){
 		$sql->value = "code='{$code}'";
 		$sql->condition = "WHERE id={$_POST["customer_id"]}";
 		$sql->update();
+
+		#SET Application Number
+		$_POST["app_number"] = "A-".date("y")."-".sprintf("%02d",$_POST["loan_type"])."-".sprintf($_POST["sub_products"]).sprintf("%04d", $id);
 
 		//SET BORROWS
 		$field = '';
