@@ -202,9 +202,6 @@ if( !empty($_POST["checkconfirm"]) && !empty($_POST["checkconfirm2"]) && empty($
 		$sql->condition = "WHERE id={$_POST["customer_id"]}";
 		$sql->update();
 
-		#SET Application Number
-		$_POST["app_number"] = "A-".date("y")."-".sprintf("%02d",$_POST["loan_type"])."-".sprintf("%02d",$_POST["sub_products"]).sprintf("%04d", $id);
-
 		//SET BORROWS
 		$field = '';
 		$value = '';
@@ -230,14 +227,16 @@ if( !empty($_POST["checkconfirm"]) && !empty($_POST["checkconfirm2"]) && empty($
 		$sql->value = $value;
 		if( $sql->insert() ){
 
-			#UPLOAD FILE
+			#UPLOAD FILE & SET Application Number
 			$id = mysqli_insert_id($sql->connect);
 			$typeFile = strrchr($_FILES["img_idcard"]["name"],".");
 			$img_idcard = 'ID_'.date('Y-m-d').'_'.md5(sprintf("%04d",$id)).$typeFile;
 			move_uploaded_file($_FILES["img_idcard"]["tmp_name"], WWW_UPLOADS.$img_idcard);
 
+			$appNumber = "A-".date("y")."-".sprintf("%02d",$_POST["loan_type"])."-".sprintf("%02d",$_POST["sub_products"]).sprintf("%04d", $id);
+
 			$sql->table = "borrows";
-			$sql->value = "img_idcard='{$img_idcard}'";
+			$sql->value = "img_idcard='{$img_idcard}', app_number='{$appNumber}'";
 			$sql->condition = "WHERE id={$id}";
 			$sql->update();
 			#####
