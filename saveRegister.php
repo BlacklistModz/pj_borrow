@@ -203,7 +203,7 @@ if( !empty($_POST["checkconfirm"]) && !empty($_POST["checkconfirm2"]) && empty($
 		$sql->update();
 
 		#SET Application Number
-		$_POST["app_number"] = "A-".date("y")."-".sprintf("%02d",$_POST["loan_type"])."-".sprintf($_POST["sub_products"]).sprintf("%04d", $id);
+		$_POST["app_number"] = "A-".date("y")."-".sprintf("%02d",$_POST["loan_type"])."-".sprintf("%02d",$_POST["sub_products"]).sprintf("%04d", $id);
 
 		//SET BORROWS
 		$field = '';
