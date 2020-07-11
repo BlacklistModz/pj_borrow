@@ -233,7 +233,7 @@ if( !empty($_POST["checkconfirm"]) && !empty($_POST["checkconfirm2"]) && empty($
 			$img_idcard = 'ID_'.date('Y-m-d').'_'.md5(sprintf("%04d",$id)).$typeFile;
 			move_uploaded_file($_FILES["img_idcard"]["tmp_name"], WWW_UPLOADS.$img_idcard);
 
-			$appNumber = "A-".date("y")."-".sprintf("%02d",$_POST["loan_type"])."-".sprintf("%02d",$_POST["sub_products"]).sprintf("%04d", $id);
+			$appNumber = "A".date("y").sprintf("%02d",$_POST["loan_type"]).sprintf("%02d",$_POST["sub_products"]).sprintf("%04d", $id);
 
 			$sql->table = "borrows";
 			$sql->value = "img_idcard='{$img_idcard}', app_number='{$appNumber}'";
