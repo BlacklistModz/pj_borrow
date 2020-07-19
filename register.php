@@ -869,7 +869,7 @@ $sql = new SQLiManager();
 								<option value="โปรแกรมศัลยกรรมตา">โปรแกรมศัลยกรรมตา</option>
 								<option value="โปรแกรมศัลยกรรมจมูก">โปรแกรมศัลยกรรมจมูก</option>
 								<option value="โปรแกรมศัลยกรรมหน้าอก">โปรแกรมศัลยกรรมหน้าอก</option>
-								<option value="โปรแกรมศัลยกรรมกระชับใบหน้าและรูปร่าง (Non surgury)">โปรแกรมศัลยกรรมกระชับใบหน้าและรูปร่าง (Non surgury)</option>
+								<option value="โปรแกรมกระชับรูปหน้า/เรือนร่าง">โปรแกรมกระชับรูปหน้า/เรือนร่าง</option>
 								<option value="โปรแกรมศัลยกรรมดูดไขมัน">โปรแกรมศัลยกรรมดูดไขมัน</option>
 							</select>
 							<div class="invalid-feedback"></div>
@@ -906,7 +906,7 @@ $sql = new SQLiManager();
 								<option value="โปรแกรมศัลยกรรมตา">โปรแกรมศัลยกรรมตา</option>
 								<option value="โปรแกรมศัลยกรรมจมูก">โปรแกรมศัลยกรรมจมูก</option>
 								<option value="โปรแกรมศัลยกรรมหน้าอก">โปรแกรมศัลยกรรมหน้าอก</option>
-								<option value="โปรแกรมศัลยกรรมกระชับใบหน้าและรูปร่าง (Non surgury)">โปรแกรมศัลยกรรมกระชับใบหน้าและรูปร่าง (Non surgury)</option>
+								<option value="โปรแกรมกระชับรูปหน้า/เรือนร่าง">โปรแกรมกระชับรูปหน้า/เรือนร่าง</option>
 								<option value="โปรแกรมศัลยกรรมดูดไขมัน">โปรแกรมศัลยกรรมดูดไขมัน</option>
 							</select>
 							<div class="invalid-feedback"></div>

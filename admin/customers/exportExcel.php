@@ -33,9 +33,14 @@ $spreadsheet->getActiveSheet()->setCellValue('A1', 'วันที่สมั�
     ->setCellValue('P1', 'โปรแกรมที่สนใจทำ (1)')
     ->setCellValue('Q1', 'โปรแกรมที่สนใจทำ (2)')
     ->setCellValue('R1', 'วงเงินที่อนุมัติ')
-    ->setCellValue('S1', 'วันที่อนุมัติวงเงิน')
+    ->setCellValue('S1', 'วันที่อนุมัติวงเงิน/เปลี่ยนแปลงสถานะของเอกสาร')
     ->setCellValue('T1', 'วันที่เริ่มสัญญา')
-    ->setCellValue('U1', 'Sales Agent Code');
+    ->setCellValue('U1', 'วันที่เอกสารครบ')
+    ->setCellValue('V1', 'วันที่ Center ติดต่อลูกค้าหลังจากได้รับผลอนุมัติ')
+    ->setCellValue('W1', 'วันที่ลูกค้าทำศัลกรรม')
+    ->setCellValue('X1', 'วันที่มีการโอนเงินให้คลินิก')
+    ->setCellValue('Y1', 'ชื่อคลินิก')
+    ->setCellValue('Z1', 'Sales Agent Code');
 
 $cell = 2;
 $sql->table = "borrows b LEFT JOIN customers c ON b.customer_id=c.id 
@@ -75,7 +80,12 @@ while($result = mysqli_fetch_assoc($query)){
         ->setCellValue('R'.$cell , $result["approve_limit"])
         ->setCellValue('S'.$cell , !empty($result["approved_date"]) ? DateTH($result["approved_date"]) : "-")
         ->setCellValue('T'.$cell , !empty($result["contract_date"]) ? DateTH($result["contract_date"]) : "-")
-        ->setCellValue('U'.$cell , $result["salecode"]);
+        ->setCellValue('U'.$cell , !empty($result["doc_completed_date"]) ? DateTH($result["doc_completed_date"]) : "-")
+        ->setCellValue('V'.$cell , !empty($result["contact_date"]) ? DateTH($result["contact_date"]) : "-")
+        ->setCellValue('W'.$cell , !empty($result["made_date"]) ? DateTH($result["made_date"]) : "-")
+        ->setCellValue('X'.$cell , !empty($result["transfer_date"]) ? DateTH($result["transfer_date"]) : "-")
+        ->setCellValue('Y'.$cell , $result["clinic"])
+        ->setCellValue('Z'.$cell , $result["salecode"]);
 	$cell++;
 }
 
@@ -105,9 +115,14 @@ $spreadsheet->getActiveSheet()->getColumnDimension('R')->setAutoSize(true);
 $spreadsheet->getActiveSheet()->getColumnDimension('S')->setAutoSize(true);
 $spreadsheet->getActiveSheet()->getColumnDimension('T')->setAutoSize(true);
 $spreadsheet->getActiveSheet()->getColumnDimension('U')->setAutoSize(true);
+$spreadsheet->getActiveSheet()->getColumnDimension('V')->setAutoSize(true);
+$spreadsheet->getActiveSheet()->getColumnDimension('W')->setAutoSize(true);
+$spreadsheet->getActiveSheet()->getColumnDimension('X')->setAutoSize(true);
+$spreadsheet->getActiveSheet()->getColumnDimension('Y')->setAutoSize(true);
+$spreadsheet->getActiveSheet()->getColumnDimension('Z')->setAutoSize(true);
 
 //SET Header Color
-$spreadsheet->getActiveSheet()->getStyle('A1:U1')->getFill()
+$spreadsheet->getActiveSheet()->getStyle('A1:Z1')->getFill()
     ->setFillType(\PhpOffice\PhpSpreadsheet\Style\Fill::FILL_SOLID)
     ->getStartColor()->setARGB('8DB4E2');
 
@@ -134,6 +149,11 @@ $sheet->getStyle('R2:R'.$lastRow)->getAlignment()->setHorizontal('center');
 $sheet->getStyle('S2:S'.$lastRow)->getAlignment()->setHorizontal('center');
 $sheet->getStyle('T2:T'.$lastRow)->getAlignment()->setHorizontal('center');
 $sheet->getStyle('U2:U'.$lastRow)->getAlignment()->setHorizontal('center');
+$sheet->getStyle('V2:V'.$lastRow)->getAlignment()->setHorizontal('center');
+$sheet->getStyle('W2:W'.$lastRow)->getAlignment()->setHorizontal('center');
+$sheet->getStyle('X2:X'.$lastRow)->getAlignment()->setHorizontal('center');
+$sheet->getStyle('Y2:Y'.$lastRow)->getAlignment()->setHorizontal('center');
+$sheet->getStyle('Z2:Z'.$lastRow)->getAlignment()->setHorizontal('center');
 
 //SET Number Format for idcard
 $spreadsheet->getActiveSheet()->getStyle('E2:E'.$lastRow)
@@ -150,7 +170,7 @@ $spreadsheet->getActiveSheet()->getStyle('R2:R'.$lastRow)
     ->getNumberFormat()
     ->setFormatCode(NumberFormat::FORMAT_NUMBER_COMMA_SEPARATED1);
 
-$spreadsheet->getActiveSheet()->getStyle('A1:U1')->getFont()->setBold(true);
+$spreadsheet->getActiveSheet()->getStyle('A1:Z1')->getFont()->setBold(true);
 
 //BUILD
 $writer = new Xlsx($spreadsheet);

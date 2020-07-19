@@ -22,6 +22,7 @@ if( mysqli_num_rows($query) <= 0 ){
 }
 
 foreach ($_POST as $key => $value) {
+	if( $key == "approve_note" ) continue;
 	if( empty($value) ) $arr["error"][$key] = "กรุณากรอกข้อมูลให้ครบถ้วน";
 }
 
