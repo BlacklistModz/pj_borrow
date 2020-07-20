@@ -52,7 +52,8 @@ $query = $sql->select();
 								<th width="5%">ใบสมัคร</th>
 								<th width="7%">วงเงินที่อนุมัติ</th>
 								<th width="7%">ระยะเวลา</th>
-								<th width="15%">Contract Date</th>
+								<th width="10%">Contract Date</th>
+								<th width="5%">Action</th>
 							</tr>
 						</thead>
 						<tbody>
@@ -110,6 +111,12 @@ $query = $sql->select();
 									<td class="text-center"><?php if ( !empty($result["approve_period"]) ) { echo $result["approve_period"].' เดือน'; } ?></td>
 
 									<td class="text-center">
+										<a data-plugins="modal" href="<?=URL?>admin/borrows/contract.php?&id=<?=$result["id"]?>" class="btn btn-info btn--sh btn-sm text-white" title="วันที่เริ่มสัญญา">
+											<i class="fas fa-signature"></i>
+										</a>
+									</td>
+
+									<td class="text-center">
 
 										<!-- <a href="<?=URL?>admin/borrows/forms.php?page=<?=$_GET["page"]?>&id=<?=$result["id"]?>" class="btn btn-warning btn-sm text-white" title="แก้ไขข้อมูล">
 											<i class="fa fa-pen"></i>
@@ -123,13 +130,10 @@ $query = $sql->select();
 											"textconfirm" => "ลบข้อมูล"
 										];
 										?>
-										<!-- <a href="<?=URL?>admin/borrows/delete.php?page=<?=$_GET["page"]?>&id=<?=$result["id"]?>" class="btn btn-danger btn-confirm btn-sm btn--sh" data-title="ยืนยันการลบข้อมูล" data-options="<?=stringify($ops)?>">
+										<a href="<?=URL?>admin/borrows/delete.php?page=<?=$_GET["page"]?>&id=<?=$result["id"]?>" class="btn btn-danger btn-confirm btn-sm btn--sh" data-title="ยืนยันการลบข้อมูล" data-options="<?=stringify($ops)?>">
 											<i class="fa fa-trash"></i>
-										</a> -->
-										<a data-plugins="modal" href="<?=URL?>admin/borrows/contract.php?&id=<?=$result["id"]?>" class="btn btn-info btn--sh btn-sm text-white" title="วันที่เริ่มสัญญา">
-											<i class="fas fa-signature"></i>
 										</a>
-
+										
 									</td>
 								</tr>
 								<?php
