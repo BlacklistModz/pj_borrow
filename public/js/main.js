@@ -386,6 +386,7 @@ if ( typeof Object.create !== 'function' ) {
 //Event//
 $('body').delegate('form.form-submit','submit',function(e){
 	var $form = $(this);
+	$form.find('.btn-submit').attr('disabled',true);
 	e.preventDefault();
 	$.fn.inlineSubmit( $form );
 });
@@ -395,6 +396,7 @@ $('body').delegate('form.form-submit input,form.form-submit textarea,form.form-s
 	var div = input.closest("div");
 	input.removeClass('is-invalid');
 	div.find('.invalid-feedback').empty();
+	$("body").find("form.form-submit").find(".btn-submit").removeAttr('disabled');
 });
 
 $('body').delegate('a.btn-confirm', 'click', function(e) {
