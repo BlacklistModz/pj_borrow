@@ -41,17 +41,19 @@ $query = $sql->select();
 						<thead class="table-dark text-center" style="background-color: #343a40;">
 							<tr>
 								<th width="3%">#</th>
-								<th width="10%">วันที่สมัคร</th>	
+								<th width="8%">วันที่สมัคร</th>	
+								<th width="8%">เลขที่ใบสมัคร</th>
 								<th width="7%">Agent</th>			
-								<th width="10%">รหัสลูกค้า</th>
-								<th width="20%">ชื่อ-นามสกุล</th>
-								<th width="10%">สถานะ</th>
-								<th width="7%">หลักฐาน</th>
+								<th width="9%">รหัสลูกค้า</th>
+								<th width="18%">ชื่อ-นามสกุล</th>
+								<th width="9%">สถานะ</th>
+								<th width="7%">หลักฐานประกอบ</th>
 								<th width="7%">อนุมัติ</th>
-								<th width="5%">พิมพ์</th>
-								<th width="10%">วงเงินที่อนุมัติ</th>
+								<th width="5%">ใบสมัคร</th>
+								<th width="7%">วงเงินที่อนุมัติ</th>
 								<th width="7%">ระยะเวลา</th>
-								<th width="4%">จัดการ</th>
+								<th width="10%">Contract Date</th>
+								<th width="5%">Action</th>
 							</tr>
 						</thead>
 						<tbody>
@@ -62,6 +64,7 @@ $query = $sql->select();
 								<tr>
 									<td class="text-center"><?=$no++?></td>
 									<td class="text-center"><?=DateTH($result["date"])?></td>
+									<td class="text-center"><?=$result["app_number"]?></td>
 									
 									<td class="text-center"><?=$result["sale_code"]?></td>
 									
@@ -95,9 +98,9 @@ $query = $sql->select();
 										<a href="<?=URL?>admin/borrows/approved.php?page=<?=$_GET["page"]?>&id=<?=$result["id"]?>" class="btn btn-warning btn-sm btn--sh text-white" title="อนุมัติ / ไม่อนุมัติ">
 											<i class="fa fa-info-circle"></i>
 										</a>
-										<a data-plugins="modal" href="<?=URL?>admin/borrows/contract.php?&id=<?=$result["id"]?>" class="btn btn-info btn--sh btn-sm text-white" title="วันที่เริ่มสัญญา">
+										<!-- <a data-plugins="modal" href="<?=URL?>admin/borrows/contract.php?&id=<?=$result["id"]?>" class="btn btn-info btn--sh btn-sm text-white" title="วันที่เริ่มสัญญา">
 											<i class="fas fa-signature"></i>
-										</a>
+										</a> -->
 									</td>
 									<td class="text-center">
 										<a href="<?=URL?>admin/borrows/pdf.php?id=<?=$result["id"]?>" target="_blank" class="btn btn-success btn-sm btn--sh"><i class="far fa-file-pdf"></i></a>
@@ -106,6 +109,12 @@ $query = $sql->select();
 									<td class="text-center"><?php if ($result["approve_limit"] != 0.00 ) { echo number_format($result["approve_limit"]).'.-'; } ?></td>
 
 									<td class="text-center"><?php if ( !empty($result["approve_period"]) ) { echo $result["approve_period"].' เดือน'; } ?></td>
+
+									<td class="text-center">
+										<a data-plugins="modal" href="<?=URL?>admin/borrows/contract.php?&id=<?=$result["id"]?>" class="btn btn-info btn--sh btn-sm text-white" title="วันที่เริ่มสัญญา">
+											<i class="fas fa-signature"></i>
+										</a>
+									</td>
 
 									<td class="text-center">
 
@@ -124,7 +133,7 @@ $query = $sql->select();
 										<a href="<?=URL?>admin/borrows/delete.php?page=<?=$_GET["page"]?>&id=<?=$result["id"]?>" class="btn btn-danger btn-confirm btn-sm btn--sh" data-title="ยืนยันการลบข้อมูล" data-options="<?=stringify($ops)?>">
 											<i class="fa fa-trash"></i>
 										</a>
-
+										
 									</td>
 								</tr>
 								<?php

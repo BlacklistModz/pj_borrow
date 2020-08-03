@@ -22,17 +22,23 @@ if( mysqli_num_rows($query) <= 0 ){
 }
 
 foreach ($_POST as $key => $value) {
+	if( $key == "approve_note" ) continue;
 	if( empty($value) ) $arr["error"][$key] = "กรุณากรอกข้อมูลให้ครบถ้วน";
 }
 
-if( $_POST["status"] == 1 ){
+if( $_POST["status"] == 1 || $_POST["status"] == 2 || $_POST["status"] == 4){
 	$_POST["approved_date"] = date('c');
 }
 
-if( $_POST["status"] == 2 || $_POST["status"] == 3){
+if( $_POST["status"] == 3){
 	$_POST["approve_limit"] = 0;
 	$_POST["approve_period"] = "";
 	$_POST["approved_date"] = "";
+}
+
+if( $_POST["status"] == 2 || $_POST["status"] == 4){
+	$_POST["approve_limit"] = 0;
+	$_POST["approve_period"] = "";
 }
 
 if( empty($arr["error"]) ){

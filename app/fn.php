@@ -139,9 +139,10 @@ function status(){
 	// $_status[] = ['id'=>1, 'name'=>'อนุมัติ', 'class'=>'btn btn-success btn-sm', 'icon'=>'fa fa-check'];
 	// $_status[] = ['id'=>2, 'name'=>'ไม่อนุมัติ', 'class'=>'btn btn-danger btn-sm', 'icon'=>'fa fa-remove'];
 	$_status[] = ['id'=>0, 'name'=>'รอตรวจสอบ', 'class'=>'text-info'];
-	$_status[] = ['id'=>1, 'name'=>'อนุมัติแล้ว', 'class'=>'text-success'];
-	$_status[] = ['id'=>2, 'name'=>'ไม่อนุมัติ', 'class'=>'text-danger'];
+	$_status[] = ['id'=>1, 'name'=>'อนุมัติ', 'class'=>'text-success'];
+	$_status[] = ['id'=>2, 'name'=>'ปฏิเสธ', 'class'=>'text-danger'];
 	$_status[] = ['id'=>3, 'name'=>'รอเอกสาร', 'class'=>'text-warning'];
+	$_status[] = ['id'=>4, 'name'=>'ยกเลิก', 'class'=>'text-danger'];
 	return $_status;
 }
 function getStatus($status){

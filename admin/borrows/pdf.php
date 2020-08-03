@@ -294,7 +294,27 @@ $html .= '
 
 	<div style="page-break-after: always"></div>
 	<div style="page-break-after: always"></div>
-	<div style="page-break-after: always"></div>
+	<div style="page-break-after: always"></div>';
+
+	if ($result["status"] == 1) {
+		$html .= '
+				<div style="position: absolute; top: 69px; left: 38px; font-family: helvetica; font-size: 26px; color: #32c787">&#10004;</div>
+				<div style="position: absolute; top: 77px; left: 550px;">'.date("d / m / Y", strtotime("+543 years", strtotime($result['approved_date']))).'</div>
+				<div style="position: absolute; top: 115px; left: 150px; width: 100px;">'.number_format($result["approve_limit"], 2).'</div>
+				<div style="position: absolute; top: 145px; left: 190px; width: 100px;">'.$result["approve_period"].'</div>
+		';
+	}
+
+	if ($result["status"] == 2 || $result["status"] == 4) {
+		$html .= '
+				<div style="position: absolute; top: 69px; left: 157px; font-family: helvetica; font-size: 26px; color: #ff0000">&#10004;</div>
+				<div style="position: absolute; top: 77px; left: 550px;">'.date("d / m / Y", strtotime("+543 years", strtotime($result['approved_date']))).'</div>
+		';
+	}
+
+$html .= '
+
+	<div style="position: absolute; top: 268px; left: 100px; width: 620px; line-height: 28px;"> '.$result["approve_note"].' </div>
 	<div style="page-break-after: always"></div>
 ';
 

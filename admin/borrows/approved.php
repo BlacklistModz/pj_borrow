@@ -79,6 +79,13 @@ if( !empty($_GET["id"]) ){
 								</select>
 								<div class="invalid-feedback"></div>
 							</div>
+							<div class="col-md-12">
+								<div class="form-group">
+                                    <label>เหตุผลในการวิเคราะห์</label>
+                                    <textarea class="form-control" name="approve_note"><?php if(!empty($result["approve_note"])){echo $result["approve_note"];}?></textarea>
+                                    <i class="form-group__bar"></i>
+                                </div>
+							</div>
 						</div>
 						<?php 
 						if( !empty($result["id"]) ) echo '<input type="hidden" name="id" value="'.$result["id"].'">';
