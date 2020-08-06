@@ -61,6 +61,7 @@ $sql->field = "b.* , c.*
 $query = $sql->select();
 $numRows = mysqli_num_rows($query);
 while($result = mysqli_fetch_assoc($query)){
+    $status = getStatus($result["status"]);
 	$spreadsheet->getActiveSheet()->setCellValue('A'.$cell , DateTH($result["date"]))
         ->setCellValue('B'.$cell , !empty($result["code"]) ? $result["code"] : "-")
 		->setCellValue('C'.$cell , showPrefixName($result["prefix_name"])." ".$result["first_name"]." ".$result["last_name"])
@@ -87,7 +88,7 @@ while($result = mysqli_fetch_assoc($query)){
         ->setCellValue('X'.$cell , !empty($result["transfer_date"]) ? DateTH($result["transfer_date"]) : "-")
         ->setCellValue('Y'.$cell , $result["clinic"])
         ->setCellValue('Z'.$cell , $result["salecode"])
-        ->setCellValue('AA'.$cell , status($result["status"]));
+        ->setCellValue('AA'.$cell , $status["name"]);
 	$cell++;
 }
 
