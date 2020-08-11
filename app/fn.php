@@ -143,6 +143,7 @@ function status(){
 	$_status[] = ['id'=>2, 'name'=>'ปฏิเสธ', 'class'=>'text-danger'];
 	$_status[] = ['id'=>3, 'name'=>'รอเอกสาร', 'class'=>'text-warning'];
 	$_status[] = ['id'=>4, 'name'=>'ยกเลิก', 'class'=>'text-danger'];
+	$_status[] = ['id'=>5, 'name'=>'โอนเงิน', 'class'=>'text-success'];
 	return $_status;
 }
 function getStatus($status){

@@ -26,7 +26,7 @@ foreach ($_POST as $key => $value) {
 	if( empty($value) ) $arr["error"][$key] = "กรุณากรอกข้อมูลให้ครบถ้วน";
 }
 
-if( $_POST["status"] == 1 || $_POST["status"] == 2 || $_POST["status"] == 4){
+if( $_POST["status"] == 1 || $_POST["status"] == 2 || $_POST["status"] == 4 || $_POST["status"] == 5){
 	$_POST["approved_date"] = date('c');
 }
 

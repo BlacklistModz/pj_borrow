@@ -120,7 +120,7 @@ include($_pathURL."admin/layouts/footer.php");
 
 <script type="text/javascript">
 	$.fn.changeStatus = function( value ){
-		if( value == 1 ){
+		if( value == 1 || value == 5){
 			$("[name=approve_limit]").attr("disabled", false);
 			$("[name=approve_period]").attr("disabled", false);
 		}
