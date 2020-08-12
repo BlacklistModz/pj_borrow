@@ -40,7 +40,8 @@ $spreadsheet->getActiveSheet()->setCellValue('A1', 'วันที่สมั�
     ->setCellValue('W1', 'วันที่ลูกค้าทำศัลกรรม')
     ->setCellValue('X1', 'วันที่มีการโอนเงินให้คลินิก')
     ->setCellValue('Y1', 'ชื่อคลินิก')
-    ->setCellValue('Z1', 'Sales Agent Code');
+    ->setCellValue('Z1', 'Sales Agent Code')
+    ->setCellValue('AA1', 'สถานะ');
 
 $cell = 2;
 $sql->table = "borrows b LEFT JOIN customers c ON b.customer_id=c.id 
@@ -60,6 +61,7 @@ $sql->field = "b.* , c.*
 $query = $sql->select();
 $numRows = mysqli_num_rows($query);
 while($result = mysqli_fetch_assoc($query)){
+    $status = getStatus($result["status"]);
 	$spreadsheet->getActiveSheet()->setCellValue('A'.$cell , DateTH($result["date"]))
         ->setCellValue('B'.$cell , !empty($result["code"]) ? $result["code"] : "-")
 		->setCellValue('C'.$cell , showPrefixName($result["prefix_name"])." ".$result["first_name"]." ".$result["last_name"])
@@ -85,7 +87,8 @@ while($result = mysqli_fetch_assoc($query)){
         ->setCellValue('W'.$cell , !empty($result["made_date"]) ? DateTH($result["made_date"]) : "-")
         ->setCellValue('X'.$cell , !empty($result["transfer_date"]) ? DateTH($result["transfer_date"]) : "-")
         ->setCellValue('Y'.$cell , $result["clinic"])
-        ->setCellValue('Z'.$cell , $result["salecode"]);
+        ->setCellValue('Z'.$cell , $result["salecode"])
+        ->setCellValue('AA'.$cell , $status["name"]);
 	$cell++;
 }
 
@@ -120,14 +123,15 @@ $spreadsheet->getActiveSheet()->getColumnDimension('W')->setAutoSize(true);
 $spreadsheet->getActiveSheet()->getColumnDimension('X')->setAutoSize(true);
 $spreadsheet->getActiveSheet()->getColumnDimension('Y')->setAutoSize(true);
 $spreadsheet->getActiveSheet()->getColumnDimension('Z')->setAutoSize(true);
+$spreadsheet->getActiveSheet()->getColumnDimension('AA')->setAutoSize(true);
 
 //SET Header Color
-$spreadsheet->getActiveSheet()->getStyle('A1:Z1')->getFill()
+$spreadsheet->getActiveSheet()->getStyle('A1:AA1')->getFill()
     ->setFillType(\PhpOffice\PhpSpreadsheet\Style\Fill::FILL_SOLID)
     ->getStartColor()->setARGB('8DB4E2');
 
 //SET FILED CENTER
-$sheet->getStyle('A1:U1')->getAlignment()->setHorizontal('center');
+$sheet->getStyle('A1:AA1')->getAlignment()->setHorizontal('center');
 $sheet->getStyle('A2:A'.$lastRow)->getAlignment()->setHorizontal('center');
 $sheet->getStyle('B2:B'.$lastRow)->getAlignment()->setHorizontal('center');
 $sheet->getStyle('C2:C'.$lastRow)->getAlignment()->setHorizontal('left');
@@ -154,6 +158,7 @@ $sheet->getStyle('W2:W'.$lastRow)->getAlignment()->setHorizontal('center');
 $sheet->getStyle('X2:X'.$lastRow)->getAlignment()->setHorizontal('center');
 $sheet->getStyle('Y2:Y'.$lastRow)->getAlignment()->setHorizontal('center');
 $sheet->getStyle('Z2:Z'.$lastRow)->getAlignment()->setHorizontal('center');
+$sheet->getStyle('AA2:AA'.$lastRow)->getAlignment()->setHorizontal('center');
 
 //SET Number Format for idcard
 $spreadsheet->getActiveSheet()->getStyle('E2:E'.$lastRow)
@@ -170,7 +175,7 @@ $spreadsheet->getActiveSheet()->getStyle('R2:R'.$lastRow)
     ->getNumberFormat()
     ->setFormatCode(NumberFormat::FORMAT_NUMBER_COMMA_SEPARATED1);
 
-$spreadsheet->getActiveSheet()->getStyle('A1:Z1')->getFont()->setBold(true);
+$spreadsheet->getActiveSheet()->getStyle('A1:AA1')->getFont()->setBold(true);
 
 //BUILD
 $writer = new Xlsx($spreadsheet);

@@ -120,6 +120,7 @@ if ( typeof Object.create !== 'function' ) {
         		$.fn.processForm( res );
         	},
         	error : function() {
+        		$form.find('.btn-submit').removeAttr('disabled');
         		$.fn.sweetalert( {type:"error", title:"เกิดข้อผิดพลาด...", "timer":2000} );
         	}
         });
@@ -159,7 +160,7 @@ if ( typeof Object.create !== 'function' ) {
 			res.alert = res.alert || false;
 			$.fn.showError( res.error );
 			$.fn.sweetalert( res );
-			$('.btn-submit').effect("shake",{distance:10,times:3});
+			$('.btn-submit').removeAttr('disabled').effect("shake",{distance:10,times:3});
 		}
 	};
 
@@ -386,6 +387,7 @@ if ( typeof Object.create !== 'function' ) {
 //Event//
 $('body').delegate('form.form-submit','submit',function(e){
 	var $form = $(this);
+	$form.find('.btn-submit').attr('disabled',true);
 	e.preventDefault();
 	$.fn.inlineSubmit( $form );
 });

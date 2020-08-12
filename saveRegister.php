@@ -116,7 +116,9 @@ if( empty($_POST["checkconfirm"]) && !empty($_POST["checkconfirm2"]) && empty($a
 	$arr["type"] = "error";
 	$arr["title"] = "กรุณายืนยันข้อมูล";
 	$arr["text"] = "กรุณายืนยัน ข้าพเจ้าขอยอมรับว่าข้อมูลที่กรอกเป็นความจริง";
-	$arr["status"] = 422; 
+	$arr["status"] = 422;
+
+	$arr['error']['checkconfirm'] = 'กรุณายืนยัน ข้าพเจ้าขอยอมรับว่าข้อมูลที่กรอกเป็นความจริง';
 }
 
 if( !empty($_POST["checkconfirm"]) && empty($_POST["checkconfirm2"]) && empty($arr["error"]) ){
@@ -125,6 +127,8 @@ if( !empty($_POST["checkconfirm"]) && empty($_POST["checkconfirm2"]) && empty($a
 	$arr["title"] = "กรุณายืนยันข้อมูล";
 	$arr["text"] = "กรุณายืนยัน ข้าพเจ้าตกลงยอมรับการสื่อสารผ่านทางช่องทางอิเล็กทรอนิกส์ต่างๆ";
 	$arr["status"] = 422; 
+
+	$arr['error']['checkconfirm2'] = 'กรุณายืนยัน ข้าพเจ้าตกลงยอมรับการสื่อสารผ่านทางช่องทางอิเล็กทรอนิกส์ต่างๆ';
 }
 
 if( !empty($_POST["checkconfirm"]) && !empty($_POST["checkconfirm2"]) && empty($_POST["poll"]) ){
